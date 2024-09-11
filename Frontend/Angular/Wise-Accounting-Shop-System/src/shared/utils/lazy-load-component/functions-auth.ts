@@ -1,6 +1,6 @@
-import { LoginComponent } from '@admin/auth/login/login.component';
+import { LoginComponent } from '@auth/login';
 
 export async function loginComponent(): Promise<typeof LoginComponent> {
-  const component = await import('@admin/auth/login/login.component');
+  const component = await import('@auth/login');
   return component.LoginComponent;
 }

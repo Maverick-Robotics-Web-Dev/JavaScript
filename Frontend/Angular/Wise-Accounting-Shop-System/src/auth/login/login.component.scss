@@ -1,0 +1,22 @@
+.login-container {
+  background-color: red;
+  min-height: 100vh;
+  display: flex;
+  //   flex-direction: row;
+  //   flex-wrap: wrap;
+  //   flex-shrink: 0;
+}
+.left-side {
+  //   flex-direction: column;
+  background-color: blueviolet;
+  //   flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.right-side {
+  //   flex-direction: column;
+  //   flex-shrink: 0;
+  background-color: crimson;
+  width: 100%;
+  max-width: 100%;
+}
