@@ -1,0 +1,27 @@
+@if(waytopay$ | async; as waytopayOnOne){
+<button type="button" (click)="backMain()">BACK</button>
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h1 class="card-title">{{ waytopayOnOne.data.id }}</h1>
+    <h5 class="card-title">{{ waytopayOnOne.data.name }}</h5>
+    <p class="card-text">{{ waytopayOnOne.data.description }}</p>
+    <p class="card-text">{{ waytopayOnOne.data.status }}</p>
+    <p class="card-text">{{ waytopayOnOne.data.status_description }}</p>
+    <p class="card-text">{{ waytopayOnOne.data.create_at }}</p>
+    <p class="card-text">{{ waytopayOnOne.data.update_at }}</p>
+    <p class="card-text">{{ waytopayOnOne.data.fk_user_employee }}</p>
+  </div>
+</div>
+} @if(httpError){ @if(httpError.error.message){
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+
+} @else{
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.error.msg }}</div>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+} }

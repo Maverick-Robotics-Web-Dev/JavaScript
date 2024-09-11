@@ -1,0 +1,41 @@
+<button type="button" (click)="backMain()">BACK</button>
+@if(!loading){
+<div>Loading...</div>
+} @if(loading){
+<div>
+  <label for="">ID</label>
+  <h1>{{ waytopayDataFill.id }}</h1>
+  <form [formGroup]="waytopayForm" (submit)="waytopayEdit($event)">
+    <label for="">Nombre</label>
+    <input type="text" formControlName="name" />
+    <label for="">Descripcion</label>
+    <input type="text" formControlName="description" />
+    <br />
+    <label for="">Estado</label>
+    @if(waytopayDataFill.status==true){
+    <p>Activo</p>
+    }
+    <label for="">Descripcion de Estado</label>
+    <p>{{ waytopayDataFill.status_description }}</p>
+    <label for="">Fecha de Creacion</label>
+    <p>{{ waytopayDataFill.create_at }}</p>
+    <label for="">Fecha de Actualizacion</label>
+    <p>{{ waytopayDataFill.update_at }}</p>
+    <label for="">Creado por</label>
+    <p>{{ waytopayDataFill.fk_user_employee }}</p>
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+} @if(httpError){ @if(httpError.error.message){
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+
+} @else{
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.error.msg }}</div>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+} }

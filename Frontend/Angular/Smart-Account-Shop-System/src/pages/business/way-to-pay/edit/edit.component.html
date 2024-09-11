@@ -1,0 +1,25 @@
+@if(_apirestService.retrievetData().status=='success'){
+<div class="mx-3">
+  <h1>Actualizacion de Datos</h1>
+</div>
+<form [formGroup]="waytopayForm" (submit)="updateWaytoPay($event)" class="mx-3 mt-1 row g-3">
+  <div class="col-md-12">
+    <label class="form-label fs-4">ID:</label>
+    <label class="ms-1 form-label fs-4">{{ _apirestService.retrievetData().data.id }}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="inputEmail4" formControlName="name" />
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Descripcion</label>
+    <input type="text" class="form-control" id="inputPassword4" formControlName="description" />
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </div>
+</form>
+} @if(_apirestService.updateData().status=='success'){
+<app-success title="Formas de Pago" [msg]="_apirestService.updateData().msg" [state]="true" urlRoute="/admin/way-to-pay/" />
+}

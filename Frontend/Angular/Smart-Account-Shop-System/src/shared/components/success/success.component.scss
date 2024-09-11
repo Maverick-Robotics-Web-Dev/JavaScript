@@ -1,0 +1,81 @@
+.miModal-in {
+  position: fixed;
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  animation: fadeModal 300ms ease-in 0s 1 normal forwards;
+}
+
+.modal-content-in {
+  width: 400px;
+  position: relative;
+  padding: 5px 20px 13px 20px;
+  background: #fff;
+  border-radius: 3px;
+  animation: slideInModal 300ms ease-in 0s 1 normal forwards;
+}
+
+@keyframes fadeModal {
+  from {
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@keyframes slideInModal {
+  from {
+    margin: 0 auto;
+  }
+  to {
+    margin: 10% auto;
+  }
+}
+
+.miModal-out {
+  position: fixed;
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  animation: fadeOutModal 300ms ease 0s 1 normal forwards;
+}
+
+.modal-content-out {
+  width: 400px;
+  position: relative;
+  padding: 5px 20px 13px 20px;
+  background: #fff;
+  border-radius: 3px;
+  animation: slideOutModal 300ms ease 0s 1 normal forwards;
+}
+
+@keyframes fadeOutModal {
+  from {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes slideOutModal {
+  from {
+    margin: 10% auto;
+  }
+  to {
+    margin: 0 auto;
+  }
+}

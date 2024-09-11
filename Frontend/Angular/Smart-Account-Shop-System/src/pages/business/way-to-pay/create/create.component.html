@@ -1,0 +1,26 @@
+<h1>Formas de pago</h1>
+<form class="row g-3" [formGroup]="waytopayForm" (submit)="createNew($event)">
+  <div class="col-md-3">
+    <label for="inputEmail4" class="form-label">Nombre</label>
+    <input formControlName="name" type="text" class="form-control" id="inputEmail4" placeholder="Ingrese el nombre" />
+  </div>
+  <div class="col-md-3">
+    <label for="inputPassword4" class="form-label">Descripcion</label>
+    <input formControlName="description" type="text" class="form-control" id="inputPassword4" placeholder="Ingrese una descripcion" />
+  </div>
+  <div class="col-3">
+    <label for="inputAddress" class="form-label">Usuario</label>
+    <input formControlName="fk_user_employee" type="text" class="form-control" id="inputAddress" placeholder="Ingrese un usuario" />
+  </div>
+  <div class="row col-3 m-3">
+    <button type="submit" class="btn btn-primary">CREAR</button>
+  </div>
+  <div class="row col-3 m-3">
+    <button type="button" class="btn btn-primary" (click)="backMain($event)">REGRESAR</button>
+  </div>
+</form>
+@if(_apirestService.createData().status=='success'){
+<app-success title="Formas de Pago" [msg]="_apirestService.createData().msg" [state]="true" urlRoute="/admin/way-to-pay/"/>
+}
+
+<!-- <app-success title="Formas de Pago" msg="Creado Exitosamente" [state]="true" /> -->

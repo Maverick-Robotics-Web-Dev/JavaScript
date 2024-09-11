@@ -1,0 +1,46 @@
+@if(waytopayAll){
+<app-nav-bar />
+<h1>Formas de Pago</h1>
+
+<button type="button" (click)="create()">Nuevo</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Creado Por</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(waytopay of waytopayAll.data;track $index){
+    <tr>
+      <th scope="row">{{ waytopay.id }}</th>
+      <td>{{ waytopay.name }}</td>
+      <td>{{ waytopay.description }}</td>
+      <td>{{ waytopay.fk_user_employee }}</td>
+      <td><button type="button" (click)="retrieve(waytopay.id)">Detalles</button></td>
+      <td><button type="button" (click)="update(waytopay.id)">Editar</button></td>
+      <td><button type="button" (click)="delete($event, waytopay.id)">Eliminar</button></td>
+    </tr>
+    }
+  </tbody>
+</table>
+} @if(httpError){ @if(httpError.error?.message){
+<div>{{ httpError.message }}</div>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+
+} @else{
+<div>{{ httpError.error?.msg }}</div>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+} } @if(status()=='error'){
+<div>
+  <h1>{{ data() | json }}</h1>
+  <h1>{{ status() }}</h1>
+</div>
+}

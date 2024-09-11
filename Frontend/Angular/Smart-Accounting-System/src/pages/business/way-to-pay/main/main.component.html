@@ -1,0 +1,78 @@
+<h1>Formas de pago</h1>
+<button type="button" class="btn btn-success m-1" (click)="create($event)">Crear</button>
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th class="text-center" scope="col">ID</th>
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Descripcion</th>
+      <th class="text-center" scope="col">Creado Por</th>
+      <th class="text-center" scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (waytopay of _apirestService.listData().data; track waytopay.id) {
+    <tr>
+      <th class="text-center" scope="row">{{ waytopay.id }}</th>
+      <td class="text-center">{{ waytopay.name }}</td>
+      <td class="text-center">{{ waytopay.description }}</td>
+      <td class="text-center">{{ waytopay.fk_user_employee }}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-info m-1" (click)="retrieve($event, waytopay.id)">Detalle</button>
+        <button type="button" class="btn btn-primary m-1" (click)="update($event, waytopay.id)">Actualizar</button>
+        <button type="button" class="btn btn-danger m-1">Eliminar</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+<!-- <div>{{ _apirestService.listData() | json }}</div>
+<div>{{ _apirestService.listWaytoPay().data | json }}</div>
+<div>{{ _apirestService.getState().listData() | json }}</div>
+<div>{{ waytopayAllT() | json }}</div> -->
+
+<!-- @if(_apirestService.status()=='loading'){
+<h2>Loading...</h2>
+} @if(_apirestService.status()=='success'){ @if(_apirestService.msg()){
+<h2>{{ _apirestService.msg() }}</h2>
+} @if(_apirestService.status()=='success') {
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th class="text-center" scope="col">ID</th>
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Descripcion</th>
+      <th class="text-center" scope="col">Creado Por</th>
+      <th class="text-center" scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (waytopay of _apirestService.data(); track waytopay.id) {
+    <tr>
+      <th class="text-center" scope="row">{{ waytopay.id }}</th>
+      <td class="text-center">{{ waytopay.name }}</td>
+      <td class="text-center">{{ waytopay.description }}</td>
+      <td class="text-center">{{ waytopay.fk_user_employee }}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-info m-1" (click)="retrieve($event, waytopay.id)">Detalle</button>
+        <button type="button" class="btn btn-primary m-1" (click)="update($event, waytopay.id)">Actualizar</button>
+        <button type="button" class="btn btn-danger m-1">Eliminar</button>
+      </td>
+    </tr>
+    }@empty {
+    <h2>Cargando Datos</h2>
+    }
+  </tbody>
+</table>
+} } @if(_apirestService.error()){ @if(_apirestService.error().error?.message){
+<div>{{ _apirestService.error().message }}</div>
+<div>{{ _apirestService.error().status }}</div>
+<div>{{ _apirestService.error().statusText }}</div>
+<div>{{ _apirestService.error().url }}</div>
+
+} @else{
+<div>{{ _apirestService.error().error?.msg }}</div>
+<div>{{ _apirestService.error().status }}</div>
+<div>{{ _apirestService.error().statusText }}</div>
+<div>{{ _apirestService.error().url }}</div>
+} } -->

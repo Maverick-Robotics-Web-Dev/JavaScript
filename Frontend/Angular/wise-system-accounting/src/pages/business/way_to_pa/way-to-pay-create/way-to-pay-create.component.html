@@ -1,0 +1,26 @@
+<button type="button" (click)="backMain()">BACK</button>
+<div>
+  <form [formGroup]="waytopayForm" (submit)="waytopayCreate($event)">
+    <label for="">Nombre</label>
+    <input type="text" formControlName="name" />
+    <label for="">Descripcion</label>
+    <input type="text" formControlName="description" />
+    <label for="">Usuario</label>
+    <input type="text" formControlName="fk_user_employee" />
+    <button type="submit">Crear</button>
+  </form>
+</div>
+
+@if(httpError){ @if(httpError.error.message){
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+
+} @else{
+<button type="button" (click)="backMain()">BACK</button>
+<div>{{ httpError.error.msg }}</div>
+<div>{{ httpError.status }}</div>
+<div>{{ httpError.statusText }}</div>
+<div>{{ httpError.url }}</div>
+} }
