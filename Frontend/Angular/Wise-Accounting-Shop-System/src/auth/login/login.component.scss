@@ -12,6 +12,8 @@
   //   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
 }
 .right-side {
   //   flex-direction: column;
