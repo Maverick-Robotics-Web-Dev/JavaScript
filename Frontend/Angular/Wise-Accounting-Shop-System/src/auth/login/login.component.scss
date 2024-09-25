@@ -1,122 +1,18 @@
-.title {
-  font-family: Roboto;
-  color: #333335;
-  font-weight: 600;
-  font-size: 1.25rem;
-  letter-spacing: 0.84px;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-  line-height: 1.2;
+// .login-container {
+//   background-color: rgba(255, 120, 255, 1);
+//   margin: 0;
+//   height: 100vh;
+//   -webkit-box-align: center;
+//   -webkit-align-items: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+// }
+
+.logo-normal {
+  display: block;
 }
 
-.text-muted {
-  font-family: Roboto;
-  color: #8c9097;
-  font-size: 0.813rem;
-  font-weight: 400;
-  opacity: 0.7;
-  margin-bottom: 1rem;
-}
-
-.img-head {
-  height: 2.5rem;
-  vertical-align: middle;
-}
-
-.btn-list {
-  margin-block-end: -0.5rem;
-}
-
-.btn-list button {
-  margin: 0 0.5rem 0.5rem 0;
-}
-
-.btn {
-  font-family: Roboto;
-  font-size: 0.85rem;
-  border-radius: 0.35rem;
-  padding: 0.5rem 0.85rem;
-  box-shadow: none;
-  font-weight: 500;
-  border: 1px solid #f8f9fa;
-  vertical-align: middle;
-}
-
-.btn-light {
-  background-color: rgb(243, 246, 248);
-  border-color: rgb(243, 246, 248);
-  color: #333335;
-}
-
-.login-container {
-  // background-color: red;
-  min-height: 100vh;
-  display: flex;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  //   flex-shrink: 0;
-}
-
-.left-side {
-  display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  // align-items: center;
-  // background-color: blueviolet;
-  width: 100%;
-  max-width: 100%;
-  padding-right: calc(1.5rem * 0.5);
-  padding-left: calc(1.5rem * 0.5);
-  margin-top: 0;
-}
-
-.google-svg {
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-inline-end: 0.5rem;
-  vertical-align: middle;
-}
-
-.left-content {
-  // background-color: navy;
-  width: 100%;
-  max-width: 80%;
-  height: 100%;
-}
-
-.left-head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // background-color: chartreuse;
-  // width: 100%;
-  // max-width: 80%;
-  height: 100%;
-  max-height: 15%;
-  // margin-bottom: 1rem;
-}
-
-.left-body {
-  // background-color: darkgoldenrod;
-  // width: 100%;
-  height: 100%;
-  max-height: 70%;
-}
-
-.left-footer {
-  background-color: deeppink;
-  // width: 100%;
-  height: 100%;
-  max-height: 15%;
-}
-
-.right-side {
-  //   flex-direction: column;
-  //   flex-shrink: 0;
-  background-color: crimson;
-  width: 100%;
-  max-width: 100%;
-  padding-right: 0;
-  padding-left: 0;
-  margin-top: 0;
+.icon-30 {
+  height: 1.875rem;
+  width: 1.875rem;
 }
