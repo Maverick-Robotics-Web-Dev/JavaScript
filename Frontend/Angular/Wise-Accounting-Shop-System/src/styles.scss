@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../public/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("../public/fonts/roboto/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-BlackItalic";
+  src: url("../public/fonts/roboto/Roboto-BlackItalic.ttf") format("truetype");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

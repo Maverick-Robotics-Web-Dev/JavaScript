@@ -1,4 +1,5 @@
 .dashboard {
+  font-family: "Roboto-Regular";
   position: relative;
   background-color: aquamarine;
   min-height: 100%;
@@ -36,6 +37,10 @@ ul {
 
 .navbar-item {
   margin: 0;
+}
+
+.d-sm-inline-block {
+  display: inline-block !important;
 }
 
 a {
