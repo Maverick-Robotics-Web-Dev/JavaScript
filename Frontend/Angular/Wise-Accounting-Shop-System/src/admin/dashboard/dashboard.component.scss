@@ -1,7 +1,8 @@
 .dashboard {
   font-family: "Roboto-Regular";
-  position: relative;
+  font-weight: 400;
   background-color: aquamarine;
+  position: relative;
   min-height: 100%;
 }
 
@@ -33,6 +34,10 @@ ul {
   margin-bottom: 0;
   list-style: none;
   flex-direction: row;
+}
+
+.mle-auto {
+  margin-left: auto !important;
 }
 
 .navbar-item {
