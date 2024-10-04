@@ -6,7 +6,7 @@
   min-height: 100%;
 }
 
-.header {
+.dashboard-header {
   display: flex;
   align-items: center;
   padding: 0.5rem 0.5rem;
@@ -98,7 +98,7 @@ a {
 //   // background-color: #343a40;
 // }
 
-.brand-link {
+.sidebar-header {
   display: block;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -113,7 +113,7 @@ a {
   background-color: #343a40;
 }
 
-[class*="sidebar-dark"] .brand-link {
+[class*="sidebar-dark"] .sidebar-header {
   border-bottom: 1px solid #4b545c;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -141,7 +141,7 @@ img {
   transition: margin-left 0.3s linear, opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.sidebar-content {
+.sidebar-body {
   position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -155,12 +155,71 @@ img {
   margin-top: calc(3.5rem + 1px);
 }
 
+.sidebar-resize {
+  background-color: darkorange;
+  // visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  padding: inherit;
+  border: inherit;
+  border-color: transparent;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sidebar-wrapper {
+  background-color: dodgerblue;
+  box-sizing: inherit;
+  direction: inherit;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto !important;
+  height: auto !important;
+  z-index: 0;
+}
+
+.sidebar-body > .sidebar-wrapper {
+  overflow: hidden;
+}
+
+.sidebar-viewport {
+  background-color: fuchsia;
+  direction: inherit !important;
+  box-sizing: inherit !important;
+  resize: none !important;
+  outline: 0 !important;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none !important;
+  overflow-y: scroll;
+}
+
 .dashboard-content {
   background-color: darkred;
 }
 
 @supports not (-webkit-touch-callout: none) {
-  .sidebar-content {
+  .sidebar-body {
     height: calc(100vh - (3.5rem + 1px));
   }
 }
