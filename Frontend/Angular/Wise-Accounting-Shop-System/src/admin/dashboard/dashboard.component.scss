@@ -214,6 +214,57 @@ img {
   overflow-y: scroll;
 }
 
+.sidebar-content {
+  background-color: gold;
+  direction: inherit;
+  position: relative;
+  display: block;
+  visibility: visible;
+  height: 100%;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.sidebar-content::before,
+.sidebar-content::after {
+  content: "";
+  display: table;
+  width: 0.01px;
+  height: 0.01px;
+  line-height: 0;
+  font-size: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  visibility: hidden;
+}
+
+.user-panel {
+  background-color: steelblue;
+  display: flex;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 1rem !important;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+[class*="sidebar-dark"] .user-panel {
+  border-bottom: 1px solid #4f5962;
+}
+
+.user-image {
+  display: inline-block;
+  padding-left: 0.8rem;
+}
+
+.user-img {
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  height: auto;
+  width: 2.1rem;
+}
+
 .dashboard-content {
   background-color: darkred;
 }
