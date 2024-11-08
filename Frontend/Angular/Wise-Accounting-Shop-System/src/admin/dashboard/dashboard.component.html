@@ -47,11 +47,23 @@
             </div>
             <div class="search-panel">
               <div class="search-input-group">
-                <input type="search" class="search-input" placeholder="Search" />
+                <input type="search" class="search-input search-input-dark" placeholder="Search" />
+                <div class="search-input-group-append">
+                  <button class="btn btn-search">
+                    <i class="fa-solid fa-magnifying-glass fa-fw"></i>
+                  </button>
+                </div>
               </div>
-              <div class="search-result"></div>
+              <div class="search-result">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <div class="search-text">No element found!</div>
+                    <div class="search-path"></div>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="content-panel"></div>
+            <nav class="content-panel"></nav>
           </div>
         </div>
       </div>
