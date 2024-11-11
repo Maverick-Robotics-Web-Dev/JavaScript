@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'comp-dashboard',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
