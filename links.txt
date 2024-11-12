@@ -18,3 +18,10 @@ https://cssgrid-generator.netlify.app/
 https://animista.net/play/entrances/flicker-in
 https://webcode.tools/css-generator/keyframe-animation
 https://www.colorzilla.com/gradient-editor/
+
+TEMPLATES
+https://demo.templatemonster.com/es/demo/346337.html?_gl=1*1r9t4wj*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTc5OC4xMi4wLjA.
+
+https://demo.templatemonster.com/es/demo/341078.html?_gl=1*1ea0dsp*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTgxOS41MS4wLjA.
+
+https://demo.templatemonster.com/es/demo/376047.html?_gl=1*19z7fqa*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTc3My4zNy4wLjA.
