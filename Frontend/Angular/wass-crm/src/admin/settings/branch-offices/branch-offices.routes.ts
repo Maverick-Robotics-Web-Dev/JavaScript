@@ -3,7 +3,7 @@ import { branchOfficesComponent, listComponent } from '@shared/utils/lazy-load-c
 
 export const BRANCHOFFICES_ROUTES: Routes = [
   // { path: '', loadComponent: branchOfficesComponent, children: [{ path: 'list', loadComponent: listComponent }] },
-  { path: '', loadComponent: branchOfficesComponent },
-  { path: 'list', loadComponent: listComponent },
+  // { path: '', loadComponent: branchOfficesComponent },
+  { path: '', loadComponent: listComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

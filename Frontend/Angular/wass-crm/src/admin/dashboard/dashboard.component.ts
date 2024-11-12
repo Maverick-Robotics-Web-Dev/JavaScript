@@ -6,7 +6,7 @@ import { SidebarAdminComponent } from '../../shared/components/sidebar-admin/sid
 @Component({
   selector: 'comp-dashboard',
   standalone: true,
-  imports: [RouterOutlet, NavbarAdminComponent, SidebarAdminComponent],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

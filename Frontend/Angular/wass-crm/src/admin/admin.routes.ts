@@ -4,5 +4,7 @@ import { settingsRoutes } from '@shared/utils/load-children-routes';
 
 export const ADMIN_ROUTES: Routes = [
   { path: '', loadComponent: dashboardComponent, children: [{ path: 'settings', loadChildren: settingsRoutes }] },
+  { path: 'dashboard', loadComponent: dashboardComponent },
+  { path: 'settings', loadChildren: settingsRoutes },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
