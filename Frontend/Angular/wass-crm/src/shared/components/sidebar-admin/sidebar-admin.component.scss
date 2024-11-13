@@ -82,7 +82,7 @@ img {
   padding: 20px 15px 5px 5px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.5px;
 }
 
@@ -94,4 +94,33 @@ img {
 
 .sidebar-content .sidebar-menu li + li {
   margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sidebar-content .sidebar-menu a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  color: #ffffff;
+  outline-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-out;
+}
+
+.menu-item-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.menu-title {
+  margin-left: 10px;
 }
