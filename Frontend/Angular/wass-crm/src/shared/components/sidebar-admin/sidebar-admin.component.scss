@@ -13,12 +13,7 @@
 
 .sidebar-content {
   padding: 0;
-}
-
-.sidebar-content::after,
-.sidebar-content::before {
-  content: "";
-  display: table;
+  height: calc(100vh - 135px);
 }
 
 .sidebar-header {
@@ -123,4 +118,35 @@ a {
 
 .menu-title {
   margin-left: 10px;
+}
+
+.sidebar-footer {
+  gap: 0.25rem !important;
+  display: flex !important;
+  // border-bottom: 1.5px solid rgb(255 255 255 / 50%);
+  border: 1px solid rgb(255 255 255 / 50%);
+  padding: 5px;
+  border-radius: 10px;
+  margin: 5px;
+  // margin: 15px;
+  overflow: hidden;
+}
+
+.sidebar-footer .footer-item {
+  background: #ffffff;
+  border-radius: 6px;
+  position: relative;
+  max-height: 42px;
+  max-width: 42px;
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-footer .footer-item > i {
+  // line-height: 1;
+  color: #a4161a;
+  font-size: 1rem;
 }
