@@ -1,6 +1,8 @@
+@import "../../styles/variables.scss";
+
 .sidebar {
   position: fixed;
-  background-color: #a4161a;
+  background-color: $dark-blue;
   top: 0;
   left: 0;
   bottom: 0;
@@ -26,7 +28,8 @@
   width: 250px;
   height: 60px;
   padding: 0 15px;
-  background-color: #a4161a;
+  // background-color: #1565c0;
+  background-color: $dark-blue;
   z-index: 5;
   // border-right: 1px solid #e4e4e400;
   border-bottom: 1.5px solid rgb(255 255 255 / 50%);
@@ -123,8 +126,7 @@ a {
 .sidebar-footer {
   gap: 0.25rem !important;
   display: flex !important;
-  // border-bottom: 1.5px solid rgb(255 255 255 / 50%);
-  border: 1px solid rgb(255 255 255 / 50%);
+  border: 1px solid rgb(255 255 255);
   padding: 5px;
   border-radius: 10px;
   margin: 5px;
@@ -133,7 +135,7 @@ a {
 }
 
 .sidebar-footer .footer-item {
-  background: #ffffff;
+  background: $light-blue;
   border-radius: 6px;
   position: relative;
   max-height: 42px;
@@ -147,6 +149,6 @@ a {
 
 .sidebar-footer .footer-item > i {
   // line-height: 1;
-  color: #a4161a;
+  color: #ffffff;
   font-size: 1rem;
 }
