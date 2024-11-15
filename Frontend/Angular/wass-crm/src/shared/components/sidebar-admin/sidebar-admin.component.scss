@@ -28,10 +28,8 @@
   width: 250px;
   height: 60px;
   padding: 0 15px;
-  // background-color: #1565c0;
   background-color: $dark-blue;
   z-index: 5;
-  // border-right: 1px solid #e4e4e400;
   border-bottom: 1.5px solid rgb(255 255 255 / 50%);
 }
 
@@ -148,7 +146,6 @@ a {
 }
 
 .sidebar-footer .footer-item > i {
-  // line-height: 1;
   color: #ffffff;
   font-size: 1rem;
 }
