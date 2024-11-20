@@ -62,16 +62,17 @@ input::placeholder {
   background-clip: padding-box;
   appearance: none;
   border-radius: 0.375rem;
-  transition: all 0.15s ease-in-out;
   padding-right: 3rem !important;
   padding-left: 3rem !important;
-  border: 2px solid $shadow-border-blue;
+  border: 1px solid $shadow-border-light-blue;
+  transition: all 0.15s ease-in-out;
 }
 
 .input-search:focus {
-  border: 2px solid $shadow-dark-blue;
-  // box-shadow: 0 0 0 1px $shadow-dark-blue;
-  background-color: $shadow-light-blue;
+  border: 1px solid $dark-blue;
+  // background-color: $background-light-blue;
+  // background-color: $background-dark-blue;
+  box-shadow: 0 0 0 0.25rem $shadow-light-blue;
   outline: 0;
 }
 
@@ -112,6 +113,8 @@ ul {
 }
 
 .menu-item:hover > a {
+  background-color: $dark-blue;
+  color: #ffffff;
 }
 
 .item-link {
@@ -122,13 +125,13 @@ ul {
   // padding-left: 0.5rem;
   // padding-right: 0.5rem;
   color: $dark-blue;
-  font-size: 1.15rem;
+  font-size: 1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 2.25rem;
+  height: 2.25rem;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 // @media (min-width: 992px) {
