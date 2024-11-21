@@ -47,41 +47,107 @@ input::placeholder {
   opacity: 0.3 !important;
 }
 
-// [type="search"] {
-//   outline-offset: -2px;
+// .input-search {
+//   display: block;
+//   width: 100%;
+//   padding: 0.375rem 0.75rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: $input-color;
+//   background-clip: padding-box;
+//   appearance: none;
+//   border-radius: 0.375rem;
+//   padding-right: 3rem !important;
+//   padding-left: 3rem !important;
+//   border: 2px solid $shadow-border-light-blue;
+//   transition: all 0.15s ease-in-out;
 // }
 
 .input-search {
-  display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: $dark-blue;
-  background-clip: padding-box;
-  appearance: none;
+  height: 2.5rem;
   border-radius: 0.375rem;
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
-  border: 1px solid $shadow-border-light-blue;
-  transition: all 0.15s ease-in-out;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  border: 2px solid $shadow-border-light-blue;
+  background: transparent;
+  color: $input-color;
+  outline: none;
+  transition: 0.2s ease-in-out;
 }
 
 .input-search:focus {
-  border: 1px solid $dark-blue;
-  // background-color: $background-light-blue;
-  // background-color: $background-dark-blue;
-  box-shadow: 0 0 0 0.25rem $shadow-light-blue;
-  outline: 0;
+  border: 2px solid $dark-blue;
 }
+
+.input-box {
+  background-color: $black;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: 100%;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+.input-search:focus ~ .input-box {
+  top: 0;
+  background: $white;
+}
+
+.input-label {
+  position: absolute;
+  top: 50%;
+  left: 38px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  color: $shadow-light-blue;
+}
+
+.input-search:focus ~ .input-box .input-label {
+  top: 0;
+  left: 2.1875rem;
+  font-size: 14px;
+  padding: 0 2px;
+  background: $white;
+  color: $dark-blue;
+}
+
+// .input-search:hover {
+//   border: 1px solid $dark-blue;
+// }
+
+// .input-search:focus {
+//   border: 2px solid $dark-blue;
+//   // background-color: $background-light-blue;
+//   // background-color: $background-dark-blue;
+//   box-shadow: 0 0 0 0.25rem $shadow-light-blue;
+//   outline: 0;
+// }
 
 .icon-search {
   position: absolute;
-  top: 50% !important;
-  left: 0;
+  top: 50%;
+  left: 1rem;
   transform: translateY(-50%) !important;
-  margin-left: 1rem !important;
+  font-size: 1rem;
+  // margin-left: 1rem !important;
+  color: $shadow-light-blue;
+  transition: 0.2s ease-in-out;
+}
+
+.input-search:focus ~ .input-box .icon-search {
+  top: 0;
+  left: 0.9375rem;
+  font-size: 14px;
+  padding: 0 2px;
+  background: $white;
   color: $dark-blue;
 }
 
@@ -124,7 +190,7 @@ ul {
   border: 0;
   // padding-left: 0.5rem;
   // padding-right: 0.5rem;
-  color: $dark-blue;
+  color: $light-blue;
   font-size: 1rem;
   border-radius: 50%;
   display: flex;
