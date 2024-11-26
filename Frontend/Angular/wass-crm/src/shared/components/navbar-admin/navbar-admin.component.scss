@@ -69,13 +69,11 @@
   transition: 0.2s ease-in-out;
   border-radius: 0.475rem;
   color: $semi-light-blue;
-  font-weight: 500;
 }
 
 .menu-link:hover {
-  // background-color: $dark-blue;
-  // color: $white;
-  color: $dark-blue;
+  background-color: $semi-light-blue;
+  color: $white;
 }
 
 .menu-title {
@@ -85,7 +83,6 @@
   font-family: "Roboto-Medium";
   font-size: 0.875rem;
   transition: 0.2s ease-in-out;
-  letter-spacing: 0.0625rem;
 }
 
 // .navbar-search {
@@ -171,7 +168,8 @@
 }
 
 .nav-btn:hover {
-  color: $dark-blue;
+  background-color: $semi-light-blue;
+  color: $white;
 }
 
 // @media (min-width: 992px) {
