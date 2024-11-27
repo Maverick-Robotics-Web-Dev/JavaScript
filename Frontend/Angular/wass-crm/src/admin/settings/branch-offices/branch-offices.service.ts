@@ -8,8 +8,8 @@ import { BehaviorSubject, finalize, Observable } from 'rxjs';
 })
 export class BranchOfficesService extends BaseService {
   private BASE_URL: string = `${this.RESTAPI_URL}/settings/branch-offices/`;
-  isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
+  public isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
   public list(): Observable<BranchOfficeListModel> {
     this.isLoadingSubject.next(true);
