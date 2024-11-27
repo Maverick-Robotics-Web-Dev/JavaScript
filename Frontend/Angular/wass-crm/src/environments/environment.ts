@@ -1,1 +1,4 @@
-export const environment = {};
+export const environment = {
+  API_URL: 'http://localhost:8000/wass/api/v1',
+  production: true,
+};

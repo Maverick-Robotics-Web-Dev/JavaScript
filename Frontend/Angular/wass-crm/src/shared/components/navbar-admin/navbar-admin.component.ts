@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './navbar-admin.component.html',
-  styleUrl: './navbar-admin.component.scss'
+  styleUrl: './navbar-admin.component.scss',
 })
-export class NavbarAdminComponent {
-
-}
+export class NavbarAdminComponent {}
