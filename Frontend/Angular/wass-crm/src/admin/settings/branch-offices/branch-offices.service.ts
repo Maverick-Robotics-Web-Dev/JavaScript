@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BranchOfficeListModel } from '@core/models/settings';
+import {
+  BranchOfficeCrtUptModel,
+  BranchOfficeDeleteModel,
+  BranchOfficeListModel,
+  BranchOfficeModel,
+  BranchOfficeRetrieveModel,
+} from '@core/models/settings';
 import { BaseService } from '@core/services';
 import { BehaviorSubject, finalize, Observable } from 'rxjs';
 
@@ -18,5 +24,41 @@ export class BranchOfficesService extends BaseService {
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesList;
+  }
+
+  public retrieve(id: string): Observable<BranchOfficeRetrieveModel> {
+    this.isLoadingSubject.next(true);
+    let branchOfficesRetrieve: Observable<BranchOfficeRetrieveModel> = this.httpClient
+      .get<BranchOfficeRetrieveModel>(`${this.BASE_URL}${id}/`)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+
+    return branchOfficesRetrieve;
+  }
+
+  public create(data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
+    this.isLoadingSubject.next(true);
+    let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
+      .post<BranchOfficeCrtUptModel>(this.BASE_URL, data)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+
+    return branchOfficesCreate;
+  }
+
+  public partial_update(id: string, data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
+    this.isLoadingSubject.next(true);
+    let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
+      .patch<BranchOfficeCrtUptModel>(`${this.BASE_URL}${id}/`, data)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+
+    return branchOfficesCreate;
+  }
+
+  public delete(id: string): Observable<BranchOfficeDeleteModel> {
+    this.isLoadingSubject.next(true);
+    let branchOfficesDelete: Observable<BranchOfficeDeleteModel> = this.httpClient
+      .delete<BranchOfficeDeleteModel>(`${this.BASE_URL}${id}/`)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+
+    return branchOfficesDelete;
   }
 }

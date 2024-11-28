@@ -1,1 +1,7 @@
-export { BranchOfficeListModel } from './branch-offices';
+export {
+  BranchOfficeModel,
+  BranchOfficeListModel,
+  BranchOfficeRetrieveModel,
+  BranchOfficeCrtUptModel,
+  BranchOfficeDeleteModel,
+} from './branch-offices';
