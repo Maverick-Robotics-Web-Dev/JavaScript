@@ -1,7 +1,14 @@
-<div class="admin">
+<!-- <div class="admin">
   <comp-navbar-admin></comp-navbar-admin>
-  <comp-sidebar-admin></comp-sidebar-admin>
   <div class="container">
+    <comp-sidebar-admin></comp-sidebar-admin>
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+<div class="admin-root">
+  <comp-navbar-admin></comp-navbar-admin>
+  <div class="container">
+    <comp-sidebar-admin></comp-sidebar-admin>
     <router-outlet></router-outlet>
   </div>
 </div>
