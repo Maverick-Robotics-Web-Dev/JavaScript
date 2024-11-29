@@ -1,0 +1,22 @@
+.toolbar {
+  display: flex;
+  align-items: stretch;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  height: auto;
+  background-color: transparent;
+  border-top: 0;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.toolbar-container {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}

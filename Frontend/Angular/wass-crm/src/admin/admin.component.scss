@@ -21,4 +21,36 @@
 
 .admin-root {
   display: flex !important;
+  flex-direction: column !important;
+  flex: 1;
+}
+
+.admin-page {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column !important;
+}
+
+.admin-container {
+  display: flex;
+  flex: 1 auto;
+  min-width: 0;
+  flex-direction: column !important;
+  transition: all 0.2s ease;
+  margin-top: 4.6875rem;
+  margin-left: 16.5625rem;
+}
+
+.admin-content {
+  display: flex;
+  flex: 1 auto;
+  min-width: 0;
+  flex-direction: column !important;
+  transition: all 0.2s ease;
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 0 auto;
 }
