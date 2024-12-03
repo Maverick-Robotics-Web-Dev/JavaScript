@@ -1,5 +1,18 @@
 @import "../../styles/variables.scss";
 
+.list-container {
+  flex: 1 0 auto;
+  padding: 0 !important;
+}
+
+.list-content {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -11,47 +24,90 @@
   background-clip: border-box;
   border-radius: 0.625rem;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem !important;
+  border: 1px solid #f1f1f4;
+  height: 100vh;
 }
 
-.toolbar-container {
-  display: flex !important;
-  align-items: center;
+.card-header {
+  display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 30px !important;
-  padding-left: 30px !important;
+  align-items: stretch;
+  flex-wrap: wrap;
+  min-height: 70px;
+  padding: 1.25rem 2.25rem 0 2.25rem;
+  background-color: transparent;
+  margin-bottom: 0;
+  border: 0 !important;
+  border-width: 0 !important;
+  border-radius: 0.5625rem 0.5625rem 0 0;
 }
 
 .card-label {
-  display: flex;
-  flex-direction: column !important;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  align-items: flex-start !important;
-  justify-content: center;
   line-height: 1.2;
   outline: 0;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  display: flex;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   font-size: 1.275rem;
   color: #071437;
+  justify-content: center;
 }
 
 .card-title {
-  margin: 0 0.75rem 0.25rem 0 !important;
-  font-size: 18px !important;
+  margin: 0 0.75rem 0.0625rem 0 !important;
+  font-size: 1.125rem !important;
   color: #071437;
   letter-spacing: 0.0313rem;
 }
 
 .card-subtitle {
-  margin-top: 0.25rem !important;
-  font-size: 14px;
+  margin-top: 0.0625rem !important;
+  font-size: 0.95rem;
   color: #99a1b7;
   letter-spacing: 0.0313rem;
+  // font-family: "Roboto-Light";
+  font-weight: 400;
 }
 
-.page-actions {
-  display: flex !important;
-  align-items: center !important;
+.card-toolbar {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
   gap: 0.75rem !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-btn {
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.425rem;
+  transition: 0.15s ease-in-out;
+  outline: 0 !important;
+  color: $semi-light-blue;
+  background-color: $sky-light-blue;
+  box-shadow: none;
+  border: 0;
+  padding: 0.6125rem 1.0625rem;
+}
+
+.card-btn:hover {
+  color: $white;
+  background-color: $semi-light-blue;
+}
+
+.card-btn > i {
+  display: inline-flex;
+  padding-right: 0.35rem;
+  font-size: 0.8125rem;
+  // vertical-align: middle;
 }
