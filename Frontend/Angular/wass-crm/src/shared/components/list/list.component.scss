@@ -230,7 +230,6 @@ a {
 }
 
 .card-body {
-  background-color: darkred;
   flex: 1 1 auto;
   padding: 0.75rem 2.25rem;
 }
@@ -245,4 +244,45 @@ a {
   width: 100%;
   margin-bottom: 1rem;
   border-color: #f1f1f4;
+}
+
+.table > thead {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  vertical-align: bottom;
+}
+
+.row-title {
+  background-color: #f9f9f9 !important;
+  color: #99a1b7;
+  border-color: inherit;
+  border-width: inherit;
+  border-style: inherit;
+  text-transform: inherit;
+  font-size: inherit;
+  height: inherit;
+  min-height: inherit;
+}
+
+.cells {
+  text-align: inherit;
+  padding: 0.8125rem 0.609375rem;
+  // background-color: transparent;
+  background-color: $semi-light-blue;
+  border-color: inherit;
+  border-width: inherit;
+  border-style: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  height: inherit;
+  min-height: inherit;
+}
+
+.cell-xl-rounded-start {
+  padding-left: 0.8125rem !important;
+  border-bottom-left-radius: 0.475rem !important;
+  border-top-left-radius: 0.475rem !important;
 }
