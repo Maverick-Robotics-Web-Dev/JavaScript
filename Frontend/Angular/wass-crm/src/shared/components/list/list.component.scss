@@ -64,19 +64,25 @@
   border-radius: 0.425rem;
   transition: 0.15s ease-in-out;
   outline: 0 !important;
-  // color: #252f4a;
-  // background-color: #f1f1f4;
+  color: #252f4a;
+  background-color: #f1f1f4;
   border: 0;
   box-shadow: none;
-  color: $semi-light-blue;
-  background-color: $sky-light-blue;
-  // border: 1px solid $semi-light-blue;
   padding: 0.6125rem 1.0625rem;
 }
 
 .btn-actions:hover {
+  background-color: #dbdfe9;
+}
+
+.btn-enabled {
   color: $white;
   background-color: $semi-light-blue;
+}
+
+.btn-enabled:hover {
+  color: $white;
+  background-color: $light-blue;
 }
 
 .btn-actions > i {
@@ -85,6 +91,7 @@
   padding-right: 0.35rem;
   font-size: 0.8125rem;
   line-height: 1;
+  color: #99a1b7;
 }
 
 a {
@@ -124,7 +131,7 @@ a {
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
   flex-wrap: wrap;
   min-height: 70px;
   padding: 1.25rem 2.25rem 0 2.25rem;
@@ -135,28 +142,58 @@ a {
   border-radius: 0.5625rem 0.5625rem 0 0;
 }
 
-.card-input {
+.input-wrapper {
   position: relative !important;
   width: 400px !important;
   margin-right: 0.5rem !important;
 }
 
 .input-search {
+  display: block;
   width: 100%;
-  height: 45px;
-  border-radius: 0.375rem;
+  margin: 0;
+  padding: 10.0752px 0.8125rem 10.0752px 2rem;
   font-size: 1rem;
-  padding-top: 0.5rem;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-  border: 2px solid $semi-light-blue;
-  background: transparent;
+  appearance: none;
+  background-clip: padding-box;
+  border: 1px solid #f9f9f9;
+  border-radius: 0.475rem;
+  background-color: #f9f9f9;
+  transition: 0.2s ease;
   color: $input-color;
   outline: none;
+}
+
+.input-search:focus {
+  background-color: $white;
+  border: 1px solid $semi-light-blue;
+}
+
+.input-label {
+  position: absolute;
+  top: 50%;
+  left: 0.8125rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  color: #99a1b7;
+}
+
+.input-search:focus ~ .input-label {
+  top: 0;
+  left: 1.25rem;
+  font-size: 14px;
+  padding: 0 2px;
+  background-color: $white;
+  color: $semi-light-blue;
+}
+
+.icon-search {
   transition: 0.2s ease-in-out;
 }
 
-.card-toolbar {
+.btn-toolbar-wrapper {
   display: flex;
   align-items: center;
   margin: 0.5rem 0;
@@ -164,7 +201,7 @@ a {
   gap: 0.75rem !important;
 }
 
-.card-btn {
+.btn-toolbar {
   display: inline-block;
   font-size: 0.875rem;
   text-align: center;
@@ -174,24 +211,38 @@ a {
   border-radius: 0.425rem;
   transition: 0.15s ease-in-out;
   outline: 0 !important;
-  color: $semi-light-blue;
-  background-color: $sky-light-blue;
+  color: $white;
+  background-color: $semi-light-blue;
   border: 0;
   box-shadow: none;
-  // color: $semi-light-blue;
-  // background-color: $sky-light-blue;
-  // border: 1px solid $semi-light-blue;
   padding: 0.6125rem 1.0625rem;
 }
 
-.card-btn:hover {
-  color: $white;
-  background-color: $semi-light-blue;
+.btn-toolbar:hover {
+  background-color: $light-blue;
 }
 
-.card-btn > i {
+.btn-toolbar > i {
   display: inline-flex;
   margin-right: 0.25rem;
   padding-right: 0.35rem;
   font-size: 0.8125rem;
+}
+
+.card-body {
+  background-color: darkred;
+  flex: 1 1 auto;
+  padding: 0.75rem 2.25rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  caption-side: bottom;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-color: #f1f1f4;
 }
