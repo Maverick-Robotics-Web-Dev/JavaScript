@@ -8,9 +8,8 @@ describe('WayToPayMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WayToPayMainComponent]
-    })
-    .compileComponents();
+      imports: [WayToPayMainComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WayToPayMainComponent);
     component = fixture.componentInstance;

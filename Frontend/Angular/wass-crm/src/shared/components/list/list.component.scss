@@ -156,9 +156,9 @@ a {
   font-size: 1rem;
   appearance: none;
   background-clip: padding-box;
-  border: 1px solid #f9f9f9;
+  border: 1px solid #e9f3ff;
   border-radius: 0.475rem;
-  background-color: #f9f9f9;
+  background-color: #e9f3ff;
   transition: 0.2s ease;
   color: $input-color;
   outline: none;
@@ -177,7 +177,7 @@ a {
   font-size: 1rem;
   pointer-events: none;
   transition: 0.2s ease-in-out;
-  color: #99a1b7;
+  color: $light-blue;
 }
 
 .input-search:focus ~ .input-label {
@@ -261,7 +261,7 @@ a {
   border-width: inherit;
   border-style: inherit;
   text-transform: inherit;
-  font-size: inherit;
+  font-size: 0.875rem;
   height: inherit;
   min-height: inherit;
 }
@@ -384,7 +384,7 @@ img {
 
 .cell-text-up {
   margin-bottom: 0.203125rem !important;
-  font-size: 1.075rem !important;
+  font-size: 0.875rem !important;
   transition: 0.2s ease;
   color: #071437 !important;
   font-family: "Roboto-Medium";
@@ -396,14 +396,15 @@ img {
 
 .cell-text-down {
   display: block !important;
-  font-size: 0.95rem !important;
+  font-size: 0.8125rem !important;
   color: #99a1b7;
 }
 
 .cell-badge {
   display: inline-flex;
   align-items: center;
-  font-size: 0.95rem !important;
+  font-family: "Roboto-Medium";
+  font-size: 0.875rem !important;
   padding: 0.2640622rem 0.40625rem;
   // line-height: 1;
   text-align: center;
@@ -452,7 +453,7 @@ img {
   // width: 2.5rem;
   outline: 0 !important;
   margin-right: 0.625rem !important;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: $white;
   text-align: center;
   vertical-align: middle;
@@ -469,5 +470,5 @@ img {
 .cell-btn > i {
   display: inline-flex;
   padding-right: 0;
-  font-size: 1rem !important;
+  font-size: 0.875rem !important;
 }
