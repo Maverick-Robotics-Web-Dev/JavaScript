@@ -125,7 +125,7 @@ a {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.03);
   margin-bottom: 2rem !important;
   border: 1px solid #f1f1f4;
-  height: 100vh;
+  height: 100%;
 }
 
 .card-header {
@@ -239,6 +239,7 @@ a {
 }
 
 .table {
+  vertical-align: middle;
   caption-side: bottom;
   border-collapse: collapse;
   width: 100%;
@@ -253,7 +254,7 @@ a {
   vertical-align: bottom;
 }
 
-.row-title {
+.row-head {
   background-color: #f9f9f9 !important;
   color: #99a1b7;
   border-color: inherit;
@@ -265,11 +266,58 @@ a {
   min-height: inherit;
 }
 
-.cells {
+.cells-head {
   text-align: inherit;
   padding: 0.8125rem 0.609375rem;
-  // background-color: transparent;
   background-color: $semi-light-blue;
+  border-color: inherit;
+  border-width: inherit;
+  border-style: inherit;
+  text-transform: inherit;
+  font-family: "Roboto-Medium";
+  font-weight: inherit;
+  font-size: inherit;
+  color: $white;
+  height: inherit;
+  min-height: inherit;
+}
+
+.rounded-start {
+  padding-left: 0.8125rem !important;
+  border-top-left-radius: 0.475rem !important;
+  // border-bottom-left-radius: 0.475rem !important;
+}
+
+.rounded-end {
+  padding-right: 0;
+  border-top-right-radius: 0.475rem !important;
+  // border-bottom-right-radius: 0.475rem !important;
+}
+
+.cell-sm {
+  min-width: 125px !important;
+}
+
+.cell-md {
+  min-width: 150px !important;
+}
+
+.cell-lg {
+  min-width: 200px !important;
+}
+
+.cell-xl {
+  min-width: 325px !important;
+}
+
+.table > tbody {
+  vertical-align: inherit;
+  border-color: transparent;
+  border-width: 0;
+  border-style: none;
+}
+
+.row-body {
   border-color: inherit;
   border-width: inherit;
   border-style: inherit;
@@ -281,8 +329,145 @@ a {
   min-height: inherit;
 }
 
-.cell-xl-rounded-start {
-  padding-left: 0.8125rem !important;
-  border-bottom-left-radius: 0.475rem !important;
-  border-top-left-radius: 0.475rem !important;
+.cells-body {
+  padding: 0.8125rem 0.609375rem;
+  background-color: transparent;
+  border-color: inherit;
+  border-width: inherit;
+  border-style: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  height: inherit;
+  min-height: inherit;
+}
+
+.pl {
+  padding-left: 0;
+}
+
+.pr-text-end {
+  padding-right: 0;
+  text-align: center !important;
+}
+
+.cell-group {
+  display: flex !important;
+  align-items: center;
+}
+
+.cell-img {
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 0.475rem;
+  margin-right: 1.015622rem !important;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.cell-img > img {
+  display: inline-block;
+  border-radius: 0.475rem;
+  width: 50px;
+  height: 50px;
+}
+
+.cell-label {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start;
+}
+
+.cell-text-up {
+  margin-bottom: 0.203125rem !important;
+  font-size: 1.075rem !important;
+  transition: 0.2s ease;
+  color: #071437 !important;
+  font-family: "Roboto-Medium";
+}
+
+.d-block {
+  display: block;
+}
+
+.cell-text-down {
+  display: block !important;
+  font-size: 0.95rem !important;
+  color: #99a1b7;
+}
+
+.cell-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem !important;
+  padding: 0.2640622rem 0.40625rem;
+  // line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.425rem;
+}
+
+.badge-blue {
+  background-color: #e9f3ff;
+  color: #1b84ff;
+}
+
+.badge-red {
+  background-color: #ffeef3;
+  color: #f8285a;
+}
+
+.badge-green {
+  background-color: #dfffea;
+  color: #17c653;
+}
+
+.badge-purple {
+  background-color: #f8f5ff;
+  color: #7239ea;
+}
+
+.badge-orange {
+  background-color: #fff8dd;
+  color: #f6c000;
+}
+
+.cell-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  background-color: $semi-light-blue;
+  border: 0;
+  box-shadow: none;
+  height: 2.1771rem;
+  width: 2.1771rem;
+  // height: 2.5rem;
+  // width: 2.5rem;
+  outline: 0 !important;
+  margin-right: 0.625rem !important;
+  font-size: 0.95rem;
+  color: $white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.425rem;
+  transition: 0.15s ease-in-out;
+}
+
+.cell-btn:hover {
+  background-color: $light-blue;
+}
+
+.cell-btn > i {
+  display: inline-flex;
+  padding-right: 0;
+  font-size: 1rem !important;
 }
