@@ -1,9 +1,10 @@
+import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'comp-list',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
@@ -62,17 +63,9 @@ export class ListComponent implements OnInit {
       condition: 'Rejected',
       agent: 'Natali Trump',
       position: 'Insurance',
-      status: 'Approved',
+      status: 'Warning',
     },
   ];
 
-  show() {
-    for (let key of this.data) {
-      console.log(key.name);
-    }
-  }
-
-  ngOnInit(): void {
-    this.show();
-  }
+  ngOnInit(): void {}
 }
