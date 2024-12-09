@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ListComponent } from '@shared/components/list';
+import { BranchOfficesService } from '../branch-offices.service';
+import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -8,7 +13,12 @@ import { ListComponent } from '@shared/components/list';
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
 })
-export class BranchOfficesListComponent {
+export class BranchOfficesListComponent implements OnInit {
+  private _branchOfficesServices = inject(BranchOfficesService);
+  private readonly _destroy: DestroyRef = inject(DestroyRef);
+  public branchOfficeListData!: BranchOfficeModel[];
+  public error!: HttpErrorResponse;
+  public loading!: Observable<boolean>;
   public data = [
     {
       name: 'Sant Extreanet Solution',
@@ -66,4 +76,26 @@ export class BranchOfficesListComponent {
       status: 'Warning',
     },
   ];
+
+  ngOnInit(): void {
+    this.loading = this._branchOfficesServices.isLoading$;
+    this.list();
+  }
+
+  public list() {
+    this._branchOfficesServices
+      .list()
+      .pipe(takeUntilDestroyed(this._destroy))
+      .subscribe({
+        next: (resp: BranchOfficeListModel) => {
+          if (resp.ok) {
+            this.branchOfficeListData = resp.data;
+            console.log(this.branchOfficeListData);
+          }
+        },
+        error: (err) => {
+          this.error = err;
+        },
+      });
+  }
 }
