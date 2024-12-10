@@ -5,11 +5,12 @@ import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings'
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BranchOfficesCreateComponent } from '../branch-offices-create';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent],
+  imports: [ListComponent, BranchOfficesCreateComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
 })
