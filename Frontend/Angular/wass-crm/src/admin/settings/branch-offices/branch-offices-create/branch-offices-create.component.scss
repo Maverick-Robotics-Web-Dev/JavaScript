@@ -1,31 +1,29 @@
 @import "../../../../shared/styles/variables.scss";
 
 .modal-new {
+  transition: all 0.15s linear;
   position: fixed;
-  display: block;
-  background-color: $black;
   top: 0;
   left: 0;
   z-index: 1055;
-  // display: none;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
-  opacity: 0.4;
-  transition: all 0.15s linear;
+  display: block;
+  padding-left: 0;
 }
 
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 22.75px auto;
+  margin: 1.421872rem auto;
   pointer-events: none;
   display: flex;
   align-items: center;
-  min-height: calc(100% - 45.5px);
-  max-width: 650px !important;
+  min-height: calc(100% - 2.84375rem);
+  max-width: 40.625rem !important;
   transition: 0.3s ease-out;
   transform: none;
 }
@@ -39,7 +37,7 @@
   background-color: $white;
   background-clip: padding-box;
   border: 0 solid rgba(0, 0, 0, 0.175);
-  box-shadow: 0px 0.4063rem 0.8125rem 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
   outline: 0;
   border-radius: 0.385935rem !important;
 }
@@ -51,7 +49,7 @@
   padding: 1.421872rem;
   border-top-right-radius: 0.385935rem;
   border-top-left-radius: 0.385935rem;
-  border: 0;
+  border: 0 !important;
   border-width: 0 !important;
   justify-content: flex-end !important;
   padding-bottom: 0 !important;
@@ -61,6 +59,7 @@
   font-size: 0.771872rem;
   color: #071437;
   text-align: center;
+  vertical-align: middle;
   cursor: pointer;
   user-select: none;
   border-radius: 0.34531rem;
@@ -81,7 +80,8 @@
 .modal-btn i {
   padding-right: 0;
   display: inline-flex;
-  font-size: 18px;
+  font-size: 1.125rem;
+  color: #99a1b7;
 }
 
 .modal-body {
@@ -91,4 +91,30 @@
   position: relative;
   scrollbar-width: thin;
   scrollbar-color: #f1f1f4 transparent;
+}
+
+.form-label {
+  margin-bottom: 2.640622rem !important;
+  text-align: center !important;
+}
+
+.form-title {
+  margin-top: 0;
+  line-height: 1.2;
+  color: #071437;
+  font-size: 1.421872rem;
+  outline: 0;
+  margin-bottom: 9.75px;
+}
+
+.modal-backdrop {
+  transition: all 0.15s linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: $black;
+  opacity: 0.4;
 }
