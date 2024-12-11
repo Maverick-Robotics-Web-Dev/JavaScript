@@ -102,9 +102,72 @@
   margin-top: 0;
   line-height: 1.2;
   color: #071437;
-  font-size: 1.421872rem;
+  font-size: 1.375rem;
   outline: 0;
   margin-bottom: 9.75px;
+}
+
+.input-group {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  margin-bottom: 1.625rem !important;
+}
+
+.input-label {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 0.40625rem;
+  font-size: 0.875rem;
+}
+
+.input-title {
+  font-family: "Roboto-Medium";
+}
+
+.input-title::after {
+  content: "*";
+  position: relative;
+  font-size: 0.875rem;
+  color: #dc3545;
+  // color: #f8285a;
+  padding-left: 0.203122rem;
+}
+
+.input-tooltip {
+  margin-left: 0.203122rem;
+  color: #99a1b7;
+}
+
+.input-text {
+  margin: 0;
+  font-family: "Roboto-Regular";
+  display: block;
+  width: 100%;
+  padding: 0.62969rem 0.8125rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  appearance: none;
+  background-clip: padding-box;
+  border: 0.0625rem solid #dbdfe9;
+  border-radius: 0.385935rem;
+  background-color: #f9f9f9;
+  border-color: #f9f9f9;
+  color: #4b5675;
+  transition: 0.2s ease;
+}
+
+.input-text::placeholder {
+  color: #99a1b7;
+  opacity: 1;
+}
+
+.message-container {
+  display: block;
+  width: 100%;
+  margin-top: 0.40625rem;
+  font-size: 0.75rem;
+  color: #dc3545;
 }
 
 .modal-backdrop {
