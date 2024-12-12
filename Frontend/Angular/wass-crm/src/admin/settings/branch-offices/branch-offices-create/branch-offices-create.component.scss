@@ -107,32 +107,55 @@
   margin-bottom: 9.75px;
 }
 
-.input-group {
+.input-group-1 {
   position: relative;
   display: flex !important;
   flex-direction: column !important;
   margin-bottom: 1.625rem !important;
 }
 
-.input-label {
+.input-container-1 {
+  max-width: 100%;
+  // padding: 0 8px;
+  flex: 0 0 auto;
+  // width: calc(100% / 4.7067);
+  width: calc(100% / 1.2);
+}
+
+.input-group-2 {
   display: flex !important;
-  align-items: center !important;
-  margin-bottom: 0.40625rem;
-  font-size: 0.875rem;
+  flex-wrap: wrap;
+  // flex-direction: wr !important;
+  margin-bottom: 1.625rem !important;
 }
 
-.input-title {
-  font-family: "Roboto-Medium";
+.input-container-2 {
+  max-width: 100%;
+  // padding: 0 8px;
+  flex: 0 0 auto;
+  width: calc(100% / 6);
+  // width: calc(100% / 1.2);
 }
 
-.input-title::after {
-  content: "*";
-  position: relative;
-  font-size: 0.875rem;
-  color: #dc3545;
-  // color: #f8285a;
-  padding-left: 0.203122rem;
-}
+// .input-label {
+//   display: flex !important;
+//   align-items: center !important;
+//   margin-bottom: 0.40625rem;
+//   font-size: 0.875rem;
+// }
+
+// .input-title {
+//   font-family: "Roboto-Medium";
+// }
+
+// .input-title::after {
+//   content: "*";
+//   position: relative;
+//   font-size: 0.875rem;
+//   color: #dc3545;
+//   // color: #f8285a;
+//   padding-left: 0.203122rem;
+// }
 
 .input-tooltip {
   margin-left: 0.203122rem;
@@ -168,6 +191,36 @@
   margin-top: 0.40625rem;
   font-size: 0.75rem;
   color: #dc3545;
+}
+
+.input-group-3 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1.828125rem -0.91406rem 1.625rem;
+}
+
+.input-container-3 {
+  position: relative;
+  max-width: 100%;
+  padding: 0 0.91406rem;
+  margin: 1.828125rem 0 0;
+  flex: 0 0 auto;
+  width: calc(100% / 3);
+}
+
+.input-title {
+  display: inline-block;
+  margin-bottom: 0.40625rem;
+  font-family: "Roboto-Medium";
+  font-size: 0.875rem;
+}
+
+.input-title::after {
+  content: "*";
+  position: relative;
+  font-size: 0.875rem;
+  color: #dc3545;
+  padding-left: 0.203122rem;
 }
 
 .modal-backdrop {
