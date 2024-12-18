@@ -265,7 +265,7 @@
   cursor: pointer;
   user-select: none;
   border-radius: 0.425rem;
-  transition: 0.15s ease-in-out;
+  transition: 0.2s ease-in-out;
   outline: 0 !important;
   color: #ffffff;
   background-color: #1e88e5;
@@ -286,12 +286,16 @@
   height: 40px;
   width: 32px;
   border-radius: 0.425rem 0 0 0.425rem;
-  transition: all 0.6s;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
   color: transparent;
 }
+
+// .btn:hover {
+//   background-color: #0d47a1;
+// }
 
 .btn:hover .btn-icon {
   width: 100%;
@@ -299,6 +303,10 @@
   border-radius: 0.425rem;
   background-color: #0d47a1;
 }
+
+// .btn:hover .btn-icon {
+//   transform: translateX(4px);
+// }
 
 .btn:active {
   transform: scale(0.95);
