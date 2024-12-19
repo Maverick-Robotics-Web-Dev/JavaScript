@@ -215,34 +215,27 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  // max-width: 80px;
-  max-height: 34px;
-  // width: 100%;
-  width: 80px;
-  height: 100%;
+  width: 2.125rem;
+  height: 2.125rem;
   border: 0;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s;
   background-color: #1e88e5;
-
-  right: 6px;
-  font-size: 14px;
+  right: 0.375rem;
+  font-size: 1rem;
   text-align: center;
   vertical-align: middle;
   user-select: none;
   outline: 0 !important;
   color: #ffffff;
   box-shadow: none;
-}
-
-.btn-upload:hover {
-  background-color: #1565c0;
+  padding: 0;
 }
 
 .btn-upload-icon {
-  // width: 30%;
+  width: 100%;
   color: #ffffff;
   transition: all 0.3s;
   display: flex;
@@ -252,12 +245,38 @@
 
 .btn-upload-text {
   position: absolute;
-  right: 10px;
-  // width: 100%;
-  // opacity: 0;
+  right: 0;
+  width: 0%;
+  opacity: 0;
   color: #ffffff;
   transition: all 0.3s;
-  // margin-left: 5px;
+}
+
+.btn-upload:hover {
+  width: 5.875rem;
+}
+
+.btn-upload:hover .btn-upload-icon {
+  width: 30%;
+  padding-left: 0.875rem;
+}
+
+.btn-upload:hover .btn-upload-text {
+  width: 70%;
+  opacity: 1;
+  padding-right: 0.25rem;
+}
+
+.btn-upload:active {
+  transform: scale(0.9);
+}
+
+.btn-upload:hover .btn-upload-icon {
+  transform: scale(0.9);
+}
+
+.btn-upload:hover .btn-upload-text {
+  transform: scale(0.9);
 }
 
 .mt-0 {
@@ -280,7 +299,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 3.75rem;
 }
 
 .btn {
@@ -291,15 +310,15 @@
   justify-content: center;
   border: none;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  transition: all 0.4s;
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: all 0.3s;
   cursor: pointer;
   background-color: #0d47a1;
 }
 
 .btn-icon {
-  transition: all 0.4s;
+  transition: all 0.3s;
   color: #ffffff;
 }
 
@@ -308,11 +327,11 @@
   color: #ffffff;
   width: 100%;
   opacity: 0;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 .btn:hover {
-  width: 126px;
+  width: 7.875rem;
   border-radius: 0.625rem;
 }
 
@@ -324,6 +343,10 @@
   opacity: 0;
 }
 
-// .btn:active {
-//   transform: scale(0.95);
-// }
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn:active .btn-text {
+  transform: scale(0.9);
+}
