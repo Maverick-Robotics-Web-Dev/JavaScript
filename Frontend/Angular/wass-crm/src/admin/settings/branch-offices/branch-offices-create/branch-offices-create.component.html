@@ -110,11 +110,12 @@
             <label for="" class="input-title">Imagen</label>
             <div class="input-group">
               <span class="input-icon"><i class="fa-solid fa-image"></i></span>
-              <input formControlName="img" class="input-text" placeholder="Elija la imagen" />
-              <button type="button" class="btn-upload">
+              <input formControlName="img" type="file" id="img" class="hidden" (change)="fileChange()" />
+              <label class="input-text" readonly>{{ inputText }}</label>
+              <label type="button" for="img" class="btn-upload">
                 <span class="btn-upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></span>
-                <span class="btn-upload-text">Upload</span>
-              </button>
+                <span class="btn-upload-text">Buscar</span>
+              </label>
             </div>
           </div>
           <div class="col-12 box-group d-flex mt-15">

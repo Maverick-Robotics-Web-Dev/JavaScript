@@ -14,6 +14,7 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   private _formBuilder: FormBuilder = inject(FormBuilder);
   public branchForm!: FormGroup;
+  public inputText: string = 'Ningun archivo seleccionado';
 
   ngOnInit(): void {
     this.branchForm = this._formBuilder.group({
@@ -32,6 +33,11 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   public closeModal(): void {
     this.showModal.emit(false);
+  }
+
+  public fileChange() {
+    console.log(this.branchForm.get('img')?.value);
+    this.inputText = this.branchForm.get('img')?.value;
   }
 
   public createBranch(e: Event) {
