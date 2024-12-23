@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'comp-list',
@@ -8,8 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input({ required: true }) data!: any[];
+  @Output() showModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  ngOnInit(): void {}
+  public openModal() {
+    this.showModal.emit(true);
+  }
 }

@@ -20,6 +20,7 @@ export class BranchOfficesListComponent implements OnInit {
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
+  public modalSwitch: boolean = false;
   public data = [
     {
       name: 'Sant Extreanet Solution',
@@ -98,5 +99,13 @@ export class BranchOfficesListComponent implements OnInit {
           this.error = err;
         },
       });
+  }
+
+  public openModal(state: boolean) {
+    this.modalSwitch = state;
+  }
+
+  public closeModal(state: boolean) {
+    this.modalSwitch = state;
   }
 }

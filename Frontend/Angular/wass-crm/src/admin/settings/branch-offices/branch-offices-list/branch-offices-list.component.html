@@ -1,2 +1,4 @@
-<!-- <comp-list [data]="data"></comp-list> -->
-<comp-branch-offices-create></comp-branch-offices-create>
+<!-- <comp-list [data]="data" (showModal)="openModal($event)"></comp-list> -->
+<!-- @if(modalSwitch){ -->
+<comp-branch-offices-create (showModal)="closeModal($event)"></comp-branch-offices-create>
+<!-- } -->
