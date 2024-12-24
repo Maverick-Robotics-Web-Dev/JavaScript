@@ -1,5 +1,5 @@
 export interface BranchOfficeModel {
-  id: number;
+  id?: number;
   status?: boolean;
   status_description?: string;
   create_at?: string;
@@ -13,7 +13,7 @@ export interface BranchOfficeModel {
   cellphone_number: string;
   phone_number?: string;
   email?: string;
-  img?: null;
+  img?: File | null;
 }
 
 export interface BranchOfficeListModel {

@@ -92,7 +92,6 @@ export class BranchOfficesListComponent implements OnInit {
         next: (resp: BranchOfficeListModel) => {
           if (resp.ok) {
             this.branchOfficeListData = resp.data;
-            console.log(this.branchOfficeListData);
           }
         },
         error: (err) => {
