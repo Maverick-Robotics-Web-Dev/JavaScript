@@ -7,6 +7,7 @@ import {
   BranchOfficeRetrieveModel,
 } from '@core/models/settings';
 import { BaseService } from '@core/services';
+import { formData } from '@shared/utils/convert';
 import { BehaviorSubject, finalize, Observable } from 'rxjs';
 
 @Injectable({
@@ -37,8 +38,9 @@ export class BranchOfficesService extends BaseService {
 
   public create(data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
     this.isLoadingSubject.next(true);
+    const frmData = formData(data);
     let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
-      .post<BranchOfficeCrtUptModel>(this.BASE_URL, data)
+      .post<BranchOfficeCrtUptModel>(this.BASE_URL, frmData)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesCreate;

@@ -6,11 +6,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent, BranchOfficesCreateComponent],
+  imports: [ListComponent, BranchOfficesCreateComponent, AsyncPipe],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
 })
@@ -81,6 +82,8 @@ export class BranchOfficesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
+    console.log(this.loading);
+
     this.list();
   }
 

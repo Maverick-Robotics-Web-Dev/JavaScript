@@ -4,6 +4,7 @@ import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficeCrtUptModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
+import { formData } from '@shared/utils/convert';
 
 @Component({
   selector: 'comp-branch-offices-create',
@@ -34,7 +35,7 @@ export class BranchOfficesCreateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: [''],
       phone_number: [''],
-      img: new FormControl<File | null>(null),
+      img: new FormControl<File | string | null>(null),
     });
   }
 
@@ -46,7 +47,6 @@ export class BranchOfficesCreateComponent implements OnInit {
     let target = e.target as HTMLInputElement;
 
     if (target.files && target.files.length > 0) {
-      console.log(target.files[0]);
       this.inputText = target.value;
       this.branchForm.patchValue({ img: target.files[0] });
     }
@@ -59,34 +59,9 @@ export class BranchOfficesCreateComponent implements OnInit {
     // }
   }
 
-  // public createBranch(e: Event) {
-  //   e.preventDefault();
-  //   const formData: FormData = new FormData();
-
-  //   for (let key in this.branchForm.value) {
-  //     formData.set(key, this.branchForm.value[key]);
-  //   }
-
-  //   this._branchOfficesServices
-  //     .create(formData)
-  //     .pipe(takeUntilDestroyed(this._destroy))
-  //     .subscribe({
-  //       next: (resp: BranchOfficeCrtUptModel) => {
-  //         if (resp.ok) {
-  //           this.branchForm.reset();
-  //           this.closeModal();
-  //         }
-  //       },
-  //       error: (err) => {
-  //         this.error = err;
-  //         console.log(err);
-  //       },
-  //     });
-  // }
-
   public createBranch(e: Event) {
     e.preventDefault();
-    console.log(this.branchForm.value);
+
     this._branchOfficesServices
       .create(this.branchForm.value)
       .pipe(takeUntilDestroyed(this._destroy))

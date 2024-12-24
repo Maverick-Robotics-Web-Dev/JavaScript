@@ -356,3 +356,9 @@
 .btn:active .btn-text {
   transform: scale(0.9);
 }
+
+.spinner-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}

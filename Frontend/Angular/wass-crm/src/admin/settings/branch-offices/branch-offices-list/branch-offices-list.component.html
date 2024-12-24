@@ -1,3 +1,8 @@
+@if(!(loading|async)){
+<div class="spinner-container">
+  <div class="spinner"><i class="fa-solid fa-server"></i></div>
+</div>
+}
 <comp-list [data]="branchOfficeListData" (showModal)="openModal($event)"></comp-list>
 @if(modalSwitch){
 <comp-branch-offices-create (showModal)="closeModal($event)"></comp-branch-offices-create>
