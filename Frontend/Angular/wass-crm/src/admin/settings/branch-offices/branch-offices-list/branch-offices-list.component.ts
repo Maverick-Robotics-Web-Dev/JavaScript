@@ -6,12 +6,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent, BranchOfficesCreateComponent, AsyncPipe],
+  imports: [ListComponent, BranchOfficesCreateComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
 })

@@ -26,6 +26,26 @@
         </div>
       </div>
       <div class="card-body">
+        @if(state|async){
+        <div class="backdrop-container">
+          <div class="spinner-container">
+            <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
+            <span class="spinner"></span>
+          </div>
+        </div>
+        <div class="loader">
+          <div class="loader-container">
+            <p class="label-loader">Cargando</p>
+            <div class="words">
+              <span class="word">datos</span>
+              <span class="word">datos</span>
+              <span class="word">datos</span>
+              <span class="word">datos</span>
+              <span class="word">datos</span>
+            </div>
+          </div>
+        </div>
+        }
         <div class="table-wrapper">
           <table class="table">
             <thead>
