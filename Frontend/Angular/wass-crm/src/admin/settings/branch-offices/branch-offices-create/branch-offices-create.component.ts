@@ -15,7 +15,7 @@ import { formData } from '@shared/utils/convert';
 })
 export class BranchOfficesCreateComponent implements OnInit {
   @Input() modalState: boolean = false;
-  @Output() showModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() showModal: EventEmitter<any> = new EventEmitter<any>();
 
   private _branchOfficesServices = inject(BranchOfficesService);
   private _formBuilder: FormBuilder = inject(FormBuilder);
@@ -40,7 +40,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   }
 
   public closeModal(): void {
-    this.showModal.emit(false);
+    this.showModal.emit({ close: false });
   }
 
   public fileChange(e: Event) {
@@ -69,7 +69,7 @@ export class BranchOfficesCreateComponent implements OnInit {
         next: (resp: BranchOfficeCrtUptModel) => {
           if (resp.ok) {
             this.branchForm.reset();
-            this.closeModal();
+            this.showModal.emit({ close: false, resp: resp.ok });
           }
         },
         error: (err) => {
