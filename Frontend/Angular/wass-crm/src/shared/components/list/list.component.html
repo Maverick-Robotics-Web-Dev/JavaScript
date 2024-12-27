@@ -26,26 +26,26 @@
         </div>
       </div>
       <div class="card-body">
-        @if(state|async){
+        @if(state |async){
         <div class="backdrop-container">
           <div class="spinner-container">
             <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
             <span class="spinner"></span>
           </div>
-        </div>
-        <div class="loader">
-          <div class="loader-container">
-            <p class="label-loader">Cargando</p>
-            <div class="words">
-              <span class="word">datos</span>
-              <span class="word">datos</span>
-              <span class="word">datos</span>
-              <span class="word">datos</span>
-              <span class="word">datos</span>
+          <div class="loader">
+            <div class="loader-container">
+              <p class="label-loader">Cargando</p>
+              <div class="words">
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+              </div>
             </div>
           </div>
         </div>
-        }
+        }@else{
         <div class="table-wrapper">
           <table class="table">
             <thead>
@@ -90,17 +90,6 @@
                   } @if(d.status ===false){
                   <span class="cell-badge" [ngClass]="{ 'badge-red': d.status === false }">Inactivo</span>
                   }
-                  <!-- <span
-                    class="cell-badge"
-                    [ngClass]="{
-                      'badge-blue': d.status === 'Approved',
-                      'badge-red': d.status === 'In Progress',
-                      'badge-green': d.status === 'Success',
-                      'badge-purple': d.status === 'Rejected',
-                      'badge-orange': d.status === 'Warning'
-                    }"
-                    >{{ d.status }}
-                  </span> -->
                 </td>
                 <td class="cells-body pr-text-end">
                   <a href="" class="cell-btn"><i class="fa-solid fa-toggle-off"></i></a>
@@ -112,6 +101,7 @@
             </tbody>
           </table>
         </div>
+        }
       </div>
     </div>
   </div>
