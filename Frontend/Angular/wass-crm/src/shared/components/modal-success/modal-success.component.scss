@@ -56,6 +56,7 @@
   border-color: $success;
   color: $success;
   display: flex;
+  animation: swal2-show 0.3s;
 }
 
 .success-circular-line-left {
@@ -77,11 +78,11 @@
   height: 4.06667px;
   border-radius: 0.101562rem;
   background-color: $success;
-  top: 37.3833px;
-  left: 10.5667px;
-  width: 20.3167px;
+  top: 2.3365rem;
+  left: 0.6604rem;
+  width: 1.2698rem;
   transform: rotate(45deg);
-  animation: swal2-animate-success-line-tip 0.75s;
+  // animation: swal2-animate-success-line-tip 0.75s;
 }
 
 .success-line-long {
@@ -95,7 +96,44 @@
   right: 6.5px;
   width: 38.1833px;
   transform: rotate(-45deg);
-  animation: swal2-animate-success-line-long 0.75s;
+  // animation: swal2-animate-success-line-long 0.75s;
+}
+
+.success-ring {
+  position: absolute;
+  z-index: 2;
+  top: -3.25px;
+  left: -3.25px;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  border: 0.1875rem solid rgba(165, 220, 134, 0.3);
+  border-radius: 50%;
+  border-color: rgba($success, 0.3);
+}
+
+.success-fix {
+  position: absolute;
+  background-color: $white;
+  z-index: 1;
+  top: 6.5px;
+  left: 21.1333px;
+  width: 5.68333px;
+  height: 73.1333px;
+  transform: rotate(-45deg);
+}
+
+.success-circular-line-right {
+  position: absolute;
+  height: 97.5px;
+  width: 48.75px;
+  top: -8.93333px;
+  left: 24.3833px;
+  transform: rotate(-45deg);
+  transform-origin: 0px 48.75px;
+  border-radius: 0 97.5px 97.5px 0;
+  background-color: $white;
+  // animation: swal2-rotate-success-circular-line 4.25s ease-in;
 }
 
 @keyframes swal2-show {
@@ -115,29 +153,29 @@
 
 @keyframes swal2-animate-success-line-tip {
   0% {
-    top: 1.1875em;
+    top: 0.1875em;
     left: 0.0625em;
     width: 0;
   }
   54% {
-    top: 1.0625em;
+    top: 0.0625em;
     left: 0.125em;
     width: 0;
   }
   70% {
-    top: 2.1875em;
+    top: 1.1875em;
     left: -0.375em;
     width: 3.125em;
   }
   84% {
-    top: 3em;
+    top: 2em;
     left: 1.3125em;
     width: 1.0625em;
   }
   100% {
-    top: 2.8125em;
-    left: 0.8125em;
-    width: 1.5625em;
+    top: 2.3365rem;
+    left: 0.6604rem;
+    width: 1.2698rem;
   }
 }
 
@@ -161,5 +199,20 @@
     top: 2.375em;
     right: 0.5em;
     width: 2.9375em;
+  }
+}
+
+@keyframes swal2-rotate-success-circular-line {
+  0% {
+    transform: rotate(-45deg);
+  }
+  5% {
+    transform: rotate(-45deg);
+  }
+  12% {
+    transform: rotate(-405deg);
+  }
+  100% {
+    transform: rotate(-405deg);
   }
 }
