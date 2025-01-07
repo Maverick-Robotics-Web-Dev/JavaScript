@@ -136,6 +136,35 @@
   // animation: swal2-rotate-success-circular-line 4.25s ease-in;
 }
 
+.success-message {
+  z-index: 1;
+  margin: 19.5px 22.88px 4.29px;
+  padding: 0;
+  line-height: normal;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  color: #252f4a;
+  max-height: 200px;
+  overflow: auto;
+  display: block;
+}
+
+.success-btn {
+  z-index: 1;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 0;
+  margin: 19.5px auto 13px auto;
+  display: flex;
+}
+
+.confirm-btn {
+}
+
 @keyframes swal2-show {
   0% {
     transform: scale(0.7);
