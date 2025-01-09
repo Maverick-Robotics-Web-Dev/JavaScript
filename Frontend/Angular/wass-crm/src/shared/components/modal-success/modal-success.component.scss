@@ -163,6 +163,32 @@
 }
 
 .confirm-btn {
+  text-transform: none;
+  appearance: button;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+  user-select: none;
+  border-radius: 0.38594rem;
+  transition: all 0.15s ease-in-out;
+  outline: 0 !important;
+  margin: 15px 5px 0;
+  cursor: pointer;
+  background-color: $semi-light-blue;
+  color: $white;
+  box-shadow: none;
+  padding: 0.692705rem 1.28125rem;
+  border: 0;
+  display: inline-block;
+}
+
+.confirm-btn:hover {
+  color: $white;
+  background-color: $light-blue;
+}
+
+.confirm-btn:active {
+  transform: scale(0.9);
 }
 
 @keyframes swal2-show {

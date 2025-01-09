@@ -1,20 +1,20 @@
-import { Component, DestroyRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficeCrtUptModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
 import { formData } from '@shared/utils/convert';
+import { ModalSuccessComponent } from '@shared/components/modal-success';
 
 @Component({
   selector: 'comp-branch-offices-create',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ModalSuccessComponent],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
 })
 export class BranchOfficesCreateComponent implements OnInit {
-  @Input() modalState: boolean = false;
   @Output() showModal: EventEmitter<any> = new EventEmitter<any>();
 
   private _branchOfficesServices = inject(BranchOfficesService);
@@ -22,7 +22,10 @@ export class BranchOfficesCreateComponent implements OnInit {
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
   public inputText: string = 'Ningun archivo seleccionado';
+  public dataSend = {};
+  public message: string = '';
   public error!: HttpErrorResponse;
+  public success: string = '';
 
   ngOnInit(): void {
     this.branchForm = this._formBuilder.group({
@@ -68,8 +71,11 @@ export class BranchOfficesCreateComponent implements OnInit {
       .subscribe({
         next: (resp: BranchOfficeCrtUptModel) => {
           if (resp.ok) {
-            this.branchForm.reset();
-            this.showModal.emit({ close: false, resp: resp.ok });
+            this.success = resp.ok;
+            this.message=resp.msg
+            this.dataSend = { close: false, resp: resp.ok };
+            // this.branchForm.reset();
+            // this.showModal.emit({ close: false, resp: resp.ok });
           }
         },
         error: (err) => {

@@ -78,11 +78,19 @@
   border: 0;
 }
 
+.modal-btn:active {
+  transform: scale(0.9);
+}
+
 .modal-btn i {
   padding-right: 0;
   display: inline-flex;
   font-size: 1.125rem;
   color: #071437;
+}
+
+.modal-btn:active i {
+  transform: scale(0.9);
 }
 
 .modal-body {

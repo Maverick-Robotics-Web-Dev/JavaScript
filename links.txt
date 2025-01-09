@@ -83,3 +83,8 @@ https://uiverse.io/catraco/green-crab-61
 https://uiverse.io/pradipkaityuiux/mean-yak-69
 https://uiverse.io/KhaledMatalkah/modern-rattlesnake-33
 https://uiverse.io/Chriskoziol/bright-ladybug-86
+
+https://www.youtube.com/watch?v=kzoK2eC4aAU
+https://soka.gitlab.io/angular/conceptos/componentes/comunicacion-entre-componentes/comunicacion-entre-componentes/
+http://blog.enriqueoriol.com/2017/05/comunicacion-servicio-componente-en-angular.html
+https://www-freecodecamp-org.translate.goog/news/how-to-remove-a-property-from-a-javascript-object/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc

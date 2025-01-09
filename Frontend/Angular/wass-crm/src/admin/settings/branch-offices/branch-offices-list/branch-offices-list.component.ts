@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
+import { CommunicationComponentsService } from '@core/services';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -17,6 +18,7 @@ import { ModalSuccessComponent } from '@shared/components/modal-success';
 })
 export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
+  private _communiCompServices = inject(CommunicationComponentsService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
@@ -26,6 +28,7 @@ export class BranchOfficesListComponent implements OnInit {
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
     this.list();
+    // console.log(this._communiCompServices.get);
   }
 
   public list() {
