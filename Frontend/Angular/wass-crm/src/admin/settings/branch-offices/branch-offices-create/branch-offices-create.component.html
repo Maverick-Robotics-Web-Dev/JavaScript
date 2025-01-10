@@ -134,6 +134,6 @@
   </div>
 </div>
 <div class="modal-backdrop"></div>
-@if(success=='OK'){
-<comp-modal-success [data]="dataSend"></comp-modal-success>
-}
+<!-- @if(success=='OK'){ -->
+<comp-modal-success [data]="{ close: false, resp: 'OK' }"></comp-modal-success>
+<!-- } -->

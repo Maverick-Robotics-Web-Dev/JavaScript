@@ -22,7 +22,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
   public inputText: string = 'Ningun archivo seleccionado';
-  public dataSend = {};
+  public dataSend!: any;
   public message: string = '';
   public error!: HttpErrorResponse;
   public success: string = '';
@@ -72,7 +72,7 @@ export class BranchOfficesCreateComponent implements OnInit {
         next: (resp: BranchOfficeCrtUptModel) => {
           if (resp.ok) {
             this.success = resp.ok;
-            this.message=resp.msg
+            this.message = resp.msg;
             this.dataSend = { close: false, resp: resp.ok };
             // this.branchForm.reset();
             // this.showModal.emit({ close: false, resp: resp.ok });

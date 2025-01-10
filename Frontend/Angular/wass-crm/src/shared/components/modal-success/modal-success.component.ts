@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { CommunicationComponentsService } from '@core/services';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommunicationComponentsService } from '@core/services';
   imports: [],
   templateUrl: './modal-success.component.html',
   styleUrl: './modal-success.component.scss',
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalSuccessComponent {
   @Input({ required: true }) data!: any;
@@ -16,7 +17,6 @@ export class ModalSuccessComponent {
   private _communiCompServices = inject(CommunicationComponentsService);
 
   closeModalSuccess() {
-    console.log(this.data);
     this._communiCompServices.setCommunicationData(this.data);
   }
 }
