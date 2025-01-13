@@ -23,7 +23,6 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesList: Observable<BranchOfficeListModel> = this.httpClient
       .get<BranchOfficeListModel>(this.BASE_URL)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
-
     return branchOfficesList;
   }
 

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { CommunicationComponentsService } from '@core/services';
+import { DataSharingService } from '@core/services';
 
 @Component({
   selector: 'comp-modal-success',
@@ -11,12 +11,12 @@ import { CommunicationComponentsService } from '@core/services';
 })
 export class ModalSuccessComponent {
   @Input({ required: true }) data!: any;
-  @Input() message!: string;
+  @Input({ required: true }) message!: string;
   @Output() showModalSuccess: EventEmitter<any> = new EventEmitter<any>();
 
-  private _communiCompServices = inject(CommunicationComponentsService);
+  private _dataSharingService = inject(DataSharingService);
 
   closeModalSuccess() {
-    this._communiCompServices.setCommunicationData(this.data);
+    this._dataSharingService.setDataShare(this.data);
   }
 }

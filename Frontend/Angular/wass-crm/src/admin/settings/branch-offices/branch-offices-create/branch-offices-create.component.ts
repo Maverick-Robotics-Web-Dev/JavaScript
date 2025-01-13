@@ -6,6 +6,7 @@ import { BranchOfficeCrtUptModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
 import { formData } from '@shared/utils/convert';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
+import { DataSharingService } from '@core/services';
 
 @Component({
   selector: 'comp-branch-offices-create',
@@ -19,6 +20,7 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   private _branchOfficesServices = inject(BranchOfficesService);
   private _formBuilder: FormBuilder = inject(FormBuilder);
+  private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
   public inputText: string = 'Ningun archivo seleccionado';
@@ -28,7 +30,15 @@ export class BranchOfficesCreateComponent implements OnInit {
   public success: string = '';
 
   ngOnInit(): void {
-    this.branchForm = this._formBuilder.group({
+    this.branchForm = this.createForm();
+  }
+
+  public closeModal(): void {
+    this._dataSharingService.setDataShare({ close: false });
+  }
+
+  private createForm(): FormGroup {
+    let frm: FormGroup = this._formBuilder.group({
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
       postal_code: [''],
@@ -40,10 +50,8 @@ export class BranchOfficesCreateComponent implements OnInit {
       phone_number: [''],
       img: new FormControl<File | string | null>(null),
     });
-  }
 
-  public closeModal(): void {
-    this.showModal.emit({ close: false });
+    return frm;
   }
 
   public fileChange(e: Event) {
@@ -74,8 +82,6 @@ export class BranchOfficesCreateComponent implements OnInit {
             this.success = resp.ok;
             this.message = resp.msg;
             this.dataSend = { close: false, resp: resp.ok };
-            // this.branchForm.reset();
-            // this.showModal.emit({ close: false, resp: resp.ok });
           }
         },
         error: (err) => {

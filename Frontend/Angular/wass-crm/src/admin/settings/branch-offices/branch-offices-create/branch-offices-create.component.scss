@@ -58,7 +58,7 @@
 
 .modal-btn {
   font-size: 0.771872rem;
-  color: #071437;
+  color: $semi-light-blue;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -86,7 +86,11 @@
   padding-right: 0;
   display: inline-flex;
   font-size: 1.125rem;
-  color: #071437;
+  color: $semi-light-blue;
+}
+
+.modal-btn:hover i {
+  color: $light-blue;
 }
 
 .modal-btn:active i {

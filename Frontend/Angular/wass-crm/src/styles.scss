@@ -323,6 +323,22 @@
   background-color: #0d47a1;
 }
 
+.btn:hover {
+  width: 7.875rem;
+  border-radius: 0.625rem;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  background-color: #0d47a1;
+  border: none;
+  opacity: 0.65;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
 .btn-icon {
   transition: all 0.3s;
   color: #ffffff;
@@ -334,11 +350,6 @@
   width: 100%;
   opacity: 0;
   transition: all 0.3s;
-}
-
-.btn:hover {
-  width: 7.875rem;
-  border-radius: 0.625rem;
 }
 
 .btn:hover .btn-text {

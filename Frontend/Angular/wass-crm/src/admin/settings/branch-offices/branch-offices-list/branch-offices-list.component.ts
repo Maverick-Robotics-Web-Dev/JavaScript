@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
-import { CommunicationComponentsService } from '@core/services';
+import { DataSharingService } from '@core/services';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -20,23 +20,17 @@ import { AsyncPipe } from '@angular/common';
 })
 export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
-  public _communiCompServices = inject(CommunicationComponentsService);
+  private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
   public modalSwitch: boolean = false;
-  public communicationData!: any;
 
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
+    this.sharingData();
     this.list();
-  }
-
-  public changeDetection() {
-    if (this._communiCompServices.getCommunicationData() != null) {
-      console.log(this._communiCompServices.getCommunicationData());
-    }
   }
 
   public list() {
@@ -51,8 +45,20 @@ export class BranchOfficesListComponent implements OnInit {
         },
         error: (err) => {
           this.error = err;
+          console.log(err);
         },
       });
+  }
+
+  public sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+      if (data != null) {
+        this.modalSwitch = data.close;
+        if (data.resp == 'OK') {
+          this.list();
+        }
+      }
+    });
   }
 
   public openModal(state: boolean) {
