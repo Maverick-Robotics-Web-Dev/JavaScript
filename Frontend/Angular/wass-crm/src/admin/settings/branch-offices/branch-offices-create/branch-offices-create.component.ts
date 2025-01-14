@@ -8,6 +8,7 @@ import { formData } from '@shared/utils/convert';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
 import { NgClass } from '@angular/common';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'comp-branch-offices-create',
@@ -15,6 +16,25 @@ import { NgClass } from '@angular/common';
   imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
+  animations: [
+    trigger('fadeInOut', [transition(':enter', [style({ opacity: 0 }), animate('0.15s 0s ease-in', style({ opacity: 0.4 }))])]),
+    // trigger('fadeInOut', [
+    //   state(
+    //     'close',
+    //     style({
+    //       opacity: 0,
+    //     })
+    //   ),
+    //   state(
+    //     'open',
+    //     style({
+    //       opacity: 0.4,
+    //     })
+    //   ),
+    //   transition('open => close', [animate('0.15s linear')]),
+    //   transition('* => open', [animate('0.15s linear')]),
+    // ]),
+  ],
 })
 export class BranchOfficesCreateComponent implements OnInit {
   @Output() showModal: EventEmitter<any> = new EventEmitter<any>();
@@ -43,8 +63,13 @@ export class BranchOfficesCreateComponent implements OnInit {
   public sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
       if (data != null) {
-        if (data.open) {
+        if (data.open == true) {
           this.modalStatus = data.open;
+          console.log(this.modalStatus);
+        }
+        if (data.close == false) {
+          this.modalStatus = data.close;
+          console.log(this.modalStatus);
         }
       }
     });

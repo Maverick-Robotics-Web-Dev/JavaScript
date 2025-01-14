@@ -134,7 +134,7 @@
     </div>
   </div>
 </div>
-<div [className]="modalStatus ? 'modal-backdrop fade modal-backdrop-show' : 'modal-backdrop fade modal-backdrop-fade'"></div>
+<div class="modal-backdrop" @fadeInOut></div>
 @if(success=='OK'){
 <comp-modal-success [data]="dataSend" [message]="message"></comp-modal-success>
 }

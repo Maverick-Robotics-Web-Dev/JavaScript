@@ -16,7 +16,6 @@ import { AsyncPipe } from '@angular/common';
   imports: [ListComponent, BranchOfficesCreateComponent, ModalSuccessComponent, AsyncPipe],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
@@ -53,36 +52,19 @@ export class BranchOfficesListComponent implements OnInit {
   public sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
       next: (data: any) => {
-        console.log(data);
-        console.log(this.modalSwitch);
-
         if (data != null) {
           if (data.open == true) {
             this.modalSwitch = data.open;
-            console.log(this.modalSwitch);
           }
 
           if (data.close == false) {
             this.modalSwitch = data.close;
-            console.log(this.modalSwitch);
           }
           if (data.resp == 'OK') {
             this.list();
           }
         }
-        console.log(this.modalSwitch);
       },
     });
-  }
-
-  public openModal() {
-    // this.modalSwitch = state;
-  }
-
-  public closeModal() {
-    // this.modalSwitch = state.close;
-    // if (state.resp == 'OK') {
-    //   this.list();
-    // }
   }
 }

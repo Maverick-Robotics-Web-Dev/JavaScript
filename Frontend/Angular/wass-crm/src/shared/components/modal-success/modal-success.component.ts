@@ -7,7 +7,6 @@ import { DataSharingService } from '@core/services';
   imports: [],
   templateUrl: './modal-success.component.html',
   styleUrl: './modal-success.component.scss',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalSuccessComponent {
   @Input({ required: true }) data!: any;
