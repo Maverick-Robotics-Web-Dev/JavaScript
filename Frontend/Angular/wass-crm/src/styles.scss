@@ -368,17 +368,6 @@
   transform: scale(0.9);
 }
 
-.backdrop-container {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-direction: column;
-  height: 100vh !important;
-  width: 100% !important;
-  overflow: hidden;
-}
-
 .spinner-container {
   position: relative;
   width: 3.5rem;

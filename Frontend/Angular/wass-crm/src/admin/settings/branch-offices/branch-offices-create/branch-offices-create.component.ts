@@ -7,11 +7,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { formData } from '@shared/utils/convert';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-create',
   standalone: true,
-  imports: [ReactiveFormsModule, ModalSuccessComponent],
+  imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
 })
@@ -28,13 +29,25 @@ export class BranchOfficesCreateComponent implements OnInit {
   public message: string = '';
   public error!: HttpErrorResponse;
   public success: string = '';
+  public modalStatus: boolean = false;
 
   ngOnInit(): void {
     this.branchForm = this.createForm();
+    this.sharingData();
   }
 
   public closeModal(): void {
     this._dataSharingService.setDataShare({ close: false });
+  }
+
+  public sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+      if (data != null) {
+        if (data.open) {
+          this.modalStatus = data.open;
+        }
+      }
+    });
   }
 
   private createForm(): FormGroup {

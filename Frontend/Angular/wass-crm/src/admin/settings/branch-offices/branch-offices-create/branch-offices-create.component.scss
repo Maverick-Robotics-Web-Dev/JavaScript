@@ -11,8 +11,19 @@
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
-  display: block;
   padding-left: 0;
+}
+
+.modal-fade {
+  display: none;
+  opacity: 0;
+  transition: all 0.15s linear;
+}
+
+.modal-show {
+  display: block;
+  // opacity: 1;
+  transition: all 0.15s linear;
 }
 
 .modal-dialog {
@@ -150,7 +161,7 @@
 }
 
 .modal-backdrop {
-  transition: all 0.15s linear;
+  // transition: opacity 0.15s linear;
   position: fixed;
   top: 0;
   left: 0;
@@ -158,5 +169,16 @@
   width: 100vw;
   height: 100vh;
   background-color: $black;
+}
+
+.modal-backdrop-fade {
+  opacity: 0;
+}
+
+.modal-backdrop-show {
   opacity: 0.4;
+}
+
+.fade {
+  transition: opacity 0.15s linear;
 }

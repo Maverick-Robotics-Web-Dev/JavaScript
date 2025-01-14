@@ -88,3 +88,7 @@ https://www.youtube.com/watch?v=kzoK2eC4aAU
 https://soka.gitlab.io/angular/conceptos/componentes/comunicacion-entre-componentes/comunicacion-entre-componentes/
 http://blog.enriqueoriol.com/2017/05/comunicacion-servicio-componente-en-angular.html
 https://www-freecodecamp-org.translate.goog/news/how-to-remove-a-property-from-a-javascript-object/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+https://angular-dev.translate.goog/guide/animations/reusable-animations?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+https://www-angularminds-com.translate.goog/blog/angular-animations-a-beginners-guide?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc&_x_tr_hist=true
+https://www.youtube.com/watch?v=SfXk9rIpEC8
+https://www.youtube.com/watch?v=QFmq2RiPIFA

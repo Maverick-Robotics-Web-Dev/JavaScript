@@ -1,3 +1,4 @@
+<!-- <div class="modal-new"> -->
 <div class="modal-new">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -133,7 +134,7 @@
     </div>
   </div>
 </div>
-<div class="modal-backdrop"></div>
+<div [className]="modalStatus ? 'modal-backdrop fade modal-backdrop-show' : 'modal-backdrop fade modal-backdrop-fade'"></div>
 @if(success=='OK'){
 <comp-modal-success [data]="dataSend" [message]="message"></comp-modal-success>
 }
