@@ -29,7 +29,7 @@ export class BranchOfficesListComponent implements OnInit {
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
     this.list();
-    this.sharingData();
+    // this.sharingData();
   }
 
   public list() {
@@ -49,22 +49,22 @@ export class BranchOfficesListComponent implements OnInit {
       });
   }
 
-  public sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-      next: (data: any) => {
-        if (data != null) {
-          if (data.open == true) {
-            this.modalSwitch = data.open;
-          }
+  // public sharingData() {
+  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
+  //     next: (data: any) => {
+  //       if (data != null) {
+  //         if (data.open == true) {
+  //           this.modalSwitch = data.open;
+  //         }
 
-          if (data.close == false) {
-            this.modalSwitch = data.close;
-          }
-          if (data.resp == 'OK') {
-            this.list();
-          }
-        }
-      },
-    });
-  }
+  //         if (data.close == false) {
+  //           this.modalSwitch = data.close;
+  //         }
+  //         if (data.resp == 'OK') {
+  //           this.list();
+  //         }
+  //       }
+  //     },
+  //   });
+  // }
 }

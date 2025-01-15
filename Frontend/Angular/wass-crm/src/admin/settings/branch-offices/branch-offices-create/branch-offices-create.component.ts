@@ -9,6 +9,7 @@ import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
 import { NgClass } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { createComponentAnimations } from '../branch-offices-animation';
 
 @Component({
   selector: 'comp-branch-offices-create',
@@ -16,12 +17,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [style({ opacity: 0, background: 'black' }), animate('500ms linear', style({ opacity: 0.4, background: 'black' }))]),
-      transition(':leave', [style({ opacity: 0.4, background: 'black' }), animate('500ms linear', style({ opacity: 0, background: 'black' }))]),
-    ]),
-  ],
+  animations: [createComponentAnimations],
 })
 export class BranchOfficesCreateComponent implements OnInit {
   @Output() showModal: EventEmitter<any> = new EventEmitter<any>();
@@ -41,7 +37,6 @@ export class BranchOfficesCreateComponent implements OnInit {
   ngOnInit(): void {
     this.branchForm = this.createForm();
     this.sharingData();
-    console.log(this.modalStatus);
   }
 
   public closeModal(): void {

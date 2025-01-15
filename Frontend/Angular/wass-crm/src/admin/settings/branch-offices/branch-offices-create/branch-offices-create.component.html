@@ -1,6 +1,7 @@
+@if(modalStatus){
 <!-- <div class="modal-new"> -->
-<div class="modal-new">
-  <div class="modal-dialog">
+<div @animateChildren class="modal-new">
+  <div @transformTranslate class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button class="modal-btn" (click)="closeModal()">
@@ -134,7 +135,7 @@
     </div>
   </div>
 </div>
-<div @fadeInOut class="modal-backdrop"></div>
+<div [@fadeInOut]="modalStatus ? 'open' : 'close'" class="modal-backdrop"></div>
 @if(success=='OK'){
 <comp-modal-success [data]="dataSend" [message]="message"></comp-modal-success>
-}
+} }

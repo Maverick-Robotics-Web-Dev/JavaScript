@@ -23,8 +23,8 @@
   align-items: center;
   min-height: calc(100% - 2.84375rem);
   max-width: 40.625rem !important;
-  transition: 0.3s ease-out;
-  transform: none;
+  // transition: 0.3s ease-out;
+  // transform: none;
 }
 
 .modal-content {
@@ -155,8 +155,5 @@
   z-index: 1050;
   width: 100vw;
   height: 100vh;
-  // background: $black;
-  // opacity: 0.4;
-  // animation: fadeInOut 0.15s linear 0s 1 normal forwards;
-  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  background-color: rgba($black, 0.4);
 }
