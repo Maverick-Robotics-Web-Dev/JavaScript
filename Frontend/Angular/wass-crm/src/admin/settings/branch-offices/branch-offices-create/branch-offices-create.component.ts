@@ -17,23 +17,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
   animations: [
-    trigger('fadeInOut', [transition(':enter', [style({ opacity: 0 }), animate('0.15s 0s ease-in', style({ opacity: 0.4 }))])]),
-    // trigger('fadeInOut', [
-    //   state(
-    //     'close',
-    //     style({
-    //       opacity: 0,
-    //     })
-    //   ),
-    //   state(
-    //     'open',
-    //     style({
-    //       opacity: 0.4,
-    //     })
-    //   ),
-    //   transition('open => close', [animate('0.15s linear')]),
-    //   transition('* => open', [animate('0.15s linear')]),
-    // ]),
+    trigger('fadeInOut', [
+      transition(':enter', [style({ opacity: 0, background: 'black' }), animate('500ms linear', style({ opacity: 0.4, background: 'black' }))]),
+      transition(':leave', [style({ opacity: 0.4, background: 'black' }), animate('500ms linear', style({ opacity: 0, background: 'black' }))]),
+    ]),
   ],
 })
 export class BranchOfficesCreateComponent implements OnInit {
@@ -54,6 +41,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   ngOnInit(): void {
     this.branchForm = this.createForm();
     this.sharingData();
+    console.log(this.modalStatus);
   }
 
   public closeModal(): void {
