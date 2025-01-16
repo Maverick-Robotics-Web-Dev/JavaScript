@@ -16,9 +16,16 @@ export const modalSuccessComponentAnimations: AnimationTriggerMetadata[] = [
     ]),
     transition(':leave', [
       animate(
-        '0.3s',
+        '0.15s',
         keyframes([style({ transform: 'scale(1)', opacity: 1, offset: 0 }), style({ transform: 'scale(0.5)', opacity: 0, offset: 1 })])
       ),
+    ]),
+  ]),
+  trigger('showBtn', [
+    transition(':enter', [
+      query('.modal-success-icon', [
+        animate('0.15s', keyframes([style({ transform: 'scale(0)', offset: 0 }), style({ transform: 'scale(1)', offset: 1 })])),
+      ]),
     ]),
   ]),
 ];

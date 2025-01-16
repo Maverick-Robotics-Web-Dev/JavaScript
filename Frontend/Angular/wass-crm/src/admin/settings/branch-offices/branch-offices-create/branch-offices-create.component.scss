@@ -1,7 +1,6 @@
 @import "../../../../shared/styles/variables.scss";
 
 .modal-new {
-  transition: all 0.15s linear;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,8 +22,6 @@
   align-items: center;
   min-height: calc(100% - 2.84375rem);
   max-width: 40.625rem !important;
-  // transition: 0.3s ease-out;
-  // transform: none;
 }
 
 .modal-content {
