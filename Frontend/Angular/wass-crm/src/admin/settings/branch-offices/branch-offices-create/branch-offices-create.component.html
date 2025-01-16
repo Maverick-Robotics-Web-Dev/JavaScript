@@ -121,14 +121,9 @@
             </div>
           </div>
           <div class="col-12 box-group d-flex mt-15">
-            <button class="btn" type="submit" [disabled]="branchForm.invalid">
-              <span class="btn-icon"><i class="fa-solid fa-floppy-disk"></i></span>
-              <span class="btn-text">Guardar</span>
-            </button>
-            <button class="btn" type="button" (click)="closeModal()">
-              <span class="btn-icon"><i class="fa-solid fa-xmark"></i></span>
-              <span class="btn-text">Cancelar</span>
-            </button>
+            <!-- <button class="btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button> -->
+             <button class="btn" type="button" (click)="testButton()"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+            <button class="btn" type="button" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
           </div>
         </form>
       </div>
@@ -136,6 +131,7 @@
   </div>
 </div>
 <div [@fadeInOut]="modalStatus ? 'open' : 'close'" class="modal-backdrop"></div>
-@if(success=='OK'){
-<comp-modal-success [data]="dataSend" [message]="message"></comp-modal-success>
-} }
+<!-- @if(success=='OK'){ -->
+<comp-modal-success [message]="message"></comp-modal-success>
+<!-- }  -->
+}

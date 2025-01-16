@@ -43,6 +43,10 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.setDataShare({ close: false });
   }
 
+  public testButton() {
+    this._dataSharingService.setDataShare({ resp: 'OK' });
+  }
+
   public sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
       if (data != null) {

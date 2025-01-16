@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { DataSharingService } from '@core/services';
+import { modalSuccessComponentAnimations } from './modal-success-animations';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'comp-modal-success',
@@ -7,15 +9,37 @@ import { DataSharingService } from '@core/services';
   imports: [],
   templateUrl: './modal-success.component.html',
   styleUrl: './modal-success.component.scss',
+  animations: [modalSuccessComponentAnimations],
 })
-export class ModalSuccessComponent {
-  @Input({ required: true }) data!: any;
+export class ModalSuccessComponent implements OnInit {
   @Input({ required: true }) message!: string;
-  @Output() showModalSuccess: EventEmitter<any> = new EventEmitter<any>();
 
   private _dataSharingService = inject(DataSharingService);
+  private readonly _destroy: DestroyRef = inject(DestroyRef);
+  public success: boolean = false;
+
+  ngOnInit(): void {
+    this.sharingData();
+  }
 
   closeModalSuccess() {
-    this._dataSharingService.setDataShare(this.data);
+    this._dataSharingService.setDataShare({ close: false, success: false, resp: 'OK' });
+  }
+
+  public sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+      console.log(data);
+
+      if (data != null) {
+        if (data.resp == 'OK') {
+          this.success = true;
+          console.log(this.success);
+        }
+        if (data.success == false) {
+          this.success = data.success;
+          console.log(this.success);
+        }
+      }
+    });
   }
 }

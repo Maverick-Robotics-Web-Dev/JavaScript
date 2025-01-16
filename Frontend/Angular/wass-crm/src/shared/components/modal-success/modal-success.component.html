@@ -1,5 +1,6 @@
-<div class="modal-success-backdrop">
-  <div class="modal-success">
+@if(success){
+<div @animateChildren class="modal-success-backdrop">
+  <div @showModal class="modal-success">
     <div class="modal-success-icon">
       <div class="success-circular-line-left"></div>
       <span class="success-line-tip"></span>
@@ -14,3 +15,4 @@
     </div>
   </div>
 </div>
+}

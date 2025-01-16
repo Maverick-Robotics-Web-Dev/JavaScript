@@ -1,15 +1,7 @@
 import { animate, animateChild, AnimationTriggerMetadata, query, style, transition, trigger } from '@angular/animations';
 
-// export const createComponentAnimations = {
-//   fadeInOut: trigger('fadeInOut', [
-//     transition(':enter', [style({ opacity: 0 }), animate('0.15s linear', style({ opacity: 1 }))]),
-//     transition(':leave', [style({ opacity: 1 }), animate('0.15s linear', style({ opacity: 0 }))]),
-//   ]),
-// };
-
-export const createComponentAnimations = [
+export const createComponentAnimations: AnimationTriggerMetadata[] = [
   trigger('animateChildren', [transition('* => void', [query('@*', [animateChild()])])]),
-  ,
   trigger('fadeInOut', [
     transition(':enter', [style({ opacity: 0 }), animate('0.15s linear', style({ opacity: 1 }))]),
     transition(':leave', [style({ opacity: 1 }), animate('0.15s 0.1s linear', style({ opacity: 0 }))]),
@@ -25,8 +17,3 @@ export const createComponentAnimations = [
     ]),
   ]),
 ];
-
-// export const fadeInOutAnimation: AnimationTriggerMetadata = trigger('fadeInOut', [
-//   transition(':enter', [style({ opacity: 0 }), animate('0.15s linear', style({ opacity: 1 }))]),
-//   transition(':leave', [style({ opacity: 1 }), animate('0.15s linear', style({ opacity: 0 }))]),
-// ]);
