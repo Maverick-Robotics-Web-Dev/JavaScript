@@ -1,7 +1,8 @@
 import { animate, animateChild, AnimationTriggerMetadata, keyframes, query, style, transition, trigger } from '@angular/animations';
 
 export const modalSuccessComponentAnimations: AnimationTriggerMetadata[] = [
-  trigger('animateChildren', [transition('* => void', [query('@*', [animateChild()])])]),
+  // trigger('animateStateChildren', [transition('* <=> void', [query('@*', [animateChild()])])]),
+  trigger('animateChildren', [transition(':enter, :leave', [query('@*', animateChild())])]),
   trigger('showModal', [
     transition(':enter', [
       animate(
@@ -16,16 +17,12 @@ export const modalSuccessComponentAnimations: AnimationTriggerMetadata[] = [
     ]),
     transition(':leave', [
       animate(
-        '0.15s',
+        '0.25s',
         keyframes([style({ transform: 'scale(1)', opacity: 1, offset: 0 }), style({ transform: 'scale(0.5)', opacity: 0, offset: 1 })])
       ),
     ]),
   ]),
   trigger('showBtn', [
-    transition(':enter', [
-      query('.modal-success-icon', [
-        animate('0.15s', keyframes([style({ transform: 'scale(0)', offset: 0 }), style({ transform: 'scale(1)', offset: 1 })])),
-      ]),
-    ]),
+    transition(':enter', [animate('0.15s', keyframes([style({ transform: 'scale(0)', offset: 0 }), style({ transform: 'scale(1)', offset: 1 })]))]),
   ]),
 ];
