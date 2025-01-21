@@ -1,8 +1,7 @@
 import { animate, animateChild, AnimationTriggerMetadata, keyframes, query, style, transition, trigger } from '@angular/animations';
 
 export const modalSuccessComponentAnimations: AnimationTriggerMetadata[] = [
-  // trigger('animateStateChildren', [transition('* <=> void', [query('@*', [animateChild()])])]),
-  trigger('animateChildren', [transition(':enter, :leave', [query('@*', animateChild())])]),
+  trigger('animateChildren', [transition(':enter, :leave', [query('@*', animateChild(), { optional: true })])]),
   trigger('showModal', [
     transition(':enter', [
       animate(

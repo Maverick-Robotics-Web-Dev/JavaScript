@@ -1,5 +1,4 @@
 @if(modalStatus){
-<!-- <div class="modal-new"> -->
 <div @animateChildren class="modal-new">
   <div @transformTranslate class="modal-dialog">
     <div class="modal-content">
@@ -121,8 +120,7 @@
             </div>
           </div>
           <div class="col-12 box-group d-flex mt-15">
-            <!-- <button class="btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button> -->
-            <button class="btn" type="button" (click)="testButton()"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+            <button class="btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
             <button class="btn" type="button" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
           </div>
         </form>
@@ -130,8 +128,6 @@
     </div>
   </div>
 </div>
-<div [@fadeInOut]="modalStatus ? 'open' : 'close'" class="modal-backdrop"></div>
-<!-- @if(success=='OK'){ -->
-<comp-modal-success [message]="message" @animateChildren></comp-modal-success>
-<!-- }  -->
+<div @fadeInOut class="modal-backdrop"></div>
 }
+<comp-modal-success [message]="message"></comp-modal-success>

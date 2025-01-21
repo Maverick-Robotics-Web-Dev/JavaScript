@@ -4,17 +4,14 @@ import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficeCrtUptModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
-import { formData } from '@shared/utils/convert';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
-import { NgClass } from '@angular/common';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { createComponentAnimations } from '../branch-offices-animation';
 
 @Component({
   selector: 'comp-branch-offices-create',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
+  imports: [ReactiveFormsModule, ModalSuccessComponent],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
   animations: [createComponentAnimations],
@@ -28,10 +25,8 @@ export class BranchOfficesCreateComponent implements OnInit {
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
   public inputText: string = 'Ningun archivo seleccionado';
-  public dataSend!: any;
   public message: string = '';
   public error!: HttpErrorResponse;
-  public success: string = '';
   public modalStatus: boolean = false;
 
   ngOnInit(): void {
@@ -43,8 +38,20 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.setDataShare({ close: false });
   }
 
-  public testButton() {
-    this._dataSharingService.setDataShare({ resp: 'OK' });
+  public fileChange(e: Event) {
+    let target = e.target as HTMLInputElement;
+
+    if (target.files && target.files.length > 0) {
+      this.inputText = target.value;
+      this.branchForm.patchValue({ img: target.files[0] });
+    }
+
+    // if (target.files && target.files.length > 0) {
+    //   console.log(target.files[0]);
+    //   await fileToBase64(target.files[0])
+    //     .then((res: string) => console.log(res))
+    //     .catch((error) => console.log(error));
+    // }
   }
 
   public sharingData() {
@@ -79,22 +86,6 @@ export class BranchOfficesCreateComponent implements OnInit {
     return frm;
   }
 
-  public fileChange(e: Event) {
-    let target = e.target as HTMLInputElement;
-
-    if (target.files && target.files.length > 0) {
-      this.inputText = target.value;
-      this.branchForm.patchValue({ img: target.files[0] });
-    }
-
-    // if (target.files && target.files.length > 0) {
-    //   console.log(target.files[0]);
-    //   await fileToBase64(target.files[0])
-    //     .then((res: string) => console.log(res))
-    //     .catch((error) => console.log(error));
-    // }
-  }
-
   public createBranch(e: Event) {
     e.preventDefault();
 
@@ -104,9 +95,8 @@ export class BranchOfficesCreateComponent implements OnInit {
       .subscribe({
         next: (resp: BranchOfficeCrtUptModel) => {
           if (resp.ok) {
-            this.success = resp.ok;
             this.message = resp.msg;
-            this.dataSend = { close: false, resp: resp.ok };
+            this._dataSharingService.setDataShare({ resp: resp.ok, success: true });
           }
         },
         error: (err) => {

@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { DataSharingService } from '@core/services';
 import { Observable } from 'rxjs';
 
@@ -18,7 +18,6 @@ export class ListComponent {
   private _dataSharingService = inject(DataSharingService);
 
   public openModal() {
-    // this.showModal.emit(true);
     this._dataSharingService.setDataShare({ open: true });
   }
 }

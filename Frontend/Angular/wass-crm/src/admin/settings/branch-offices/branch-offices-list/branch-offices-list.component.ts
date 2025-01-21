@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ListComponent } from '@shared/components/list';
 import { BranchOfficesService } from '../branch-offices.service';
 import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
@@ -6,16 +6,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
-import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
-import { AsyncPipe } from '@angular/common';
+import { createComponentAnimations } from '../branch-offices-animation';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent, BranchOfficesCreateComponent, ModalSuccessComponent, AsyncPipe],
+  imports: [ListComponent, BranchOfficesCreateComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
+  animations: [createComponentAnimations],
 })
 export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
@@ -24,12 +24,11 @@ export class BranchOfficesListComponent implements OnInit {
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
-  public modalSwitch: boolean = false;
 
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
     this.list();
-    // this.sharingData();
+    this.sharingData();
   }
 
   public list() {
@@ -49,22 +48,15 @@ export class BranchOfficesListComponent implements OnInit {
       });
   }
 
-  // public sharingData() {
-  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-  //     next: (data: any) => {
-  //       if (data != null) {
-  //         if (data.open == true) {
-  //           this.modalSwitch = data.open;
-  //         }
-
-  //         if (data.close == false) {
-  //           this.modalSwitch = data.close;
-  //         }
-  //         if (data.resp == 'OK') {
-  //           this.list();
-  //         }
-  //       }
-  //     },
-  //   });
-  // }
+  public sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
+      next: (data: any) => {
+        if (data != null) {
+          if (data.resp == 'OK') {
+            this.list();
+          }
+        }
+      },
+    });
+  }
 }
