@@ -4,4 +4,5 @@ export {
   BranchOfficeRetrieveModel,
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
+  BranchOfficeState,
 } from './branch-offices';

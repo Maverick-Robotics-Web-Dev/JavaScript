@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
   BranchOfficeListModel,
   BranchOfficeModel,
   BranchOfficeRetrieveModel,
+  BranchOfficeState,
 } from '@core/models/settings';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
@@ -61,5 +62,28 @@ export class BranchOfficesService extends BaseService {
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesDelete;
+  }
+
+  private state = signal<BranchOfficeState>({
+    loading: true,
+    data: [],
+  });
+
+  public listSignal() {
+    this.isLoadingSubject.next(true);
+    this.httpClient
+      .get<BranchOfficeListModel>(this.BASE_URL)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)))
+      .subscribe({
+        next: (resp: BranchOfficeListModel) => {
+          if (resp.ok) {
+            // this.branchOfficeListData = resp.data;
+          }
+        },
+        error: (err) => {
+          // this.error = err;
+          console.log(err);
+        },
+      });
   }
 }
