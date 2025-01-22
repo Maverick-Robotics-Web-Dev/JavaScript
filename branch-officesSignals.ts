@@ -41,3 +41,11 @@ export interface BranchOfficeDeleteModel {
   error?: string;
   msg: string;
 }
+
+export interface BranchOfficeState {
+  ok?: string;
+  error?: string;
+  msg?: string;
+  data?: BranchOfficeModel[];
+  loading?: boolean;
+}

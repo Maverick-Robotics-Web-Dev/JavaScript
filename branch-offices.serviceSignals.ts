@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
   BranchOfficeListModel,
   BranchOfficeModel,
   BranchOfficeRetrieveModel,
+  BranchOfficeState,
 } from '@core/models/settings';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
@@ -62,5 +63,43 @@ export class BranchOfficesService extends BaseService {
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesDelete;
+  }
+
+  private loading: WritableSignal<boolean> = signal<boolean>(true);
+  private state: WritableSignal<BranchOfficeState> = signal<BranchOfficeState>({});
+  public stateRead = computed(() => this.state());
+  public loadingRead = computed(() => this.loading());
+  // public state = signal<BranchOfficeState>({
+  //   loading: true,
+  //   data: [],
+  // });
+  // public data: Signal<{} | undefined> = computed(() => this.state().data);
+  // public loading: Signal<boolean | undefined> = computed(() => this.state().loading);
+
+  public listSignal() {
+    this.isLoadingSubject.next(true);
+    this.httpClient.get<BranchOfficeListModel>(this.BASE_URL).subscribe({
+      next: (resp: BranchOfficeListModel) => {
+        // if (resp.ok) {
+        //   if (resp.ok == 'OK') {
+        //     this.state.set({
+        //       loading: false,
+        //       data: resp.data,
+        //     });
+        //     console.log(resp);
+        //   }
+        // }
+        if (resp) {
+          this.state.set(resp);
+          this.loading.set(false);
+        }
+      },
+      error: (err) => {
+        this.state.set({
+          error: err,
+        });
+        console.log(err);
+      },
+    });
   }
 }

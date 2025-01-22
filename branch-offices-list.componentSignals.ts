@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnInit, Signal } from '@angular/core';
 import { ListComponent } from '@shared/components/list';
 import { BranchOfficesService } from '../branch-offices.service';
 import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
@@ -8,6 +8,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -26,10 +27,25 @@ export class BranchOfficesListComponent implements OnInit {
   public loading!: Observable<boolean>;
   public dta!: BranchOfficeModel[] | undefined;
 
+  constructor() {
+    effect(() => {
+      if (this._branchOfficesServices.loadingRead() == false) {
+        this.getData(this._branchOfficesServices.stateRead());
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
     this.list();
+    this.listSignal();
     this.sharingData();
+  }
+
+  public getData(data: any) {
+    if (data.ok == 'OK') {
+      console.log(data);
+    }
   }
 
   public list() {
@@ -59,5 +75,9 @@ export class BranchOfficesListComponent implements OnInit {
         }
       },
     });
+  }
+
+  public listSignal() {
+    this._branchOfficesServices.listSignal();
   }
 }
