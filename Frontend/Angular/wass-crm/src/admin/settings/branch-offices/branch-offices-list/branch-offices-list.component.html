@@ -1,2 +1,7 @@
+<div>
+  @for (dta of _branchOfficesServices.data(); track $index) {
+  <div>{{ dta.name }}</div>
+  }
+</div>
 <comp-list [data]="branchOfficeListData" [state]="loading"></comp-list>
 <comp-branch-offices-create></comp-branch-offices-create>

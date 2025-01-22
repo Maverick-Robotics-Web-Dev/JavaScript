@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, Signal, signal } from '@angular/core';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
@@ -18,6 +18,11 @@ export class BranchOfficesService extends BaseService {
   private BASE_URL: string = `${this.RESTAPI_URL}/settings/branch-offices/`;
   public isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
+
+  constructor() {
+    super();
+    this.listSignal();
+  }
 
   public list(): Observable<BranchOfficeListModel> {
     this.isLoadingSubject.next(true);
@@ -64,26 +69,33 @@ export class BranchOfficesService extends BaseService {
     return branchOfficesDelete;
   }
 
-  private state = signal<BranchOfficeState>({
+  public state = signal<BranchOfficeState>({
     loading: true,
     data: [],
   });
 
+  public data: Signal<BranchOfficeModel[] | undefined> = computed(() => this.state().data);
+  public loading: Signal<boolean | undefined> = computed(() => this.state().loading);
+
   public listSignal() {
     this.isLoadingSubject.next(true);
-    this.httpClient
-      .get<BranchOfficeListModel>(this.BASE_URL)
-      .pipe(finalize(() => this.isLoadingSubject.next(false)))
-      .subscribe({
-        next: (resp: BranchOfficeListModel) => {
-          if (resp.ok) {
-            // this.branchOfficeListData = resp.data;
+    this.httpClient.get<BranchOfficeListModel>(this.BASE_URL).subscribe({
+      next: (resp: BranchOfficeListModel) => {
+        if (resp.ok) {
+          if (resp.ok == 'OK') {
+            this.state.set({
+              loading: false,
+              data: resp.data,
+            });
           }
-        },
-        error: (err) => {
-          // this.error = err;
-          console.log(err);
-        },
-      });
+        }
+      },
+      error: (err) => {
+        this.state.set({
+          error: err,
+        });
+        console.log(err);
+      },
+    });
   }
 }

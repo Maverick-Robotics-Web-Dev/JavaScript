@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnInit, Signal } from '@angular/core';
 import { ListComponent } from '@shared/components/list';
 import { BranchOfficesService } from '../branch-offices.service';
 import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
@@ -8,6 +8,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -18,17 +19,30 @@ import { createComponentAnimations } from '../branch-offices-animation';
   animations: [createComponentAnimations],
 })
 export class BranchOfficesListComponent implements OnInit {
-  private _branchOfficesServices = inject(BranchOfficesService);
+  public _branchOfficesServices = inject(BranchOfficesService);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
+  public dta!: BranchOfficeModel[] | undefined;
+
+  constructor() {
+    effect(() => {
+      if (this._branchOfficesServices.loading() == false) {
+        this.getData(this._branchOfficesServices.data());
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
     this.list();
     this.sharingData();
+  }
+
+  public getData(data: any) {
+    console.log(data);
   }
 
   public list() {
@@ -37,7 +51,7 @@ export class BranchOfficesListComponent implements OnInit {
       .pipe(takeUntilDestroyed(this._destroy))
       .subscribe({
         next: (resp: BranchOfficeListModel) => {
-          if (resp.ok) {
+          if (resp.ok == 'OK') {
             this.branchOfficeListData = resp.data;
           }
         },

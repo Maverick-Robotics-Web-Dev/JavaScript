@@ -59,11 +59,9 @@ export class BranchOfficesCreateComponent implements OnInit {
       if (data != null) {
         if (data.open == true) {
           this.modalStatus = data.open;
-          console.log(this.modalStatus);
         }
         if (data.close == false) {
           this.modalStatus = data.close;
-          console.log(this.modalStatus);
         }
       }
     });
