@@ -424,6 +424,16 @@
   animation: keyframes-blink 0.8s infinite ease-in-out;
 }
 
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(black, 0.4);
+}
+
 @keyframes keyframes-rotate {
   0% {
     transform: rotate(360deg);

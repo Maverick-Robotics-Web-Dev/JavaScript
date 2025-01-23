@@ -8,11 +8,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
+import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent, BranchOfficesCreateComponent],
+  imports: [ListComponent, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],

@@ -36,7 +36,7 @@
   border: 0 solid rgba(0, 0, 0, 0.175);
   box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
   outline: 0;
-  border-radius: 0.385935rem !important;
+  border-radius: 0.625rem !important;
 }
 
 .modal-header {
@@ -143,14 +143,4 @@
   margin-top: 0.40625rem;
   font-size: 0.75rem;
   color: #dc3545;
-}
-
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba($black, 0.4);
 }
