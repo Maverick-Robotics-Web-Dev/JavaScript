@@ -9,3 +9,19 @@
   width: 100%;
   z-index: 1055;
 }
+
+.modal-dialog {
+  height: 370px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: darkred;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+}
