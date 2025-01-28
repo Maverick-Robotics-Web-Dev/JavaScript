@@ -90,4 +90,5 @@ https://codepen.io/godbayd/pen/qJJPLQ
 https://codepen.io/genarocolusso/pen/PoGzXwa
 https://codepen.io/peteyio/pen/YzWBbRx?editors=1100
 https://codepen.io/mrReiha/pen/RwPgLeM
+https://codepen.io/john-mantas/pen/bxmrBq
 https://bulma.io/documentation/elements/button/
