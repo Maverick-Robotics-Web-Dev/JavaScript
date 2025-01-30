@@ -20,16 +20,19 @@
   pointer-events: none;
   display: flex;
   align-items: center;
+  justify-content: end;
   min-height: calc(100% - 2.84375rem);
   max-width: 80% !important;
+  background-color: $black;
+  border-radius: 0.625rem !important;
 }
 
 .modal-background-image {
-  // background-color: darkred;
   background-position: center;
   background-size: cover;
   position: absolute;
   height: 100%;
+  opacity: 0.6;
   width: 100%;
   transition: all 0.3s ease;
   border-radius: 0.625rem !important;
@@ -40,12 +43,71 @@
 // }
 
 .modal-content {
-  background-color: $white;
-  height: calc(100% - 30px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 40%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 15px;
+  pointer-events: auto;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 0 solid rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
+  outline: 0;
   border-radius: 0.625rem !important;
+  height: calc(100% - 30px);
+  // height: 100%;
+  // top: 0;
+  // right: 0;
+  margin: 15px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 0 !important;
+  border-width: 0 !important;
+  background-color: $semi-light-blue;
+  color: $white;
+  width: 100%;
+  height: 60px;
+  border-top-left-radius: 0.625rem;
+  border-top-right-radius: 0.625rem;
+}
+
+.modal-title {
+  flex: 1;
+}
+
+.modal-btn-wrapper {
+}
+
+.modal-btn {
+  font-size: 0.771872rem;
+  color: $white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.34531rem;
+  background-color: transparent;
+  transition: 0.15s ease-in-out;
+  outline: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  height: 2.17708rem;
+  width: 2.17708rem;
+  box-shadow: none;
+  border: 0;
+}
+
+.modal-btn i {
+  padding-right: 0;
+  display: inline-flex;
+  font-size: 1.125rem;
+  color: $white;
 }
