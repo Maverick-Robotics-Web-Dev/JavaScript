@@ -7,8 +7,8 @@
   z-index: 1055;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  // overflow-x: hidden;
+  // overflow-y: auto;
   outline: 0;
   padding-left: 0;
 }
@@ -43,7 +43,7 @@
 // }
 
 .modal-content {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -54,10 +54,8 @@
   outline: 0;
   border-radius: 0.625rem !important;
   height: calc(100% - 30px);
-  // height: 100%;
-  // top: 0;
-  // right: 0;
-  margin: 15px;
+  background-color: $white;
+  margin: 15px 30px 15px 15px;
 }
 
 .modal-header {
@@ -65,12 +63,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  padding: 1.421872rem;
   border: 0 !important;
   border-width: 0 !important;
-  background-color: $semi-light-blue;
+  background-color: $dark-blue;
   color: $white;
   width: 100%;
-  height: 60px;
+  height: 70px;
   border-top-left-radius: 0.625rem;
   border-top-right-radius: 0.625rem;
 }
@@ -84,6 +83,21 @@
 
 .modal-body {
   display: flex;
+  flex: 1 1 auto;
+  padding: 0 1rem 3.046872rem !important;
   flex-wrap: wrap;
   background-color: $white;
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+}
+
+.title-wrapper {
+  width: 100%;
+  float: left;
+  padding: 0.625rem;
+  border: 2px solid $dark-blue;
+  border-radius: 4px;
+  position: relative;
+  text-align: center;
+  color: $light-blue;
 }
