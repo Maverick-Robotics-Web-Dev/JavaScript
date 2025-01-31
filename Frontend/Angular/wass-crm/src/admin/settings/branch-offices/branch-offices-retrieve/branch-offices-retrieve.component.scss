@@ -48,7 +48,6 @@
   flex-direction: column;
   width: 40%;
   pointer-events: auto;
-  background-color: $white;
   background-clip: padding-box;
   border: 0 solid rgba(0, 0, 0, 0.175);
   box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
@@ -77,37 +76,14 @@
 }
 
 .modal-title {
-  flex: 1;
-}
-
-.modal-btn-wrapper {
-}
-
-.modal-btn {
-  font-size: 0.771872rem;
-  color: $white;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 0.34531rem;
-  background-color: transparent;
-  transition: 0.15s ease-in-out;
-  outline: 0 !important;
-  display: inline-flex;
+  flex: 1 1 auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  line-height: 1;
-  height: 2.17708rem;
-  width: 2.17708rem;
-  box-shadow: none;
-  border: 0;
 }
 
-.modal-btn i {
-  padding-right: 0;
-  display: inline-flex;
-  font-size: 1.125rem;
-  color: $white;
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $white;
 }
