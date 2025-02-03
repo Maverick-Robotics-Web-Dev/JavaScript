@@ -8,41 +8,91 @@
     ></div>
     <div class="modal-content">
       <div class="modal-header">
-        <div class="modal-title">
-          <h2>SUCURSAL</h2>
+        <div class="form-label">
+          <h1 class="form-title">Sucursal</h1>
         </div>
       </div>
       <div class="modal-body">
-        <div class="col-12 box-group mt-4">
-          <label class="title-wrapper">Dirección</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Celular</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Telefono</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Zip</label>
-        </div>
-        <div class="col-12 box-group mt">
-          <label class="title-wrapper">Email</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Ciudad</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Estado/Provincia</label>
-        </div>
-        <div class="col-4 box-group mt">
-          <label class="title-wrapper">Pais</label>
-        </div>
-        <div class="col-12 box-group d-flex mt-15">
-          <button class="btn" type="button"><i class="fa-solid fa-xmark"></i>Cancelar</button>
+        <div class="modal-new-form">
+          <div class="col-12 box-group mt-16">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-store"></i></span>
+              <input formControlName="name" type="text" class="input-text" placeholder="Ingrese el Nombre de la Sucursal" />
+            </div>
+          </div>
+          <div class="col-9 box-group">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-map"></i></span>
+              <input formControlName="address" type="text" class="input-text" placeholder="Ingrese la dirección de la Sucursal" />
+            </div>
+          </div>
+          <div class="col-3 box-group">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+              <input formControlName="postal_code" type="text" class="input-text" placeholder="Ingrese Zip" />
+            </div>
+          </div>
+          <div class="col-4 box-group">
+            <label for="" class="required input-title">Ciudad</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-city"></i></span>
+              <input formControlName="city" type="text" class="input-text" placeholder="Ingrese la ciudad" />
+            </div>
+            <div class="message-container">
+              <div class="message">Se requiere la ciudad</div>
+            </div>
+          </div>
+          <div class="col-4 box-group">
+            <label for="" class="required input-title">Estado/Provincia</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-mountain-city"></i></span>
+              <input formControlName="state_province" type="text" class="input-text" placeholder="Ingrese el estado" />
+            </div>
+            <div class="message-container">
+              <div class="message">Se requiere el estado o provincia</div>
+            </div>
+          </div>
+          <div class="col-4 box-group">
+            <label for="" class="required input-title">Pais</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-earth-americas"></i></span>
+              <input formControlName="country" type="text" class="input-text" placeholder="Ingrese el pais" />
+            </div>
+            <div class="message-container">
+              <div class="message">Se requiere el país</div>
+            </div>
+          </div>
+          <div class="col-4 box-group">
+            <label for="" class="required input-title">Celular</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+              <input formControlName="cellphone_number" type="text" class="input-text" placeholder="Ingrese el numero" />
+            </div>
+            <div class="message-container">
+              <div class="message">Se requiere el numero celular</div>
+            </div>
+          </div>
+          <div class="col-8 box-group">
+            <label for="" class="input-title">E-mail</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+              <input formControlName="email" type="text" class="input-text" placeholder="Ingrese el email" />
+            </div>
+          </div>
+          <div class="col-4 box-group">
+            <label for="" class="input-title">Telefono</label>
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-square-phone"></i></span>
+              <input formControlName="phone_number" type="text" class="input-text" placeholder="Ingrese el numero" />
+            </div>
+          </div>
+          <div class="col-12 box-group d-flex mt-15">
+            <button class="btn" type="submit"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+            <button class="btn" type="button"><i class="fa-solid fa-xmark"></i>Cancelar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="modal-backdrop"></div>
+<!-- <div class="modal-backdrop"></div> -->
