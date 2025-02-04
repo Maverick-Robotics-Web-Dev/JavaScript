@@ -129,6 +129,22 @@
   width: 100%;
 }
 
+.btrr {
+  border-top-right-radius: 0.625rem;
+}
+
+.btlr {
+  border-top-left-radius: 0.625rem;
+}
+
+.bbrr {
+  border-bottom-right-radius: 0.625rem;
+}
+
+.bblr {
+  border-bottom-left-radius: 0.625rem;
+}
+
 .box-group {
   max-width: 100%;
   padding-right: 0.5rem;
