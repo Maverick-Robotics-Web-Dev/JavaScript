@@ -69,16 +69,16 @@
   padding-bottom: 0 !important;
 }
 
-.form-label {
+.modal-label {
   margin-bottom: 18px !important;
   text-align: center !important;
 }
 
-.form-title {
+.modal-title {
   margin-top: 0;
   line-height: 1.2;
   color: $white;
-  font-size: 30px;
+  font-size: 22px;
   outline: 0;
   // margin-bottom: 9.75px;
 }
@@ -95,15 +95,16 @@
   scrollbar-color: #f1f1f4 transparent;
 }
 
-.modal-new-form {
+.modal-retrieve-form {
   display: flex;
   flex-wrap: wrap;
-  margin: -1rem -1.25rem 0;
+  margin: 18px -1.25rem 0;
 }
 
-.input-title {
-  display: inline-block;
-  margin-bottom: 0.4063rem;
-  font-family: "Roboto-Medium";
-  font-size: 0.875rem;
+.modal-group {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
 }
