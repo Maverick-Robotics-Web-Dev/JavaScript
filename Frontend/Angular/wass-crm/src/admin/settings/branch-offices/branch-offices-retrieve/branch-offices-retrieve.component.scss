@@ -99,20 +99,26 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  border-radius: 0.625rem;
+  border: 2px solid $dark-blue;
+  height: 46px;
 }
 
 .modal-icon {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0.875rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: $dark-blue;
+  top: -16px;
+  left: 50%;
+  margin-left: -15px;
+  width: 26px;
+  height: 26px;
+  background-color: $dark-blue;
+  color: $white;
+  line-height: 26px;
   text-align: center;
-  white-space: nowrap;
+  border-radius: 50%;
+  font-size: 12px;
 }
 
 .modal-text {
@@ -120,19 +126,18 @@
   margin: 0;
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.8125rem 0.375rem 40px;
+  justify-content: center;
+  padding-top: 12px;
   font-size: 16px;
   letter-spacing: 0.03125rem;
   line-height: 1.5;
   color: $dark-blue;
   appearance: none;
-  background-color: #ffffff;
   background-clip: padding-box;
-  border: 0.125rem solid $dark-blue;
   border-radius: 0.625rem;
   transition: 0.2s ease-in-out;
   flex: 1 1 auto;
-  height: 2.8125rem;
+  height: 46px;
   width: 1%;
   min-width: 0;
   outline: none;
