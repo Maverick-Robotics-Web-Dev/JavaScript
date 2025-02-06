@@ -16,13 +16,13 @@
 .modal-dialog {
   position: relative;
   width: 80%;
-  margin: 22px auto;
+  margin: 20px auto;
   pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100% - 45.5px);
-  height: calc(100% - 45.5px);
+  min-height: calc(100% - 40px);
+  height: calc(100% - 40px);
   border-radius: 0.625rem !important;
   // max-width: 40.625rem !important;
 }
@@ -80,13 +80,13 @@
 
 .modal-body {
   flex: 1 1 auto;
-  padding: 0 3.046872rem 3.046872rem !important;
+  padding: 0 3.046872rem !important;
   background-color: $white;
   border-bottom-right-radius: 0.625rem;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   position: relative;
-  scrollbar-width: thin;
-  scrollbar-color: #f1f1f4 transparent;
+  // scrollbar-width: thin;
+  // scrollbar-color: #f1f1f4 transparent;
 }
 
 .modal-retrieve-form {
@@ -166,6 +166,38 @@
   width: 1%;
   min-width: 0;
   outline: none;
+}
+
+.btn-success {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.425rem;
+  transition: 0.15s ease-in-out;
+  outline: 0 !important;
+  color: #ffffff;
+  background-color: $dark-blue;
+  border: 0;
+  box-shadow: none;
+  padding: 14px 18px;
+}
+
+.btn-success:hover {
+  background-color: $light-blue;
+}
+
+.btn-success:active {
+  transform: scale(0.9);
+}
+
+.btn-success > i {
+  display: inline-flex;
+  margin-right: 0.25rem;
+  padding-right: 0.35rem;
+  font-size: 0.875rem;
 }
 
 .wth-4 {

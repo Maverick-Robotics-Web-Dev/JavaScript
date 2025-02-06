@@ -314,11 +314,11 @@
 }
 
 .mt-26 {
-  margin-top: 24px;
+  margin-top: 26px;
 }
 
 .mt-40 {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .mt-4 {
@@ -344,21 +344,6 @@
   gap: 3.75rem;
 }
 
-// .btn {
-//   position: relative;
-//   display: flex;
-//   font-size: 1rem;
-//   align-items: center;
-//   justify-content: center;
-//   border: none;
-//   border-radius: 50%;
-//   height: 2.5rem;
-//   width: 2.5rem;
-//   transition: all 0.3s;
-//   cursor: pointer;
-//   background-color: #0d47a1;
-// }
-
 .btn {
   display: inline-block;
   font-size: 0.875rem;
@@ -380,11 +365,6 @@
   background-color: #1565c0;
 }
 
-// .btn:hover {
-//   width: 7.875rem;
-//   border-radius: 0.625rem;
-// }
-
 .btn:disabled {
   pointer-events: none;
   background-color: #0d47a1;
@@ -402,34 +382,6 @@
   padding-right: 0.35rem;
   font-size: 0.875rem;
 }
-// .btn-icon {
-//   transition: all 0.3s;
-//   color: #ffffff;
-// }
-
-// .btn-text {
-//   position: absolute;
-//   color: #ffffff;
-//   width: 100%;
-//   opacity: 0;
-//   transition: all 0.3s;
-// }
-
-// .btn:hover .btn-text {
-//   opacity: 1;
-// }
-
-// .btn:hover .btn-icon {
-//   opacity: 0;
-// }
-
-// .btn:active {
-//   transform: scale(0.9);
-// }
-
-// .btn:active .btn-text {
-//   transform: scale(0.9);
-// }
 
 .spinner-container {
   position: relative;
