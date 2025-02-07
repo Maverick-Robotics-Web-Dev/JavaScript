@@ -33,11 +33,11 @@ export interface BranchOfficeCrtUptModel {
   ok?: string;
   error?: string;
   data?: BranchOfficeModel;
-  msg: string;
+  msg?: string;
 }
 
 export interface BranchOfficeDeleteModel {
   ok?: string;
   error?: string;
-  msg: string;
+  msg?: string;
 }

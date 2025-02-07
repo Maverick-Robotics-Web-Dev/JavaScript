@@ -13,11 +13,14 @@ import { Observable } from 'rxjs';
 export class ListComponent {
   @Input({ required: true }) data!: any[];
   @Input({ required: true }) state!: Observable<boolean>;
-  @Output() showModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private _dataSharingService = inject(DataSharingService);
 
   public openModal() {
     this._dataSharingService.setDataShare({ open: true });
+  }
+
+  public getId(id: number) {
+    console.log(id);
   }
 }

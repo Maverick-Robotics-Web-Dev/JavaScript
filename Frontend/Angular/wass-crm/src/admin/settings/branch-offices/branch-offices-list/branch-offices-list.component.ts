@@ -19,13 +19,12 @@ import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
   animations: [createComponentAnimations],
 })
 export class BranchOfficesListComponent implements OnInit {
-  public _branchOfficesServices = inject(BranchOfficesService);
+  private _branchOfficesServices = inject(BranchOfficesService);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
-  public dta!: BranchOfficeModel[] | undefined;
 
   ngOnInit(): void {
     this.loading = this._branchOfficesServices.isLoading$;
@@ -33,7 +32,7 @@ export class BranchOfficesListComponent implements OnInit {
     this.sharingData();
   }
 
-  public list() {
+  private list() {
     this._branchOfficesServices
       .list()
       .pipe(takeUntilDestroyed(this._destroy))
@@ -50,7 +49,7 @@ export class BranchOfficesListComponent implements OnInit {
       });
   }
 
-  public sharingData() {
+  private sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
       next: (data: any) => {
         if (data != null) {

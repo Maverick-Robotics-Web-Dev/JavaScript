@@ -17,15 +17,13 @@ import { createComponentAnimations } from '../branch-offices-animation';
   animations: [createComponentAnimations],
 })
 export class BranchOfficesCreateComponent implements OnInit {
-  @Output() showModal: EventEmitter<any> = new EventEmitter<any>();
-
   private _branchOfficesServices = inject(BranchOfficesService);
   private _formBuilder: FormBuilder = inject(FormBuilder);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
   public inputText: string = 'Ningun archivo seleccionado';
-  public message: string = '';
+  public message: string | undefined = '';
   public error!: HttpErrorResponse;
   public modalStatus: boolean = false;
 
@@ -54,7 +52,7 @@ export class BranchOfficesCreateComponent implements OnInit {
     // }
   }
 
-  public sharingData() {
+  private sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
       if (data != null) {
         if (data.open == true) {
@@ -92,7 +90,7 @@ export class BranchOfficesCreateComponent implements OnInit {
       .pipe(takeUntilDestroyed(this._destroy))
       .subscribe({
         next: (resp: BranchOfficeCrtUptModel) => {
-          if (resp.ok) {
+          if (resp.ok == 'OK') {
             this.message = resp.msg;
             this._dataSharingService.setDataShare({ resp: resp.ok, success: true });
           }

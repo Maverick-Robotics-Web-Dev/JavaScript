@@ -80,10 +80,9 @@
 
 .modal-body {
   flex: 1 1 auto;
-  padding: 0 3.046872rem !important;
-  background-color: $white;
+  padding: 0 2.375rem 2.375rem !important;
   border-bottom-right-radius: 0.625rem;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   position: relative;
   // scrollbar-width: thin;
   // scrollbar-color: #f1f1f4 transparent;

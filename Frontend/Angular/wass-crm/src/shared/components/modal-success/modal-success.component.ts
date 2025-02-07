@@ -12,7 +12,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   animations: [modalSuccessComponentAnimations],
 })
 export class ModalSuccessComponent implements OnInit {
-  @Input({ required: true }) message!: string;
+  @Input({ required: true }) message!: string | undefined;
 
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
