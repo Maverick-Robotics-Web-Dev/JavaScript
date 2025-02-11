@@ -1,3 +1,4 @@
+@if(modalStatus){
 <div class="modal-retrieve">
   <div class="modal-dialog">
     <div class="modal-content btlr bblr">
@@ -77,7 +78,7 @@
           </div>
           <div class="col-2 box-group mt-26"></div>
           <div class="col-12 box-group d-flex mt-40">
-            <button class="btn-success" type="button"><i class="fa-solid fa-check"></i>Aceptar</button>
+            <button class="btn-success" type="button" (click)="closeModal()"><i class="fa-solid fa-check"></i>Aceptar</button>
           </div>
         </div>
       </div>
@@ -85,3 +86,4 @@
   </div>
 </div>
 <div class="modal-backdrop"></div>
+}

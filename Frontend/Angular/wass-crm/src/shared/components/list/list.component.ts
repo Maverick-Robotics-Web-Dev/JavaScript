@@ -17,10 +17,10 @@ export class ListComponent {
   private _dataSharingService = inject(DataSharingService);
 
   public openModal() {
-    this._dataSharingService.setDataShare({ open: true });
+    this._dataSharingService.setDataShare({ openCreate: true });
   }
 
-  public getId(id: number) {
-    console.log(id);
+  public getId(id: string) {
+    this._dataSharingService.setDataShare({ openRetrieve: true, id: id });
   }
 }

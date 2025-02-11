@@ -37,7 +37,7 @@ export class BranchOfficesService extends BaseService {
 
   public create(data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
     this.isLoadingSubject.next(true);
-    const frmData = formData(data);
+    const frmData: FormData = formData(data);
     let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
       .post<BranchOfficeCrtUptModel>(this.BASE_URL, frmData)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));

@@ -23,7 +23,7 @@ export class ModalSuccessComponent implements OnInit {
   }
 
   closeModalSuccess() {
-    this._dataSharingService.setDataShare({ close: false, success: false, resp: 'OK' });
+    this._dataSharingService.setDataShare({ closeCreate: false, success: false, resp: 'OK' });
   }
 
   public sharingData() {

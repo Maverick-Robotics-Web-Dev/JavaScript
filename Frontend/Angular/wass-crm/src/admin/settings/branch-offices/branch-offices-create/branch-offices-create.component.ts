@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef,  inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -32,8 +32,21 @@ export class BranchOfficesCreateComponent implements OnInit {
     this.sharingData();
   }
 
+  private sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+      if (data != null) {
+        if (data.openCreate == true) {
+          this.modalStatus = data.openCreate;
+        }
+        if (data.closeCreate == false) {
+          this.modalStatus = data.closeCreate;
+        }
+      }
+    });
+  }
+
   public closeModal(): void {
-    this._dataSharingService.setDataShare({ close: false });
+    this._dataSharingService.setDataShare({ closeCreate: false });
   }
 
   public fileChange(e: Event) {
@@ -50,19 +63,6 @@ export class BranchOfficesCreateComponent implements OnInit {
     //     .then((res: string) => console.log(res))
     //     .catch((error) => console.log(error));
     // }
-  }
-
-  private sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
-      if (data != null) {
-        if (data.open == true) {
-          this.modalStatus = data.open;
-        }
-        if (data.close == false) {
-          this.modalStatus = data.close;
-        }
-      }
-    });
   }
 
   private createForm(): FormGroup {

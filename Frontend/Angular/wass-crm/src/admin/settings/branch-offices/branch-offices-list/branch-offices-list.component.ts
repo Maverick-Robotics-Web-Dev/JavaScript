@@ -32,6 +32,18 @@ export class BranchOfficesListComponent implements OnInit {
     this.sharingData();
   }
 
+  private sharingData() {
+    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
+      next: (data: any) => {
+        if (data != null) {
+          if (data.resp == 'OK') {
+            this.list();
+          }
+        }
+      },
+    });
+  }
+
   private list() {
     this._branchOfficesServices
       .list()
@@ -47,17 +59,5 @@ export class BranchOfficesListComponent implements OnInit {
           console.log(err);
         },
       });
-  }
-
-  private sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-      next: (data: any) => {
-        if (data != null) {
-          if (data.resp == 'OK') {
-            this.list();
-          }
-        }
-      },
-    });
   }
 }
