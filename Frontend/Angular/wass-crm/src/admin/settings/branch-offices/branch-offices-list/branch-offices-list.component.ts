@@ -1,5 +1,4 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { ListComponent } from '@shared/components/list';
 import { BranchOfficesService } from '../branch-offices.service';
 import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -9,11 +8,12 @@ import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
+import { AsyncPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [ListComponent, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
+  imports: [AsyncPipe, NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],
@@ -42,6 +42,14 @@ export class BranchOfficesListComponent implements OnInit {
         }
       },
     });
+  }
+
+  public openModal() {
+    this._dataSharingService.setDataShare({ openCreate: true });
+  }
+
+  public getId(id: number) {
+    this._dataSharingService.setDataShare({ openRetrieve: true, id: id });
   }
 
   private list() {

@@ -301,8 +301,16 @@
   transform: scale(0.9);
 }
 
+.mt--16 {
+  margin-top: -6px;
+}
+
 .mt-0 {
   margin-top: 0;
+}
+
+.mt-12 {
+  margin-top: 10px;
 }
 
 .mt-18 {
@@ -389,16 +397,17 @@
 
 .spinner-container {
   position: relative;
-  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 3.5rem;
   height: 3.5rem;
 }
 
 .spinner {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: 3.5rem;
+  height: 3.5rem;
   border: 1px solid #1e88e5;
   border-bottom: 1px solid transparent;
   border-radius: 100%;

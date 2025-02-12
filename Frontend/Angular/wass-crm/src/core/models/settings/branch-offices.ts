@@ -1,5 +1,5 @@
 export interface BranchOfficeModel {
-  id?: number;
+  id: number;
   status?: boolean;
   status_description?: string;
   create_at?: string;

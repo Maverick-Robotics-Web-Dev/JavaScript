@@ -1,3 +1,112 @@
-<comp-list [data]="branchOfficeListData" [state]="loading"></comp-list>
+<!-- <comp-list [data]="branchOfficeListData" [state]="loading"></comp-list> -->
 <comp-branch-offices-create />
 <comp-branch-offices-retrieve />
+
+<div class="toolbar">
+  <div class="toolbar-container">
+    <div class="page-label-wrapper">
+      <span class="page-title">Tables</span>
+      <span class="page-subtitle">Home</span>
+    </div>
+    <div class="btn-actions-wrapper">
+      <a href="" class="btn-actions"><i class="fa-solid fa-filter"></i>Filter</a>
+      <a href="" class="btn-actions btn-enabled">Create</a>
+    </div>
+  </div>
+</div>
+<div class="list-container">
+  <div class="list-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="input-wrapper">
+          <input type="text" class="input-search" />
+          <label for="" class="input-label">
+            <i class="icon-search fa-solid fa-magnifying-glass"></i>
+            Search
+          </label>
+        </div>
+        <div class="btn-toolbar-wrapper">
+          <button type="button" class="btn-toolbar" (click)="openModal()"><i class="fa-solid fa-plus"></i>Nuevo</button>
+        </div>
+      </div>
+      <div class="card-body">
+        @if(loading |async){
+        <div class="backdrop-container">
+          <div class="spinner-container">
+            <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
+            <span class="spinner"></span>
+          </div>
+          <div class="loader">
+            <div class="loader-container">
+              <p class="label-loader">Cargando</p>
+              <div class="words">
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+                <span class="word">datos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        }@else{
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr class="row-head">
+                <th class="cells-head cell-xl rounded-start">Sucursal</th>
+                <th class="cells-head cell-sm">Telefonos</th>
+                <th class="cells-head cell-sm">Email</th>
+                <th class="cells-head cell-lg">Ciudad</th>
+                <th class="cells-head cell-md">Status</th>
+                <th class="cells-head cell-lg rounded-end"></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(data of branchOfficeListData;track $index){
+              <tr class="row-body">
+                <td class="cells-body pl">
+                  <div class="cell-group">
+                    <div class="cell-img">
+                      <img [src]="data.img" alt="" />
+                    </div>
+                    <div class="cell-label">
+                      <a href="" class="cell-text-up">{{ data.name }}</a>
+                      <span class="cell-text-down">{{ data.address }}</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="cells-body">
+                  <a href="" class="cell-text-up d-block">{{ data.cellphone_number }}</a>
+                  <span class="cell-text-down">{{ data.phone_number }}</span>
+                </td>
+                <td class="cells-body">
+                  <a href="" class="cell-text-up d-block">{{ data.email }}</a>
+                  <!-- <span class="cell-text-down">{{ d.condition }}</span> -->
+                </td>
+                <td class="cells-body">
+                  <a href="" class="cell-text-up d-block">{{ data.city }}</a>
+                  <span class="cell-text-down">{{ data.state_province }}'-'{{ data.country }}</span>
+                </td>
+                <td class="cells-body">
+                  @if(data.status === true){
+                  <span class="cell-badge" [ngClass]="{ 'badge-green': data.status === true }">Activo</span>
+                  } @if(data.status ===false){
+                  <span class="cell-badge" [ngClass]="{ 'badge-red': data.status === false }">Inactivo</span>
+                  }
+                </td>
+                <td class="cells-body pr-text-end">
+                  <button type="button" class="cell-btn" (click)="getId(data.id)"><i class="fa-solid fa-eye"></i></button>
+                  <button type="button" class="cell-btn"><i class="fa-solid fa-pencil"></i></button>
+                  <button type="button" class="cell-btn"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

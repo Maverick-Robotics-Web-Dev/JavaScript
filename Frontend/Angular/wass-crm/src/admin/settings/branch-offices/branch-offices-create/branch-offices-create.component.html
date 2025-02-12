@@ -1,20 +1,28 @@
 @if(modalStatus){
+
 <div @animateChildren class="modal-new">
   <div @transformTranslate class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <!-- <div class="col-12 box-group mt-0">
+          <div class="form-label">
+            <i class="fa-solid fa-shop title-icon"></i>
+            <h1 class="form-title">Crear Sucursal</h1>
+          </div>
+        </div> -->
         <button class="modal-btn" (click)="closeModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
+      <div class="col-12 box-group mt--16 pd-0">
+        <div class="form-label">
+          <i class="fa-solid fa-shop title-icon"></i>
+          <h1 class="form-title">Crear Sucursal</h1>
+        </div>
+      </div>
       <div class="modal-body">
         <form [formGroup]="branchForm" (submit)="createBranch($event)" class="modal-new-form">
           <div class="col-12 box-group">
-            <div class="form-label">
-              <h1 class="form-title">Sucursal</h1>
-            </div>
-          </div>
-          <div class="col-12 box-group mt-0">
             <label for="" class="required input-title">Nombre</label>
             <div class="input-group">
               <span class="input-icon"><i class="fa-solid fa-store"></i></span>
