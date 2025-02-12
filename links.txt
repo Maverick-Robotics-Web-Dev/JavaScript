@@ -18,42 +18,12 @@ https://cssgrid-generator.netlify.app/
 https://animista.net/play/entrances/flicker-in
 https://webcode.tools/css-generator/keyframe-animation
 https://www.colorzilla.com/gradient-editor/
-
-TEMPLATES
-https://demo.templatemonster.com/es/demo/346337.html?_gl=1*1r9t4wj*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTc5OC4xMi4wLjA.
-
-https://demo.templatemonster.com/es/demo/341078.html?_gl=1*1ea0dsp*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTgxOS41MS4wLjA.
-
-https://demo.templatemonster.com/es/demo/376047.html?_gl=1*19z7fqa*_gcl_au*MTU0MTI5MDUxMS4xNzMxNDI1NzU3*_ga*Mzk5NjQ5NjAuMTczMTQyNTc1MQ..*_ga_FTPYEGT5LY*MTczMTQyNTc1MC4xLjEuMTczMTQyNTc3My4zNy4wLjA.
-
 https://coolors.co/palette/e3f2fd-bbdefb-90caf9-64b5f6-42a5f5-2196f3-1e88e5-1976d2-1565c0-0d47a1
 https://coolors.co/palette/000814-001d3d-003566-ffc300-ffd60a
 https://coolors.co/palette/8ecae6-219ebc-023047-ffb703-fb8500
 
-https://www.youtube.com/watch?v=mZ3G-C91OEI
 https://www.youtube.com/watch?v=MNpgyTNpJjg
-https://www.youtube.com/watch?v=8z56WbJ5DM0
 
-https://preview.keenthemes.com/metronic8/demo57/index.html
-https://preview.keenthemes.com/metronic8/demo40/widgets/tables.html
-https://preview.keenthemes.com/metronic8/demo1/widgets/tables.html#
-https://preview.keenthemes.com/metronic8/demo18/index.html?mode=light
-https://preview.keenthemes.com/metronic8/demo20/index.html?mode=light
-
-LOADERS
-https://uiverse.io/Abrar-Hussain1/lovely-rabbit-61
-https://uiverse.io/Smit-Prajapati/tricky-turtle-16
-https://uiverse.io/vinodjangid07/popular-owl-27
-https://uiverse.io/SelfMadeSystem/pretty-treefrog-77
-https://uiverse.io/Nawsome/cowardly-squid-50
-https://uiverse.io/Shoh2008/selfish-crab-11
-https://uiverse.io/fanishah/fat-dodo-89
-https://uiverse.io/Smit-Prajapati/tender-goose-72
-https://uiverse.io/Uncannypotato69/tough-earwig-63
-https://uiverse.io/JaydipPrajapati1910/strong-zebra-9
-https://uiverse.io/G4b413l/hot-crab-48
-https://uiverse.io/JeremGamingYT/lovely-octopus-20
-https://uiverse.io/fanishah/calm-dingo-24
 
 BUTTONS
 https://uiverse.io/abrahamcalsin/sour-donkey-65
@@ -67,31 +37,8 @@ https://uiverse.io/AqFox/pretty-lionfish-11
 https://uiverse.io/njesenberger/thin-owl-11
 https://uiverse.io/Pradeepsaranbishnoi/jolly-robin-0
 
-FEEDBACK
-https://www-itsolutionstuff-com.translate.goog/post/angular-18-file-uplzoad-tutorial-exampleexample.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
-https://uploadcare-com.translate.goog/blog/how-to-upload-files-in-angular/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
-https://certidevs.com/tutorial-angular-subir-archivo-formulario
-https://www-filestack-com.translate.goog/fileschool/angular/angular-file-upload-tutorial/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
-https://medium.com/@paul.pietzko/custom-file-uploader-angular-18-ca566131f128
-https://www.youtube.com/watch?v=0Y-aiawjkXc
-https://www.youtube.com/watch?v=oruiytokUwo
-https://www.youtube.com/watch?v=xlVWrtzSQ-E
-
 TODAY
-https://uiverse.io/Uncannypotato69/shaggy-emu-40
-https://uiverse.io/catraco/green-crab-61
-https://uiverse.io/pradipkaityuiux/mean-yak-69
 https://uiverse.io/KhaledMatalkah/modern-rattlesnake-33
-https://uiverse.io/Chriskoziol/bright-ladybug-86
-
-https://codepen.io/JavaScriptJunkie/pen/WgRBxw
-https://codepen.io/daiquiri/pen/GWpPKP?editors=1100
-https://codepen.io/godbayd/pen/qJJPLQ
-https://codepen.io/genarocolusso/pen/PoGzXwa
-https://codepen.io/peteyio/pen/YzWBbRx?editors=1100
-https://codepen.io/mrReiha/pen/RwPgLeM
-https://codepen.io/john-mantas/pen/bxmrBq
-https://bulma.io/documentation/elements/button/
 
 2025
 https://codepen.io/kayfo23/pen/KoZOzB
@@ -105,3 +52,8 @@ https://codepen.io/steveeeie/pen/NVWMEM
 https://codepen.io/AlecMenke/pen/bNxgRR?editors=1100
 https://codigofuente.io/diseno-de-tarjeta-de-estilo-rpg-con-html-css/
 1366x768
+
+https://demo.plainadmin.com/datatables
+https://demo.tailadmin.com/data-tables.html
+https://templates.iqonic.design/hope-ui/html/dist/dashboard/table/table-data.html
+https://colorlib.com/polygon/metis/
