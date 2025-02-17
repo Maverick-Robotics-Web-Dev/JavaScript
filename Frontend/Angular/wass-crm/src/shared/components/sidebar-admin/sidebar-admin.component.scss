@@ -1,7 +1,8 @@
 @import "../../styles/variables.scss";
 
 .sidebar-nav {
-  background: $dark-blue;
+  // background: $dark-blue;
+  background: $white;
   width: $sidebar-width;
   height: 100vh;
   padding: 20px 0;
@@ -40,13 +41,25 @@
 }
 
 .menu-group-label {
+  position: relative;
   margin-bottom: 20px;
   font-size: 12px;
   text-transform: uppercase;
   line-height: 20px;
-  color: $sky-light-blue;
+  color: $dark-blue;
+  letter-spacing: 1px;
   padding-left: 20px;
 }
+
+// .menu-group-label::before {
+//   content: "";
+//   position: absolute;
+//   right: 0;
+//   top: 50%;
+//   width: 104px;
+//   height: 1px;
+//   background-color: $sky-light-blue;
+// }
 
 .menu-item {
   position: relative;
@@ -57,8 +70,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  // color: #9aa4ca;
-  color: $sky-blue;
+  color: #9aa4ca;
   font-size: 14px;
   width: 100%;
   position: relative;
@@ -81,6 +93,7 @@
   width: 100%;
   transition: all 0.3s ease-out 0s;
   font-family: "Roboto-Medium";
+  letter-spacing: 0.6px;
 }
 
 .divider {
@@ -91,7 +104,7 @@
 
 .line-divider {
   margin: 16px 0;
-  color: $sky-blue;
+  color: #9aa4ca;
   border: 0;
   border-top: 1px solid;
   // opacity: 0.25;
