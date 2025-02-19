@@ -164,7 +164,7 @@
   font-weight: inherit;
   line-height: inherit;
   letter-spacing: inherit;
-  color: inherit;
+  color: $dark-blue;
   margin: 0;
   padding: 0;
   text-transform: none;
@@ -202,5 +202,32 @@
 
 .search-input::placeholder {
   opacity: 1;
-  color: rgb(152 162 179 / 1);
+  // color: rgb(152 162 179 / 1);
+  color: rgba(13, 71, 161, 0.7);
+}
+
+.search-shortcut {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-weight: inherit;
+  margin: 0;
+  text-transform: none;
+  background-image: none;
+  position: absolute;
+  right: 0.625rem;
+  top: 50%;
+  display: inline-flex;
+  transform: translate(0, -50%) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+  align-items: center;
+  gap: 0.125rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(228 231 236 / 1);
+  background-color: rgb(249 250 251 / 1);
+  padding: 4.5px 7px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: -0.2px;
+  color: rgb(102 112 133 / 1);
 }
