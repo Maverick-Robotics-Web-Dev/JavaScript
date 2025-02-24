@@ -160,11 +160,12 @@
   font-family: inherit;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: inherit;
   line-height: inherit;
   letter-spacing: inherit;
-  color: $dark-blue;
+  // color: $dark-blue;
+  color: rgba(13, 71, 161, 0.7);
   margin: 0;
   padding: 0;
   text-transform: none;
@@ -197,8 +198,15 @@
   line-height: 1.25rem;
   // color: #1e375a;
   color: $dark-blue;
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  box-shadow: 0px 1px 2px 0px rgba(13, 71, 161, 0.05);
   width: 430px;
+}
+
+.search-input:focus {
+  border-color: $dark-blue;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 calc(3px + 0px) rgba(13, 71, 161, 0.1);
 }
 
 .search-input::placeholder {
@@ -257,4 +265,97 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.nav-right-item-btn {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  line-height: 24px;
+  letter-spacing: inherit;
+  padding: 0;
+  margin: 0;
+  text-transform: none;
+  background-image: none;
+  appearance: button;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border-width: 1px;
+  border-color: rgb(228 231 236 / 1);
+  background-color: rgb(255 255 255 / 1);
+  color: rgb(13 71 161 / 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-right-item-btn:hover {
+  color: $white;
+  background-color: $dark-blue;
+  border-color: rgba(13, 71, 161, 0.7);
+}
+
+.profile-user-info {
+  position: relative;
+}
+
+.profile-info-group {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: $dark-blue;
+}
+
+.profile-info-image {
+  margin-right: 0.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.profile-info-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-info {
+  margin-right: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.profile-name {
+  font-family: "Roboto-Medium";
+  text-align: left;
+}
+
+.profile-role,
+.profile-last {
+  font-family: "Roboto-Medium";
+  font-size: 12px;
+  text-align: left;
+}
+
+.arrow-down-btn {
+  touch-action: none;
+  display: block;
+  color: $dark-blue;
+  font-size: 12px;
+}
+
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1536px;
+  // padding: 1.5rem;
+  padding: 0 2.5rem;
 }

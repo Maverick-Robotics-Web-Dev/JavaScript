@@ -78,7 +78,11 @@
               <span class="profile-info-image">
                 <img src="img\users\user3-128x128.jpg" alt="" class="profile-info-img" />
               </span>
-              <span class="profile-info">Emirhan Boruch</span>
+              <div class="profile-info">
+                <span class="profile-name">Emirhan Boruch</span>
+                <!-- <span class="profile-role">Role: <span>Admin</span></span> -->
+                <!-- <span class="profile-last">Last Access: <span>16 Mar 16:32</span></span> -->
+              </div>
               <span class="arrow-down-btn"><i class="fa-solid fa-chevron-down"></i></span>
             </a>
           </div>
@@ -87,6 +91,14 @@
       <!--===== Navbar End =====-->
     </header>
     <!--===== Header End =====-->
+    <!--===== Main Content Start =====-->
+    <main>
+      <div class="main-content">
+        <router-outlet />
+      </div>
+      <footer class="main-footer"></footer>
+    </main>
   </div>
   <!--===== Content Area End =====-->
 </div>
+<!--===== Page Wrapper End =====-->

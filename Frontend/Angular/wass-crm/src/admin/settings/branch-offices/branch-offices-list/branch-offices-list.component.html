@@ -1,8 +1,10 @@
-<!-- <comp-list [data]="branchOfficeListData" [state]="loading"></comp-list> -->
-<comp-branch-offices-create />
-<comp-branch-offices-retrieve />
-
-<div class="toolbar">
+<div>
+  <div class="page-header-toolbar">
+    <h2 class="page-title">Sucursales</h2>
+    <button class="btn btn-new">Nuevo<i class="fa-solid fa-plus"></i></button>
+  </div>
+</div>
+<!-- <div class="toolbar">
   <div class="toolbar-container">
     <div class="page-label-wrapper">
       <span class="page-title">Tables</span>
@@ -82,7 +84,6 @@
                 </td>
                 <td class="cells-body">
                   <a href="" class="cell-text-up d-block">{{ data.email }}</a>
-                  <!-- <span class="cell-text-down">{{ d.condition }}</span> -->
                 </td>
                 <td class="cells-body">
                   <a href="" class="cell-text-up d-block">{{ data.city }}</a>
@@ -110,3 +111,5 @@
     </div>
   </div>
 </div>
+<comp-branch-offices-create />
+<comp-branch-offices-retrieve /> -->
