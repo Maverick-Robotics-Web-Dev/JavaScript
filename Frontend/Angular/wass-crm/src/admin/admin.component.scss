@@ -85,11 +85,10 @@
   padding: 0.5rem 0.75rem;
   font-size: 14px;
   line-height: 20px;
-  // color: #1e375a;
   color: $dark-blue;
   letter-spacing: 1px;
   height: 40px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-out 0s;
 }
 
 .menu-item:hover {
@@ -162,13 +161,13 @@
   font-variation-settings: inherit;
   font-size: 16px;
   font-weight: inherit;
-  line-height: inherit;
+  line-height: 24px;
   letter-spacing: inherit;
-  // color: $dark-blue;
   color: rgba(13, 71, 161, 0.7);
   margin: 0;
   padding: 0;
   text-transform: none;
+  appearance: button;
   background-color: transparent;
   background-image: none;
   // cursor: pointer;
@@ -187,9 +186,8 @@
   appearance: none;
   height: 2.75rem;
   border-radius: 0.5rem;
-  border-width: 1px;
-  border-color: rgb(228 231 236 / 1);
-  background-color: transparent;
+  border: 1px solid rgb(239, 239, 239);
+  background-color: rgba(239, 239, 239, 0.5);
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   padding-left: 3rem;
@@ -200,18 +198,19 @@
   color: $dark-blue;
   box-shadow: 0px 1px 2px 0px rgba(13, 71, 161, 0.05);
   width: 430px;
+  transition: all 0.3s ease-out 0s;
 }
 
 .search-input:focus {
   border-color: $dark-blue;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 calc(3px + 0px) rgba(13, 71, 161, 0.1);
+  background-color: $white;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .search-input::placeholder {
   opacity: 1;
-  // color: rgb(152 162 179 / 1);
   color: rgba(13, 71, 161, 0.7);
 }
 
@@ -291,7 +290,8 @@
   border-color: rgb(228 231 236 / 1);
   background-color: rgb(255 255 255 / 1);
   color: rgb(13 71 161 / 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  // transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-out 0s;
 }
 
 .nav-right-item-btn:hover {
