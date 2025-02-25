@@ -34,19 +34,98 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: rgb(255 255 255 / 1);
-  // box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-new {
   border-radius: 0.5rem;
-  // background-color: rgb(13, 71, 161);
-  // background-color: rgb(29 101 171 / 1);
+  // background-color: rgba(13, 71, 161, 0.8);
   background-color: $light-blue;
+  // background-color: #00abe4;
 }
 
 .btn-new:hover {
   background-color: $dark-blue;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.data-table {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-color: rgb(228 231 236 / 1);
+  background-color: rgb(255 255 255 / 1);
+  padding-top: 1rem;
+}
+
+.data-table-header {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.text-dark-blue {
+  color: $dark-blue;
+}
+
+.text-dark-blue-8 {
+  color: rgba(13, 71, 161, 0.7);
+}
+
+.data-number-option {
+  position: relative;
+  z-index: 20;
+  background-color: transparent;
+}
+
+.data-number-select {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  text-transform: none;
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  print-color-adjust: exact;
+  height: 2.25rem;
+  width: 100%;
+  appearance: none;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(208 213 221 / 1);
+  background-color: transparent;
+  background-image: none;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: $dark-blue;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.data-option-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  z-index: 30;
+  transform: translate(0, -50%) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+  color: $dark-blue;
+  font-size: 12px;
 }
 
 // .toolbar {
