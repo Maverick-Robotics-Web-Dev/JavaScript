@@ -230,6 +230,26 @@
   justify-content: space-between;
 }
 
+.head-col-title {
+  margin: 0;
+  // font-size: 16px;
+  line-height: 18px;
+  color: rgba(13, 71, 161, 0.7);
+}
+
+.head-col-arrows {
+  display: flex;
+  flex-direction: column;
+  // gap: 0.125rem;
+  color: rgba(13, 71, 161, 0.7);
+}
+
+.sort-arrows {
+  display: block;
+  font-size: 12px;
+  width: 8px;
+  height: 5px;
+}
 // .toolbar {
 //   display: flex;
 //   align-items: stretch;
