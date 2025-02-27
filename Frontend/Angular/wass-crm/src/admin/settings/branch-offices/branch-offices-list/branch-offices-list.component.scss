@@ -198,58 +198,100 @@
 }
 
 .data-table-content {
-  max-width: 100%;
   overflow-x: auto;
 }
 
 .table {
-  min-width: 1102px;
+  caption-side: bottom;
+  margin-bottom: 1rem;
+  border-color: #dee2e6;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  vertical-align: middle;
 }
 
 .table-header {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  border-top-width: 1px;
-  border-color: rgb(228 231 236 / 1);
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  vertical-align: bottom;
 }
 
-.head-col-span-3 {
-  grid-column: span 3 / span 3;
-  display: flex;
-  align-items: center;
-  border-right-width: 1px;
-  border-color: rgb(228 231 236 / 1);
-  padding: 0.75rem 1rem;
+.header-row {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  color: rgba(13, 71, 161, 0.7);
 }
 
-.head-col-content {
-  display: flex;
+.header-cell {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 9999px transparent;
+  vertical-align: bottom;
+  text-align: left;
+  padding: 15px 10px;
+  // border-color: rgb(228 231 236 / 1);
+  border-color: #efefef;
+  border-style: solid;
+  border-width: 1px;
+  color: rgba(13, 71, 161, 0.7);
+  letter-spacing: 1px;
+}
+
+.bwr-0 {
+  border-right-width: 0px;
+}
+
+.bwl-0 {
+  border-left-width: 0px;
+}
+
+.cell-sm {
+  min-width: 125px !important;
+}
+
+.cell-md {
+  min-width: 150px !important;
+}
+
+.cell-lg {
+  min-width: 200px !important;
+}
+
+.cell-xl {
+  min-width: 325px !important;
+}
+
+.header-cell-content {
+  transition: all 0.3s ease-out 0s;
+  height: 100%;
+  position: relative;
   width: 100%;
-  cursor: pointer;
-  align-items: center;
+  text-decoration: none;
+  color: rgba(13, 71, 161, 0.7);
+  display: flex;
   justify-content: space-between;
 }
 
-.head-col-title {
+.header-cell-title {
   margin: 0;
-  // font-size: 16px;
-  line-height: 18px;
   color: rgba(13, 71, 161, 0.7);
+  font-size: 12px;
 }
 
-.head-col-arrows {
+.header-cell-sort {
   display: flex;
   flex-direction: column;
-  // gap: 0.125rem;
-  color: rgba(13, 71, 161, 0.7);
 }
 
-.sort-arrows {
-  display: block;
+.cell-sort {
+  color: rgba(13, 71, 161, 0.7);
   font-size: 12px;
-  width: 8px;
   height: 5px;
+  width: 8px;
 }
+
 // .toolbar {
 //   display: flex;
 //   align-items: stretch;
