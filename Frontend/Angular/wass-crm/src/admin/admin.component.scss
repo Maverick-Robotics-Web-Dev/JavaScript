@@ -357,4 +357,24 @@
   max-width: 1536px;
   // padding: 1.5rem;
   padding: 0 1.5rem;
+  margin-bottom: 30px;
+}
+
+.admin-footer {
+  position: relative;
+}
+
+.main-footer {
+  padding: 25px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }

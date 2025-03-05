@@ -405,6 +405,114 @@
   text-align: left;
 }
 
+.footer-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  justify-content: flex-end;
+  padding-top: 0;
+}
+
+.footer-btn-text-p {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  line-height: 24px;
+  letter-spacing: inherit;
+  margin: 0;
+  text-transform: none;
+  background-image: none;
+  appearance: button;
+  cursor: pointer;
+  margin-right: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(208 213 221 / 1);
+  background-color: rgb(255 255 255 / 1);
+  padding: 0.625rem 0.875rem;
+  color: $dark-blue;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: all 0.3s ease-out 0s;
+}
+
+.footer-btn-text-p:hover {
+  color: $white;
+  background-color: $dark-blue;
+  border-color: rgba(13, 71, 161, 0.7);
+}
+
+.footer-btn-text-n {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  line-height: 24px;
+  letter-spacing: inherit;
+  margin: 0;
+  text-transform: none;
+  background-image: none;
+  appearance: button;
+  cursor: pointer;
+  margin-left: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(208 213 221 / 1);
+  background-color: rgb(255 255 255 / 1);
+  padding: 0.625rem 0.875rem;
+  color: $dark-blue;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: all 0.3s ease-out 0s;
+}
+
+.footer-btn-text-n:hover {
+  color: $white;
+  background-color: $dark-blue;
+  border-color: rgba(13, 71, 161, 0.7);
+}
+
+.footer-btn-text-disable {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.footer-page {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  background-color: transparent;
+  background-image: none;
+  appearance: button;
+  cursor: pointer;
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: $dark-blue;
+  transition: all 0.3s ease-out 0s;
+}
+
+.footer-page:hover {
+  // color: $dark-blue;
+  color: $white;
+  // background-color: rgba(13, 71, 161, 0.08);
+  background-color: $dark-blue;
+}
+
 .bwr-0 {
   border-right-width: 0px;
 }
