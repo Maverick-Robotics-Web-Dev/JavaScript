@@ -44,7 +44,7 @@ export class BranchOfficesListComponent implements OnInit {
     });
   }
 
-  public openModal() {
+  public openCreate() {
     this._dataSharingService.setDataShare({ openCreate: true });
   }
 
