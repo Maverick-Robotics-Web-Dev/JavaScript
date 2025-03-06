@@ -22,16 +22,21 @@
 
 .form-create {
   position: relative;
-  width: 100%;
-  max-width: 584px;
-  border-radius: 1.5rem;
-  background-color: $white;
-  padding: calc(0.25rem * 10);
+  border-radius: 1rem;
   border: 1px solid $dark-blue;
-  // border: 1px solid rgba(13, 71, 161, 0.6);
+  background-color: $white;
+  // width: 100%;
+  // max-width: 584px;
 }
 
-.close-btn {
+.form-create-header {
+  padding-inline: calc(0.25rem * 6);
+  padding-block: calc(0.25rem * 5);
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-close-btn {
   font: inherit;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
@@ -39,7 +44,7 @@
   opacity: 1;
   appearance: button;
   cursor: pointer;
-  position: absolute;
+  // position: absolute;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -55,17 +60,92 @@
   font-size: 14px;
 }
 
-.close-btn:hover {
+.form-close-btn:hover {
   background-color: $dark-blue;
 }
 
-.form-title {
-  margin-bottom: calc(0.25rem * 6);
-  font-size: 1.125rem;
-  line-height: 28px;
+.form-create-title {
+  font-size: 1rem;
+  line-height: calc(1.5 / 1);
   color: $dark-blue;
-  text-align: center;
 }
+
+.form-create-body {
+  border-top: 1px solid $dark-blue;
+  padding: calc(0.25rem * 6);
+}
+
+.form-create-content {
+  display: grid;
+  column-gap: calc(0.25rem * 6);
+  row-gap: calc(0.25rem * 5);
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+  // grid-template-columns: repeat(1, minmax(0px, 1fr));
+}
+
+.input-label {
+  margin-bottom: calc(0.25rem * 1.5);
+  display: block;
+  font-size: 0.875rem;
+  line-height: 20px;
+  // color: #1e375a;
+  color: $dark-blue;
+  letter-spacing: 1px;
+  font-family: "Roboto-Medium";
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: calc(1 / 2 * 100%);
+  left: calc(0.25rem * 0);
+  translate: 0 -50%;
+  border-right: 1px solid rgba(13, 71, 161, 0.2);
+  padding-inline: calc(0.25rem * 3.5);
+  padding-block: calc(0.25rem * 3);
+  color: $dark-blue;
+}
+
+.input-text {
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: 1px;
+  opacity: 1;
+  appearance: none;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  height: calc(0.25rem * 11);
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(13, 71, 161, 0.2);
+  background-color: transparent;
+  padding-inline: calc(0.25rem * 4);
+  padding-block: calc(0.25rem * 2.5);
+  padding-left: 62px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1e375a;
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.input-text::placeholder {
+  color: rgba(13, 71, 161, 0.7);
+  opacity: 1;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 // .modal-new {
 //   position: fixed;
 //   top: 0;
