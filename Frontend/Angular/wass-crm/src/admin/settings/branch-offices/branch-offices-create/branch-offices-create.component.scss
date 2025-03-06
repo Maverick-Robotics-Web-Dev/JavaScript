@@ -20,6 +20,52 @@
   backdrop-filter: blur(32px);
 }
 
+.form-create {
+  position: relative;
+  width: 100%;
+  max-width: 584px;
+  border-radius: 1.5rem;
+  background-color: $white;
+  padding: calc(0.25rem * 10);
+  border: 1px solid $dark-blue;
+  // border: 1px solid rgba(13, 71, 161, 0.6);
+}
+
+.close-btn {
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: 1px;
+  opacity: 1;
+  appearance: button;
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  background-color: $light-blue;
+  color: $white;
+  transition: all 0.3s ease-out 0s;
+  top: calc(0.25rem * 6);
+  right: calc(0.25rem * 6);
+  height: calc(0.1625rem * 10);
+  width: calc(0.1625rem * 10);
+  font-size: 14px;
+}
+
+.close-btn:hover {
+  background-color: $dark-blue;
+}
+
+.form-title {
+  margin-bottom: calc(0.25rem * 6);
+  font-size: 1.125rem;
+  line-height: 28px;
+  color: $dark-blue;
+  text-align: center;
+}
 // .modal-new {
 //   position: fixed;
 //   top: 0;
