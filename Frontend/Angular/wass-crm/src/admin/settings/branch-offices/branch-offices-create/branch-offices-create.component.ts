@@ -1,4 +1,4 @@
-import { Component, DestroyRef,  inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -7,11 +7,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-create',
   standalone: true,
-  imports: [ReactiveFormsModule, ModalSuccessComponent],
+  imports: [ReactiveFormsModule, ModalSuccessComponent, NgClass],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
   animations: [createComponentAnimations],
@@ -22,7 +23,6 @@ export class BranchOfficesCreateComponent implements OnInit {
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchForm!: FormGroup;
-  public inputText: string = 'Ningun archivo seleccionado';
   public message: string | undefined = '';
   public error!: HttpErrorResponse;
   public modalStatus: boolean = false;
@@ -53,7 +53,6 @@ export class BranchOfficesCreateComponent implements OnInit {
     let target = e.target as HTMLInputElement;
 
     if (target.files && target.files.length > 0) {
-      this.inputText = target.value;
       this.branchForm.patchValue({ img: target.files[0] });
     }
 

@@ -103,13 +103,13 @@
 
 .form-create-body {
   border-top: 1px solid $dark-blue;
-  padding-top: 25px;
+  padding-top: 34px;
 }
 
 .form-create-content {
   display: grid;
   column-gap: calc(0.25rem * 6);
-  row-gap: calc(0.25rem * 5);
+  // row-gap: calc(0.25rem * 5);
   grid-template-columns: repeat(2, minmax(0px, 1fr));
 }
 
@@ -216,6 +216,54 @@
   appearance: button;
 }
 
+.input-success {
+  border-color: #6ce9a6;
+  transition: all 0.3s ease-out 0s;
+}
+
+.input-icon-success {
+  position: absolute;
+  top: calc(1 / 2 * 100%);
+  right: calc(0.25rem * 3.5);
+  translate: 0 -50%;
+  color: #12b76a;
+  transition: all 0.3s ease-out 0s;
+}
+
+.input-error {
+  border-color: #fda29b;
+  transition: all 0.3s ease-out 0s;
+}
+
+.input-icon-error {
+  position: absolute;
+  top: calc(1 / 2 * 100%);
+  right: calc(0.25rem * 3.5);
+  translate: 0 -50%;
+  color: #f04438;
+  opacity: 0;
+  transition: all 0.3s ease-out 0s;
+}
+
+.message-success {
+  margin-top: calc(0.25rem * 1.5);
+  font-size: 12px;
+  line-height: 18px;
+  color: #12b76a;
+  opacity: 0;
+  transition: all 0.3s ease-out 0s;
+}
+
+.message-error {
+  margin-top: calc(0.25rem * 1.5);
+  font-size: 12px;
+  line-height: 18px;
+  color: #f04438;
+  opacity: 0;
+  cursor: default;
+  transition: all 0.3s ease-out 0s;
+}
+
 .push-btn-group {
   margin-top: 30px;
   display: flex;
@@ -253,27 +301,48 @@
   background-color: $dark-blue;
 }
 
-.backdrop-blur {
-  position: fixed;
-  inset: calc(0.25rem * 0);
-  z-index: 1050;
-  width: 100%;
-  height: 100%;
-  background-color: color-mix(in oklab, #98a2b3 50%, transparent);
-  backdrop-filter: blur(32px);
+.push-btn:disabled {
+  pointer-events: none;
+  background-color: rgba($light-blue, 0.7);
+  border: none;
+  opacity: 0.65;
+}
+
+.push-btn:active {
+  transform: scale(0.9);
 }
 
 // .backdrop-blur {
 //   position: fixed;
-//   top: 0;
-//   left: 0;
+//   inset: calc(0.25rem * 0);
 //   z-index: 1050;
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: $black;
-//   opacity: 0.5;
+//   width: 100%;
+//   height: 100%;
+//   background-color: color-mix(in oklab, #98a2b3 50%, transparent);
+//   backdrop-filter: blur(32px);
 // }
 
+.backdrop-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($black, 0.5);
+}
+
+.op-0 {
+  opacity: 0;
+}
+
+.op-1 {
+  opacity: 1;
+}
+
+.mt-6 {
+  margin-top: 6px;
+}
 .backdrop-gray {
   background-color: rgba(239, 239, 239, 0.5);
 }
@@ -288,10 +357,20 @@
 
 .col-span-1 {
   grid-column: span 1 / span 1;
+  margin-bottom: 10px;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
+  margin-bottom: 10px;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+.mb-34 {
+  margin-bottom: 34px;
 }
 
 // .modal-new {
