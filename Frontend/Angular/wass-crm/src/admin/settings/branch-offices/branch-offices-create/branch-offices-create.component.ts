@@ -76,7 +76,7 @@ export class BranchOfficesCreateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: [''],
       phone_number: [''],
-      img: new FormControl<File | string | null>(null),
+      img: new FormControl<File | string | null>('empty'),
     });
 
     return frm;
@@ -92,7 +92,7 @@ export class BranchOfficesCreateComponent implements OnInit {
         next: (resp: BranchOfficeCrtUptModel) => {
           if (resp.ok == 'OK') {
             this.message = resp.msg;
-            this._dataSharingService.setDataShare({ resp: resp.ok, success: true });
+            this._dataSharingService.setDataShare({ success: true });
           }
         },
         error: (err) => {

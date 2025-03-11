@@ -29,7 +29,7 @@ export class ModalSuccessComponent implements OnInit {
   public sharingData() {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
       if (data != null) {
-        if (data.resp == 'OK') {
+        if (data.success == true) {
           this.success = data.success;
         }
         if (data.success == false) {
