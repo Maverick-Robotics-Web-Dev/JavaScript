@@ -1,187 +1,249 @@
 @import "../../styles/variables.scss";
 
-.modal-success-backdrop {
-  display: grid;
-  position: fixed;
-  z-index: 1060;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  grid-template-areas:
-    "top-start    top           top-end   "
-    "center-start center        center-end"
-    "bottom-start bottom-center bottom-end";
-  grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  height: 100%;
-  padding: 0.50781rem;
-  overflow-x: hidden;
-  transition: all 0.1s;
-  overflow-y: hidden !important;
-  background: rgba(0, 0, 0, 0.4);
-}
-
 .modal-success {
-  position: relative;
-  grid-template-columns: minmax(0, 100%);
-  width: 416px;
-  max-width: 100%;
-  border: none;
-  background: $white;
-  color: #545454;
-  background-color: $white;
-  padding: 26px;
-  border-radius: 0.38594rem;
-  display: grid;
-  grid-column: 2;
-  grid-row: 2;
-  align-self: center;
-  justify-self: center;
-}
-
-.modal-success-icon {
-  position: relative;
-  box-sizing: content-box;
-  justify-content: center;
-  width: 4.0625rem;
-  height: 4.0625rem;
-  margin: 2.03125rem auto 0.4875rem;
-  border: 0.1875rem solid transparent;
-  border-radius: 50%;
-  line-height: 4.0625rem;
-  cursor: default;
-  user-select: none;
-  border-color: $success;
-  color: $success;
-  display: flex;
-}
-
-.success-circular-line-left {
-  position: absolute;
-  background-color: $white;
-  width: 3.046872rem;
-  height: 6.09375rem;
-  top: -5.68333px;
-  left: -26.8333px;
-  transform: rotate(-45deg);
-  transform-origin: 3.046872rem 3.046872rem;
-  border-radius: 6.09375rem 0 0 6.09375rem;
-}
-
-.success-line-tip {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  height: 4.06667px;
-  border-radius: 0.101562rem;
-  background-color: $success;
-  top: 2.3365rem;
-  left: 0.6604rem;
-  width: 1.2698rem;
-  transform: rotate(45deg);
-}
-
-.success-line-long {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  height: 4.06667px;
-  border-radius: 0.101562rem;
-  background-color: $success;
-  top: 30.8833px;
-  right: 6.5px;
-  width: 38.1833px;
-  transform: rotate(-45deg);
-}
-
-.success-ring {
-  position: absolute;
-  z-index: 2;
-  top: -3.25px;
-  left: -3.25px;
-  box-sizing: content-box;
+  transition: all 0.15s linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
   width: 100%;
   height: 100%;
-  border: 0.1875rem solid rgba(165, 220, 134, 0.3);
-  border-radius: 50%;
-  border-color: rgba($success, 0.3);
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
 }
 
-.success-fix {
-  position: absolute;
-  background-color: $white;
-  z-index: 1;
-  top: 6.5px;
-  left: 21.1333px;
-  width: 5.68333px;
-  height: 73.1333px;
-  transform: rotate(-45deg);
-}
-
-.success-circular-line-right {
-  position: absolute;
-  height: 97.5px;
-  width: 48.75px;
-  top: -8.93333px;
-  left: 24.3833px;
-  transform: rotate(-45deg);
-  transform-origin: 0px 48.75px;
-  border-radius: 0 97.5px 97.5px 0;
-  background-color: $white;
-}
-
-.success-message {
-  z-index: 1;
-  margin: 19.5px 22.88px 4.29px;
-  padding: 0;
-  line-height: normal;
-  text-align: center;
-  word-wrap: break-word;
-  word-break: break-word;
-  color: #252f4a;
-  max-height: 200px;
-  overflow: auto;
-  display: block;
-}
-
-.success-btn {
-  z-index: 1;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.modal-success-dialog {
+  position: relative;
   width: auto;
-  padding: 0;
-  margin: 19.5px auto 13px auto;
+  margin: 1.75rem;
+  pointer-events: none;
   display: flex;
+  align-items: center;
+  min-height: calc(100% - 1.75rem * 2);
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  transition: all 0.3s ease-out;
+  transform: translate(0, -50px);
+  transform: none;
 }
 
-.confirm-btn {
-  text-transform: none;
-  appearance: button;
-  font-size: 0.875rem;
-  line-height: 1.5;
+.modal-success-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  // border: 1px solid rgba(0, 0, 0, 0.175);
+  border: 1px solid $dark-blue;
+  outline: 0;
   text-align: center;
-  user-select: none;
-  border-radius: 0.38594rem;
-  transition: all 0.15s ease-in-out;
-  outline: 0 !important;
-  margin: 15px 5px 0;
-  cursor: pointer;
-  background-color: $semi-light-blue;
-  color: $white;
-  box-shadow: none;
-  padding: 0.692705rem 1.28125rem;
-  border: 0;
-  display: inline-block;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 25px 30px;
+  position: relative;
+  box-shadow: 0px 12px 24px -4px rgba(145, 158, 171, 0.12), 0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+  border-radius: 7px;
 }
 
-.confirm-btn:hover {
-  color: $white;
-  background-color: $light-blue;
+.modal-success-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
 }
 
-.confirm-btn:active {
-  transform: scale(0.9);
+.modal-success-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($black, 0.5);
 }
+
+// .modal-success-backdrop {
+//   display: grid;
+//   position: fixed;
+//   z-index: 1060;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   grid-template-areas:
+//     "top-start    top           top-end   "
+//     "center-start center        center-end"
+//     "bottom-start bottom-center bottom-end";
+//   grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);
+//   grid-template-columns: auto minmax(0, 1fr) auto;
+//   height: 100%;
+//   padding: 0.50781rem;
+//   overflow-x: hidden;
+//   transition: all 0.1s;
+//   overflow-y: hidden !important;
+//   background: rgba(0, 0, 0, 0.4);
+// }
+
+// .modal-success {
+//   position: relative;
+//   grid-template-columns: minmax(0, 100%);
+//   width: 416px;
+//   max-width: 100%;
+//   border: none;
+//   background: $white;
+//   color: #545454;
+//   background-color: $white;
+//   padding: 26px;
+//   border-radius: 0.38594rem;
+//   display: grid;
+//   grid-column: 2;
+//   grid-row: 2;
+//   align-self: center;
+//   justify-self: center;
+// }
+
+// .modal-success-icon {
+//   position: relative;
+//   box-sizing: content-box;
+//   justify-content: center;
+//   width: 4.0625rem;
+//   height: 4.0625rem;
+//   margin: 2.03125rem auto 0.4875rem;
+//   border: 0.1875rem solid transparent;
+//   border-radius: 50%;
+//   line-height: 4.0625rem;
+//   cursor: default;
+//   user-select: none;
+//   border-color: $success;
+//   color: $success;
+//   display: flex;
+// }
+
+// .success-circular-line-left {
+//   position: absolute;
+//   background-color: $white;
+//   width: 3.046872rem;
+//   height: 6.09375rem;
+//   top: -5.68333px;
+//   left: -26.8333px;
+//   transform: rotate(-45deg);
+//   transform-origin: 3.046872rem 3.046872rem;
+//   border-radius: 6.09375rem 0 0 6.09375rem;
+// }
+
+// .success-line-tip {
+//   display: block;
+//   position: absolute;
+//   z-index: 2;
+//   height: 4.06667px;
+//   border-radius: 0.101562rem;
+//   background-color: $success;
+//   top: 2.3365rem;
+//   left: 0.6604rem;
+//   width: 1.2698rem;
+//   transform: rotate(45deg);
+// }
+
+// .success-line-long {
+//   display: block;
+//   position: absolute;
+//   z-index: 2;
+//   height: 4.06667px;
+//   border-radius: 0.101562rem;
+//   background-color: $success;
+//   top: 30.8833px;
+//   right: 6.5px;
+//   width: 38.1833px;
+//   transform: rotate(-45deg);
+// }
+
+// .success-ring {
+//   position: absolute;
+//   z-index: 2;
+//   top: -3.25px;
+//   left: -3.25px;
+//   box-sizing: content-box;
+//   width: 100%;
+//   height: 100%;
+//   border: 0.1875rem solid rgba(165, 220, 134, 0.3);
+//   border-radius: 50%;
+//   border-color: rgba($success, 0.3);
+// }
+
+// .success-fix {
+//   position: absolute;
+//   background-color: $white;
+//   z-index: 1;
+//   top: 6.5px;
+//   left: 21.1333px;
+//   width: 5.68333px;
+//   height: 73.1333px;
+//   transform: rotate(-45deg);
+// }
+
+// .success-circular-line-right {
+//   position: absolute;
+//   height: 97.5px;
+//   width: 48.75px;
+//   top: -8.93333px;
+//   left: 24.3833px;
+//   transform: rotate(-45deg);
+//   transform-origin: 0px 48.75px;
+//   border-radius: 0 97.5px 97.5px 0;
+//   background-color: $white;
+// }
+
+// .success-message {
+//   z-index: 1;
+//   margin: 19.5px 22.88px 4.29px;
+//   padding: 0;
+//   line-height: normal;
+//   text-align: center;
+//   word-wrap: break-word;
+//   word-break: break-word;
+//   color: #252f4a;
+//   max-height: 200px;
+//   overflow: auto;
+//   display: block;
+// }
+
+// .success-btn {
+//   z-index: 1;
+//   box-sizing: border-box;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: center;
+//   width: auto;
+//   padding: 0;
+//   margin: 19.5px auto 13px auto;
+//   display: flex;
+// }
+
+// .confirm-btn {
+//   text-transform: none;
+//   appearance: button;
+//   font-size: 0.875rem;
+//   line-height: 1.5;
+//   text-align: center;
+//   user-select: none;
+//   border-radius: 0.38594rem;
+//   transition: all 0.15s ease-in-out;
+//   outline: 0 !important;
+//   margin: 15px 5px 0;
+//   cursor: pointer;
+//   background-color: $semi-light-blue;
+//   color: $white;
+//   box-shadow: none;
+//   padding: 0.692705rem 1.28125rem;
+//   border: 0;
+//   display: inline-block;
+// }
+
+// .confirm-btn:hover {
+//   color: $white;
+//   background-color: $light-blue;
+// }
+
+// .confirm-btn:active {
+//   transform: scale(0.9);
+// }

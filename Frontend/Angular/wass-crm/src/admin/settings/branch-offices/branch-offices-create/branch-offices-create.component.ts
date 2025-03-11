@@ -36,6 +36,7 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
       if (data != null) {
         if (data.openCreate == true) {
+          this.branchForm.reset();
           this.modalStatus = data.openCreate;
         }
         if (data.closeCreate == false) {

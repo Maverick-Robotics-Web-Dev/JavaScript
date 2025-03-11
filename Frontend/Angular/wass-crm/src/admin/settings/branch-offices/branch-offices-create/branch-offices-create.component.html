@@ -164,149 +164,15 @@
               </div>
             </div>
           </div>
+          <div class="push-btn-group">
+            <button class="push-btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+            <button class="push-btn" type="button" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
+          </div>
         </form>
-      </div>
-      <div class="push-btn-group">
-        <button class="push-btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
-        <button class="push-btn" type="button" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
       </div>
     </div>
   </div>
 </div>
 <div @fadeInOut class="backdrop-blur"></div>
 }
-
-<!-- @if(modalStatus){
-<div @animateChildren class="modal-new">
-  <div @transformTranslate class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button class="modal-btn" (click)="closeModal()">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="col-12 box-group mt--16 pd-0">
-        <div class="form-label">
-          <i class="fa-solid fa-shop title-icon"></i>
-          <h1 class="form-title">Crear Sucursal</h1>
-        </div>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="branchForm" (submit)="createBranch($event)" class="modal-new-form">
-          <div class="col-12 box-group">
-            <label for="" class="required input-title">Nombre</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-store"></i></span>
-              <input formControlName="name" type="text" class="input-text" placeholder="Ingrese el Nombre de la Sucursal" />
-            </div>
-            @if(branchForm.get('name')?.invalid && branchForm.get('name')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere el nombre de la sucursal</div>
-            </div>
-            }
-          </div>
-          <div class="col-9 box-group">
-            <label for="" class="required input-title">Dirección</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-map"></i></span>
-              <input formControlName="address" type="text" class="input-text" placeholder="Ingrese la dirección de la Sucursal" />
-            </div>
-            @if(branchForm.get('address')?.invalid && branchForm.get('address')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere la dirección de la sucursal</div>
-            </div>
-            }
-          </div>
-          <div class="col-3 box-group">
-            <label for="" class="input-title">Zip</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-map-location-dot"></i></span>
-              <input formControlName="postal_code" type="text" class="input-text" placeholder="Ingrese Zip" />
-            </div>
-          </div>
-          <div class="col-4 box-group">
-            <label for="" class="required input-title">Ciudad</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-city"></i></span>
-              <input formControlName="city" type="text" class="input-text" placeholder="Ingrese la ciudad" />
-            </div>
-            @if(branchForm.get('city')?.invalid && branchForm.get('city')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere la ciudad</div>
-            </div>
-            }
-          </div>
-          <div class="col-4 box-group">
-            <label for="" class="required input-title">Estado/Provincia</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-mountain-city"></i></span>
-              <input formControlName="state_province" type="text" class="input-text" placeholder="Ingrese el estado" />
-            </div>
-            @if(branchForm.get('state_province')?.invalid && branchForm.get('state_province')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere el estado o provincia</div>
-            </div>
-            }
-          </div>
-          <div class="col-4 box-group">
-            <label for="" class="required input-title">Pais</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-earth-americas"></i></span>
-              <input formControlName="country" type="text" class="input-text" placeholder="Ingrese el pais" />
-            </div>
-            @if(branchForm.get('country')?.invalid && branchForm.get('country')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere el país</div>
-            </div>
-            }
-          </div>
-          <div class="col-4 box-group">
-            <label for="" class="required input-title">Celular</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
-              <input formControlName="cellphone_number" type="text" class="input-text" placeholder="Ingrese el numero" />
-            </div>
-            @if(branchForm.get('cellphone_number')?.invalid && branchForm.get('cellphone_number')?.touched){
-            <div class="message-container">
-              <div class="message">Se requiere el numero celular</div>
-            </div>
-            }
-          </div>
-          <div class="col-8 box-group">
-            <label for="" class="input-title">E-mail</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
-              <input formControlName="email" type="text" class="input-text" placeholder="Ingrese el email" />
-            </div>
-          </div>
-          <div class="col-4 box-group">
-            <label for="" class="input-title">Telefono</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-square-phone"></i></span>
-              <input formControlName="phone_number" type="text" class="input-text" placeholder="Ingrese el numero" />
-            </div>
-          </div>
-          <div class="col-8 box-group">
-            <label for="" class="input-title">Imagen</label>
-            <div class="input-group">
-              <span class="input-icon"><i class="fa-solid fa-image"></i></span>
-              <input type="file" id="img" class="hidden" (change)="fileChange($event)" />
-              <label class="input-text" readonly>{{ inputText }}</label>
-              <label type="button" for="img" class="btn-upload">
-                <span class="btn-upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></span>
-                <span class="btn-upload-text">Buscar</span>
-              </label>
-            </div>
-          </div>
-          <div class="col-12 box-group d-flex mt-15">
-            <button class="btn" type="submit" [disabled]="branchForm.invalid"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
-            <button class="btn" type="button" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div @fadeInOut class="modal-backdrop"></div>
-}
-<comp-modal-success [message]="message"></comp-modal-success> -->
+<comp-modal-success [message]="message"></comp-modal-success>
