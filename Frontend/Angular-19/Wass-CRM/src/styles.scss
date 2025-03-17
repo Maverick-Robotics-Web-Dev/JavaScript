@@ -1,0 +1,270 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap);
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../public/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("../public/fonts/roboto/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-BlackItalic";
+  src: url("../public/fonts/roboto/Roboto-BlackItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../public/fonts/roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-BoldItalic";
+  src: url("../public/fonts/roboto/Roboto-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Italic";
+  src: url("../public/fonts/roboto/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../public/fonts/roboto/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-LightItalic";
+  src: url("../public/fonts/roboto/Roboto-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../public/fonts/roboto/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-MediumItalic";
+  src: url("../public/fonts/roboto/Roboto-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../public/fonts/roboto/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-ThinItalic";
+  src: url("../public/fonts/roboto/Roboto-ThinItalic.ttf") format("truetype");
+}
+
+* {
+  font-family: "Roboto-Regular";
+  box-sizing: border-box;
+  margin: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e4e7ec;
+}
+
+body {
+  // background-color: rgb(249 250 251 / 1);
+  background: rgb(241, 245, 249);
+}
+
+.col-1 {
+  flex: 0 0 auto;
+  width: 8.33333333%;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  width: 16.66666667%;
+}
+
+.col-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 41.66666667%;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 58.33333333%;
+}
+
+.col-8 {
+  flex: 0 0 auto;
+  width: 66.66666667%;
+}
+
+.col-9 {
+  flex: 0 0 auto;
+  width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 auto;
+  width: 83.33333333%;
+}
+
+.col-11 {
+  flex: 0 0 auto;
+  width: 91.66666667%;
+}
+
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+// .btn:disabled {
+//   pointer-events: none;
+//   background-color: #0d47a1;
+//   border: none;
+//   opacity: 0.65;
+// }
+
+.spinner-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 3.5rem;
+  height: 3.5rem;
+}
+
+.spinner {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid #1e88e5;
+  border-bottom: 1px solid transparent;
+  border-radius: 100%;
+  animation: keyframes-rotate 0.8s infinite linear;
+}
+
+.spinner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  color: #1e88e5;
+  animation: keyframes-blink 0.8s infinite ease-in-out;
+}
+
+.backdrop-overlay {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.backdrop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@keyframes keyframes-rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes keyframes-blink {
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-container {
+  color: #4a4a4a;
+  font-size: 1.625rem;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  height: 40px;
+  padding: 10px 10px;
+  display: flex;
+  border-radius: 8px;
+}
+
+.words {
+  overflow: hidden;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: #1e88e5;
+  animation: cycle-words 5s infinite;
+}
+
+@keyframes cycle-words {
+  10% {
+    -webkit-transform: translateY(-105%);
+    transform: translateY(-105%);
+  }
+
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  35% {
+    -webkit-transform: translateY(-205%);
+    transform: translateY(-205%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  60% {
+    -webkit-transform: translateY(-305%);
+    transform: translateY(-305%);
+  }
+
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+
+  85% {
+    -webkit-transform: translateY(-405%);
+    transform: translateY(-405%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
+}

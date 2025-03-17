@@ -1,0 +1,89 @@
+@if(modalStatus){ @if(!(loading|async)){
+<div class="modal-retrieve">
+  <div class="modal-dialog">
+    <div class="modal-content btlr bblr">
+      <img
+        src="https://imagenes.elpais.com/resizer/v2/PYLNGDT3NBPFJCO7BFH7566U2M.jpg?auth=256f8a2ddff6269141e8fb860fc2fdf94f304186875288c96ca90c386b0c008c&width=1200"
+        class="modal-background-image"
+      />
+    </div>
+    <div class="modal-content btrr bbrr">
+      <div class="modal-header">
+        <div class="modal-label">
+          <h1 class="modal-title">SUCURSAL</h1>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-retrieve-form">
+          <div class="col-4 box-group mt-40">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-key modal-info-icon"></i>Codigo</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.id }}</label>
+            </div>
+          </div>
+          <div class="col-8 box-group mt-40">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-store modal-info-icon"></i>Nombre</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.name }}</label>
+            </div>
+          </div>
+          <div class="col-8 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-map modal-info-icon"></i>Dirección</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.address }}</label>
+            </div>
+          </div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-map-location-dot modal-info-icon"></i>Zip</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.postal_code }}</label>
+            </div>
+          </div>
+          <div class="col-12 box-group">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-envelope modal-info-icon"></i>Email</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.email }}</label>
+            </div>
+          </div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-mobile-screen-button modal-info-icon"></i>Celular</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.cellphone_number }}</label>
+            </div>
+          </div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-square-phone modal-info-icon"></i>Telefono</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.phone_number }}</label>
+            </div>
+          </div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-earth-americas modal-info-icon"></i>País</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.country }}</label>
+            </div>
+          </div>
+          <div class="col-2 box-group mt-26"></div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-city modal-info-icon"></i>Ciudad</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.city }}</label>
+            </div>
+          </div>
+          <div class="col-4 box-group mt-26">
+            <label for="" class="modal-info-title"><i class="fa-solid fa-mountain-city modal-info-icon"></i>Estado</label>
+            <div class="modal-group">
+              <label class="modal-text">{{ branchOfficeRetrieveData.state_province }}</label>
+            </div>
+          </div>
+          <div class="col-2 box-group mt-26"></div>
+          <div class="col-12 box-group d-flex mt-40">
+            <button class="btn-success" type="button" (click)="closeModal()"><i class="fa-solid fa-check"></i>Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop"></div>
+} }

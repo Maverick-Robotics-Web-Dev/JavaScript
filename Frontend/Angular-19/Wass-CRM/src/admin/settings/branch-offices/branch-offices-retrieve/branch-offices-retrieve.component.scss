@@ -1,0 +1,214 @@
+@use "../../../../shared/styles/variables.scss" as *;
+
+.modal-retrieve {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  padding-left: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 40px);
+  height: calc(100% - 40px);
+  border-radius: 0.625rem !important;
+  // max-width: 40.625rem !important;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  pointer-events: auto;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 0 solid rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
+  outline: 0;
+  // border-radius: 0.625rem !important;
+  // margin: 15px;
+}
+
+.modal-background-image {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 0.385935rem;
+  border-bottom-left-radius: 0.385935rem;
+}
+
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark-blue;
+  padding: 1.421872rem;
+  border-top-right-radius: 0.625rem;
+  border: 0 !important;
+  border-width: 0 !important;
+  padding-bottom: 0 !important;
+  height: 56px;
+}
+
+.modal-label {
+  margin-bottom: 18px !important;
+  text-align: center !important;
+}
+
+.modal-title {
+  margin-top: 0;
+  line-height: 1.2;
+  color: $white;
+  font-size: 22px;
+  outline: 0;
+  // margin-bottom: 9.75px;
+}
+
+.modal-body {
+  flex: 1 1 auto;
+  padding: 0 2.375rem 2.375rem !important;
+  border-bottom-right-radius: 0.625rem;
+  overflow-y: scroll;
+  position: relative;
+  // scrollbar-width: thin;
+  // scrollbar-color: #f1f1f4 transparent;
+}
+
+.modal-retrieve-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1.25rem;
+}
+
+.modal-info-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-family: "Roboto-Medium";
+  font-size: 15px;
+  color: $dark-blue;
+}
+
+.modal-info-icon {
+  width: 26px;
+  height: 26px;
+  background-color: $dark-blue;
+  color: $white;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.modal-group {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.625rem;
+  // border: 2px solid $dark-blue;
+  border: 2px solid $dark-blue;
+  height: 46px;
+}
+
+.modal-icon {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  margin-left: -15px;
+  width: 26px;
+  height: 26px;
+  background-color: $dark-blue;
+  color: $white;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.modal-text {
+  font-family: "Roboto-Regular";
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-top: 12px;
+  font-size: 16px;
+  letter-spacing: 0.03125rem;
+  line-height: 1.5;
+  // color: $dark-blue;
+  color: $black-blue;
+  appearance: none;
+  background-clip: padding-box;
+  border-radius: 0.625rem;
+  transition: 0.2s ease-in-out;
+  flex: 1 1 auto;
+  height: 46px;
+  width: 1%;
+  min-width: 0;
+  outline: none;
+}
+
+.btn-success {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.425rem;
+  transition: 0.15s ease-in-out;
+  outline: 0 !important;
+  color: #ffffff;
+  background-color: $dark-blue;
+  border: 0;
+  box-shadow: none;
+  padding: 14px 18px;
+}
+
+.btn-success:hover {
+  background-color: $light-blue;
+}
+
+.btn-success:active {
+  transform: scale(0.9);
+}
+
+.btn-success > i {
+  display: inline-flex;
+  margin-right: 0.25rem;
+  padding-right: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.wth-4 {
+  width: 33.33333333%;
+}
+
+.wth-8 {
+  width: 66.66666667%;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

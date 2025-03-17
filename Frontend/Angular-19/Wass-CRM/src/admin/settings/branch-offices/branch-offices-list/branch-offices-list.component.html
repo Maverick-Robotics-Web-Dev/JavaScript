@@ -1,0 +1,183 @@
+@if(loading |async){
+<div class="backdrop-container">
+  <div class="spinner-container">
+    <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
+    <span class="spinner"></span>
+  </div>
+  <div class="loader">
+    <div class="loader-container">
+      <p class="label-loader">Cargando</p>
+      <div class="words">
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+      </div>
+    </div>
+  </div>
+</div>
+} @else{
+<!--===== Page Content Start =====-->
+<div>
+  <div class="page-header-toolbar">
+    <h2 class="page-title">Sucursales</h2>
+    <button type="button" class="btn btn-new" (click)="openCreate()">Nuevo<i class="fa-solid fa-plus"></i></button>
+  </div>
+</div>
+<div>
+  <!--===== Data Table Start =====-->
+  <div class="data-table">
+    <!--===== Data Table Header Start =====-->
+    <div class="data-table-header">
+      <div class="header-left">
+        <span class="text-dark-blue-8">Show</span>
+        <div class="data-number-option">
+          <select name="" id="" class="data-number-select">
+            <option class="text-dark-blue" value="">10</option>
+            <option class="text-dark-blue" value="">8</option>
+            <option class="text-dark-blue" value="">5</option>
+          </select>
+          <span class="data-option-icon"><i class="fa-solid fa-chevron-down"></i></span>
+        </div>
+        <span class="text-dark-blue-8">entries</span>
+      </div>
+      <div class="header-right">
+        <div class="data-table-search">
+          <button class="data-table-search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" class="data-table-search-input" placeholder="Search..." />
+        </div>
+      </div>
+    </div>
+    <!--===== Data Table Header End =====-->
+    <!--===== Data Table Content Start =====-->
+    <div class="data-table-content">
+      <table class="table">
+        <!--===== Table Header Start =====-->
+        <thead class="table-header">
+          <tr class="header-row">
+            <th class="header-cell cell-xl bwl-0">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Sucursal</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+            <th class="header-cell cell-md">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Telefonos</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+            <th class="header-cell cell-xl">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Email</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+            <th class="header-cell cell-lg">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Ciudad</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+            <th class="header-cell cell-md">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Status</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+            <th class="header-cell cell-sm bwr-0">
+              <a href="" class="header-cell-content">
+                <h6 class="header-cell-title">Action</h6>
+                <span class="header-cell-sort">
+                  <i class="cell-sort fa-solid fa-sort-up"></i>
+                  <i class="cell-sort fa-solid fa-sort-down"></i>
+                </span>
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <!--===== Table Header End =====-->
+        <!--===== Table Body Start =====-->
+        <tbody class="table-body">
+          @for(data of branchOfficeListData;track $index){
+          <tr class="body-row">
+            <td class="body-cell">
+              <div class="body-cell-group">
+                <div class="body-cell-image">
+                  <img [src]="data.img" alt="" class="body-cell-img" />
+                </div>
+                <div class="body-cell-info">
+                  <p class="body-cell-title">{{ data.name }}</p>
+                  <span class="body-cell-text">{{ data.address }}</span>
+                </div>
+              </div>
+            </td>
+            <td class="body-cell text-aling">
+              <p class="body-cell-title">{{ data.cellphone_number }}</p>
+              <span class="body-cell-text">{{ data.phone_number }}</span>
+            </td>
+            <td class="body-cell">
+              <p class="body-cell-title">{{ data.email }}</p>
+            </td>
+            <td class="body-cell text-aling">
+              <p class="body-cell-title">{{ data.city }}</p>
+              <span class="body-cell-text">{{ data.state_province }} - {{ data.country }}</span>
+            </td>
+            <td class="body-cell">
+              @if(data.status === true){
+              <span class="body-cell-badge" [ngClass]="{ 'badge-green': data.status === true }">Activo</span>
+              } @if(data.status === false){
+              <span class="body-cell-badge" [ngClass]="{ 'badge-red': data.status === false }">Inactivo</span>
+              }
+            </td>
+            <td class="body-cell">
+              <div class="body-cell-btn-group">
+                <button class="cell-btn"><i class="fa-solid fa-eye"></i></button>
+                <button class="cell-btn"><i class="fa-solid fa-pen"></i></button>
+                <button class="cell-btn"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+        <!--===== Table Body Endd =====-->
+      </table>
+    </div>
+
+    <!--===== Data Table Content End =====-->
+    <!--===== Data Table Footer Start =====-->
+    <div class="data-table-footer">
+      <div class="table-footer">
+        <p class="footer-text">Showing 1 to 10 of 30 entries</p>
+        <div class="footer-btn-group">
+          <button class="footer-btn-text-p">Previous</button>
+          <button class="footer-page">1</button>
+          <button class="footer-page">2</button>
+          <button class="footer-btn-text-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!--===== Data Table Footer End =====-->
+  </div>
+  <!--===== Data Table End =====-->
+</div>
+<!--===== Page Content End =====-->
+}
+<comp-branch-offices-create />
+<comp-branch-offices-retrieve />
