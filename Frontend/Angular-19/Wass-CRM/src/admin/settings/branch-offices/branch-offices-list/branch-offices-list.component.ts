@@ -1,6 +1,6 @@
-import { Component, DestroyRef, inject, Injector, OnInit, ResourceRef, runInInjectionContext } from '@angular/core';
+import { Component, DestroyRef, inject, Injector, OnInit, ResourceRef, runInInjectionContext, Signal } from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
-import { BranchOfficeListModel, BranchOfficeModel } from '@core/models/settings';
+import { BranchOfficeListModel, BranchOfficeModel, BranchOfficeResponseModel } from '@core/models/settings';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -13,29 +13,33 @@ import { AsyncPipe, NgClass } from '@angular/common';
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [AsyncPipe, NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
+  imports: [NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],
 })
 export class BranchOfficesListComponent implements OnInit {
-  private _branchOfficesServices = inject(BranchOfficesService);
+  // private _branchOfficesServices = inject(BranchOfficesService);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public branchOfficeListData!: BranchOfficeModel[];
   public error!: HttpErrorResponse;
-  public loading!: Observable<boolean>;
+  // public loading!: Observable<boolean>;
 
-  // public branchOfficeResource: ResourceRef<BranchOfficeListModel | undefined> = rxResource({ loader: () => this._branchOfficesServices.list() });
   private injectorApp = inject(Injector);
-  public branchOfficeResource!: ResourceRef<BranchOfficeListModel | undefined>;
+  private _branchOfficesServices = inject(BranchOfficesService);
+  public branchOfficeResource!: ResourceRef<BranchOfficeResponseModel | undefined>;
+  public branchOffices!: Signal<BranchOfficeResponseModel>;
+  public loading!: Signal<boolean>;
 
   // constructor() {
   //   this.branchOfficeResource = rxResource({ loader: () => this._branchOfficesServices.list() });
   // }
 
   ngOnInit(): void {
-    this.loading = this._branchOfficesServices.isLoading$;
+    // this.loading = this._branchOfficesServices.isLoading$;
+    this.loading = this._branchOfficesServices.isLoading;
+    this.getList();
     this.list();
     this.sharingData();
   }
@@ -67,7 +71,7 @@ export class BranchOfficesListComponent implements OnInit {
   }
 
   public getList() {
-    this.branchOfficeListData = this._branchOfficesServices.branchOfficeList();
+    this.branchOffices = this._branchOfficesServices.branchOffices;
   }
 
   // private list() {

@@ -1,4 +1,4 @@
-@if(loading |async){
+@if(loading() ){
 <div class="backdrop-container">
   <div class="spinner-container">
     <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
@@ -115,7 +115,7 @@
         <!--===== Table Header End =====-->
         <!--===== Table Body Start =====-->
         <tbody class="table-body">
-          @for(data of branchOfficeListData;track $index){
+          @for(data of branchOffices().data;track $index){
           <tr class="body-row">
             <td class="body-cell">
               <div class="body-cell-group">

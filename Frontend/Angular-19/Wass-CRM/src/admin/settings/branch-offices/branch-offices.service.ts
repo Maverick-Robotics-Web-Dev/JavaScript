@@ -1,15 +1,15 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal, WritableSignal } from '@angular/core';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
-  BranchOfficeListDataEmpty,
   BranchOfficeListModel,
   BranchOfficeModel,
+  BranchOfficeResponseModel,
   BranchOfficeRetrieveModel,
 } from '@core/models/settings';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
-import { BehaviorSubject, EMPTY, finalize, Observable } from 'rxjs';
+import { BehaviorSubject, EMPTY, finalize, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,19 +21,25 @@ export class BranchOfficesService extends BaseService {
 
   private readonly isLoadingSignal = signal<boolean>(false);
   readonly isLoading = computed(() => this.isLoadingSignal());
-  private readonly bracnhOfficesLst = signal<Observable<BranchOfficeListModel>>(EMPTY);
-  readonly branchOfficeList = computed(() => this.bracnhOfficesLst());
+  private readonly bracnhOfficesSignal: WritableSignal<BranchOfficeResponseModel> = signal<BranchOfficeResponseModel>({});
+  readonly branchOffices = computed(() => this.bracnhOfficesSignal());
 
-  public list(): Observable<BranchOfficeListModel> {
+  public list() {
     this.isLoadingSignal.set(true);
 
-    let branchOfficesList: Observable<BranchOfficeListModel> = this.httpClient
-      .get<BranchOfficeListModel>(this.BASE_URL)
-      .pipe(finalize(() => this.isLoadingSignal.set(false)));
-
-    this.bracnhOfficesLst.set(branchOfficesList);
-
-    return this.bracnhOfficesLst();
+    let branchOfficesList: Observable<BranchOfficeResponseModel> = this.httpClient.get<BranchOfficeResponseModel>(this.BASE_URL).pipe(
+      tap((response: BranchOfficeResponseModel) => {
+        if (response.ok === 'OK') {
+          console.log(response);
+          const { ok, data, ...res } = response;
+          const arrayData = [data];
+          res = arrayData;
+          this.bracnhOfficesSignal.set(res);
+        }
+      }),
+      finalize(() => this.isLoadingSignal.set(false))
+    );
+    return branchOfficesList;
   }
   // public list(): Observable<BranchOfficeListModel> {
   //   this.isLoadingSubject.next(true);

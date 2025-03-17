@@ -25,14 +25,6 @@ export interface BranchOfficeListModel {
   data: BranchOfficeModel[];
 }
 
-export const BranchOfficeListDataEmpty = {
-  ok: '',
-  next: '',
-  previous: '',
-  count: 0,
-  data: [],
-};
-
 export interface BranchOfficeRetrieveModel {
   ok?: string;
   error?: string;
@@ -51,4 +43,14 @@ export interface BranchOfficeDeleteModel {
   ok?: string;
   error?: string;
   msg?: string;
+}
+
+export interface BranchOfficeResponseModel {
+  ok?: string;
+  error?: string;
+  data?: BranchOfficeModel | BranchOfficeModel[];
+  msg?: string;
+  next?: string | null;
+  previous?: string | null;
+  count?: number | null;
 }
