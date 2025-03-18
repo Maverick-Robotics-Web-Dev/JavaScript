@@ -1,15 +1,16 @@
-import { computed, Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { emptyBranchOffice, emptyBranchOfficeResponse, emptyBranchOfficeResponseList } from '@core/default-data';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
-  BranchOfficeListModel,
-  BranchOfficeModel,
-  BranchOfficeResponseModel,
+  BranchOffice,
+  BranchOfficeResponseList,
+  BranchOfficeResponse,
   BranchOfficeRetrieveModel,
-} from '@core/models/settings';
+} from '@core/models';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
-import { BehaviorSubject, EMPTY, finalize, Observable, tap } from 'rxjs';
+import { BehaviorSubject, finalize, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,22 +20,37 @@ export class BranchOfficesService extends BaseService {
   public isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
-  private readonly isLoadingSignal = signal<boolean>(false);
-  readonly isLoading = computed(() => this.isLoadingSignal());
-  private readonly bracnhOfficesSignal: WritableSignal<BranchOfficeResponseModel> = signal<BranchOfficeResponseModel>({});
-  readonly branchOffices = computed(() => this.bracnhOfficesSignal());
+  private readonly isLoadingSignal: WritableSignal<boolean> = signal<boolean>(false);
+  readonly isLoading: Signal<boolean> = computed(() => this.isLoadingSignal());
+  private readonly bracnhOfficesListSignal: WritableSignal<BranchOfficeResponseList> =
+    signal<BranchOfficeResponseList>(emptyBranchOfficeResponseList);
+  private readonly branchOfficeSignal: WritableSignal<BranchOfficeResponse> = signal<BranchOfficeResponse>(emptyBranchOfficeResponse);
+  // private readonly nextPageSignal: WritableSignal<string> = signal<string>('');
+  // private readonly previousPageSignal: WritableSignal<string> = signal<string>('');
+  // private readonly countSignal: WritableSignal<number> = signal<number>(0);
+  // private readonly pagesSignal: WritableSignal<number> = signal<number>(0);
+  // private readonly msgSignal: WritableSignal<string> = signal<string>('');
+  readonly branchOfficesList: Signal<BranchOfficeResponseList> = computed(() => this.bracnhOfficesListSignal());
+  readonly branchOffice: Signal<BranchOfficeResponse> = computed(() => this.branchOfficeSignal());
+  // readonly nextPage: Signal<string> = computed(() => this.nextPageSignal());
+  // readonly previousPage: Signal<string> = computed(() => this.previousPageSignal());
+  // readonly count: Signal<number> = computed(() => this.countSignal());
+  // readonly pages: Signal<number> = computed(() => this.pagesSignal());
+  // readonly msg: Signal<string> = computed(() => this.msgSignal());
 
   public list() {
     this.isLoadingSignal.set(true);
 
-    let branchOfficesList: Observable<BranchOfficeResponseModel> = this.httpClient.get<BranchOfficeResponseModel>(this.BASE_URL).pipe(
-      tap((response: BranchOfficeResponseModel) => {
+    let branchOfficesList: Observable<BranchOfficeResponseList> = this.httpClient.get<BranchOfficeResponseList>(this.BASE_URL).pipe(
+      tap((response: BranchOfficeResponseList) => {
         if (response.ok === 'OK') {
           console.log(response);
-          const { ok, data, ...res } = response;
-          const arrayData = [data];
-          res = arrayData;
-          this.bracnhOfficesSignal.set(res);
+          this.bracnhOfficesListSignal.set(response);
+          // this.nextPageSignal.set(response.next ?? '');
+          // this.previousPageSignal.set(response.previous ?? '');
+          // this.countSignal.set(response.count ?? 0);
+          // this.pagesSignal.set(response.pages ?? 0);
+          // this.msgSignal.set(response.msg ?? '');
         }
       }),
       finalize(() => this.isLoadingSignal.set(false))
@@ -58,7 +74,7 @@ export class BranchOfficesService extends BaseService {
     return branchOfficesRetrieve;
   }
 
-  public create(data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
+  public create(data: BranchOffice): Observable<BranchOfficeCrtUptModel> {
     this.isLoadingSubject.next(true);
     const frmData: FormData = formData(data);
     let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
@@ -68,7 +84,7 @@ export class BranchOfficesService extends BaseService {
     return branchOfficesCreate;
   }
 
-  public partial_update(id: string, data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
+  public partial_update(id: string, data: BranchOffice): Observable<BranchOfficeCrtUptModel> {
     this.isLoadingSubject.next(true);
     const frmData = formData(data);
     let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient

@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, Injector, OnInit, ResourceRef, runInInjectionContext, Signal } from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
-import { BranchOfficeListModel, BranchOfficeModel, BranchOfficeResponseModel } from '@core/models/settings';
+import { BranchOffice, BranchOfficeResponseList } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -22,14 +22,14 @@ export class BranchOfficesListComponent implements OnInit {
   // private _branchOfficesServices = inject(BranchOfficesService);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
-  public branchOfficeListData!: BranchOfficeModel[];
+  public branchOfficeListData!: BranchOffice[];
   public error!: HttpErrorResponse;
   // public loading!: Observable<boolean>;
 
   private injectorApp = inject(Injector);
   private _branchOfficesServices = inject(BranchOfficesService);
-  public branchOfficeResource!: ResourceRef<BranchOfficeResponseModel | undefined>;
-  public branchOffices!: Signal<BranchOfficeResponseModel>;
+  public branchOfficeResource!: ResourceRef<BranchOfficeResponseList | undefined>;
+  public branchOfficesList!: Signal<BranchOfficeResponseList>;
   public loading!: Signal<boolean>;
 
   // constructor() {
@@ -71,7 +71,7 @@ export class BranchOfficesListComponent implements OnInit {
   }
 
   public getList() {
-    this.branchOffices = this._branchOfficesServices.branchOffices;
+    this.branchOfficesList = this._branchOfficesServices.branchOfficesList;
   }
 
   // private list() {

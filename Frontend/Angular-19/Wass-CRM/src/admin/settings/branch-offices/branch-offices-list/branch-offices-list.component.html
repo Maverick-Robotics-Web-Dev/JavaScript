@@ -115,7 +115,7 @@
         <!--===== Table Header End =====-->
         <!--===== Table Body Start =====-->
         <tbody class="table-body">
-          @for(data of branchOffices().data;track $index){
+          @for(data of branchOfficesList().data;track $index){
           <tr class="body-row">
             <td class="body-cell">
               <div class="body-cell-group">
@@ -166,10 +166,10 @@
       <div class="table-footer">
         <p class="footer-text">Showing 1 to 10 of 30 entries</p>
         <div class="footer-btn-group">
-          <button class="footer-btn-text-p">Previous</button>
+          <button class="footer-btn-text-p" (click)="branchOfficesList().previous">Previous</button>
           <button class="footer-page">1</button>
           <button class="footer-page">2</button>
-          <button class="footer-btn-text-n">Next</button>
+          <button class="footer-btn-text-n" (click)="branchOfficesList().next">Next</button>
         </div>
       </div>
     </div>

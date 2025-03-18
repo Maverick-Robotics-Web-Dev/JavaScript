@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { BranchOfficeCrtUptModel } from '@core/models/settings';
+import { BranchOfficeCrtUptModel } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';

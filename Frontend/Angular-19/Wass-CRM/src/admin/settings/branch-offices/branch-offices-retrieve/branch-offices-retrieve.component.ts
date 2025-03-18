@@ -3,7 +3,7 @@ import { BranchOfficesService } from '../branch-offices.service';
 import { DataSharingService } from '@core/services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BranchOfficeModel, BranchOfficeRetrieveModel } from '@core/models/settings';
+import { BranchOffice, BranchOfficeRetrieveModel } from '@core/models';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
 
@@ -21,7 +21,7 @@ export class BranchOfficesRetrieveComponent implements OnInit {
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   public id!: string;
-  public branchOfficeRetrieveData!: BranchOfficeModel;
+  public branchOfficeRetrieveData!: BranchOffice;
   public error!: HttpErrorResponse;
   public loading!: Observable<boolean>;
   public modalStatus: boolean = false;
