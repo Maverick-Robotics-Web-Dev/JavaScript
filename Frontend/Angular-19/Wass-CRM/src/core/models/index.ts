@@ -1,8 +1,8 @@
 export type {
-  BranchOffice,
+  BranchOfficeModel,
   BranchOfficeRetrieveModel,
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
-  BranchOfficeResponseList,
-  BranchOfficeResponse,
+  BranchOfficeList,
+  BranchOffice,
 } from './branch-offices';

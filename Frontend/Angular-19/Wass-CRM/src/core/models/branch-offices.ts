@@ -1,4 +1,4 @@
-export interface BranchOffice {
+export interface BranchOfficeModel {
   id: number;
   name: string;
   country: string;
@@ -20,13 +20,13 @@ export interface BranchOfficeRetrieveModel {
   ok?: string;
   error?: string;
   msg?: string;
-  data?: BranchOffice;
+  data?: BranchOfficeModel;
 }
 
 export interface BranchOfficeCrtUptModel {
   ok?: string;
   error?: string;
-  data?: BranchOffice;
+  data?: BranchOfficeModel;
   msg?: string;
 }
 
@@ -36,9 +36,9 @@ export interface BranchOfficeDeleteModel {
   msg?: string;
 }
 
-export interface BranchOfficeResponseList {
+export interface BranchOfficeList {
   ok: string;
-  data?: BranchOffice[];
+  data?: BranchOfficeModel[];
   next?: string | null;
   previous?: string | null;
   count?: number | null;
@@ -46,9 +46,9 @@ export interface BranchOfficeResponseList {
   msg?: string;
 }
 
-export interface BranchOfficeResponse {
+export interface BranchOffice {
   ok: string;
   error?: string;
-  data?: BranchOffice;
+  data?: BranchOfficeModel;
   msg?: string;
 }

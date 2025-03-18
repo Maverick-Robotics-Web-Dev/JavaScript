@@ -1,6 +1,6 @@
-import { BranchOffice, BranchOfficeResponse, BranchOfficeResponseList } from '@core/models';
+import { BranchOfficeModel, BranchOffice, BranchOfficeList } from '@core/models';
 
-export const emptyBranchOffice: BranchOffice = {
+export const emptyBranchOfficeModel: BranchOfficeModel = {
   id: 0,
   name: '',
   country: '',
@@ -18,14 +18,14 @@ export const emptyBranchOffice: BranchOffice = {
   img: null,
 };
 
-export const emptyBranchOfficeResponse: BranchOfficeResponse = {
+export const emptyBranchOffice: BranchOffice = {
   ok: '',
   error: '',
-  data: emptyBranchOffice,
+  data: emptyBranchOfficeModel,
   msg: '',
 };
 
-export const emptyBranchOfficeResponseList: BranchOfficeResponseList = {
+export const emptyBranchOfficeList: BranchOfficeList = {
   ok: '',
   data: [],
   next: '',

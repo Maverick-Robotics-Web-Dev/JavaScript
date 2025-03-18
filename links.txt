@@ -57,3 +57,14 @@ https://demo.plainadmin.com/datatables
 https://demo.tailadmin.com/data-tables.html
 https://templates.iqonic.design/hope-ui/html/dist/dashboard/table/table-data.html
 https://colorlib.com/polygon/metis/
+
+ORDEN PARA VER
+https://www.youtube.com/watch?v=eEzLCLB5NUQ
+https://www.youtube.com/watch?v=9ymdfkqSTuU
+https://www.youtube.com/watch?v=j93SmrungiQ
+https://www.youtube.com/watch?v=n6H_yBeB0TA
+https://www.youtube.com/watch?v=k30lpCxfRvo
+https://www.youtube.com/watch?v=f43oADbeVSs
+https://medium.com/@kirill.kovzel/creating-custom-pagination-component-with-angular-9c6c93fdf0f0
+https://blog.hammelburg.me/writing-your-own-pagination-component-with-angular-cae69d15e3d0
+https://azaharafernandezguizan.medium.com/c%C3%B3mo-paginar-y-ordenar-una-tabla-en-angular-f%C3%A1cilmente-ba11ccb15214

@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, Injector, OnInit, ResourceRef, runInInjectionContext, Signal } from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
-import { BranchOffice, BranchOfficeResponseList } from '@core/models';
+import { BranchOffice, BranchOfficeList } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -28,8 +28,9 @@ export class BranchOfficesListComponent implements OnInit {
 
   private injectorApp = inject(Injector);
   private _branchOfficesServices = inject(BranchOfficesService);
-  public branchOfficeResource!: ResourceRef<BranchOfficeResponseList | undefined>;
-  public branchOfficesList!: Signal<BranchOfficeResponseList>;
+  public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
+  public branchOfficesList!: Signal<BranchOfficeList>;
+  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
   public loading!: Signal<boolean>;
 
   // constructor() {
@@ -40,7 +41,8 @@ export class BranchOfficesListComponent implements OnInit {
     // this.loading = this._branchOfficesServices.isLoading$;
     this.loading = this._branchOfficesServices.isLoading;
     this.getList();
-    this.list();
+    // this.list();
+    this.pagination(1);
     this.sharingData();
   }
 
@@ -66,7 +68,13 @@ export class BranchOfficesListComponent implements OnInit {
 
   private list() {
     runInInjectionContext(this.injectorApp, () => {
-      this.branchOfficeResource = rxResource({ loader: () => this._branchOfficesServices.list() });
+      rxResource({ loader: () => this._branchOfficesServices.list() });
+    });
+  }
+
+  private pagination(page: number) {
+    runInInjectionContext(this.injectorApp, () => {
+      rxResource({ loader: () => this._branchOfficesServices.listPagination(page) });
     });
   }
 

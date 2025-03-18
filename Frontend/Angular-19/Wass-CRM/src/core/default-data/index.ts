@@ -1,1 +1,1 @@
-export { emptyBranchOffice, emptyBranchOfficeResponse, emptyBranchOfficeResponseList } from './branch-offices';
+export { emptyBranchOffice, emptyBranchOfficeList } from './branch-offices';
