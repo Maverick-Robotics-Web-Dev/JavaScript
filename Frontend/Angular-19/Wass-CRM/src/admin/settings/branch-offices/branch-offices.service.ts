@@ -17,7 +17,6 @@ import { BehaviorSubject, finalize, Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class BranchOfficesService extends BaseService {
-  // private BASE_URL: string = `${this.RESTAPI_URL}/settings/branch-offices/`;
   public isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
@@ -61,7 +60,6 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesList = this.httpClient.get<BranchOfficeList>(`${BRANCHOFFICES_URL}list_pagination/?page=${page}`).pipe(
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
-          console.log(response);
           this.bracnhOfficesPage.set(response);
           // this.nextPageSignal.set(response.next ?? '');
           // this.previousPageSignal.set(response.previous ?? '');

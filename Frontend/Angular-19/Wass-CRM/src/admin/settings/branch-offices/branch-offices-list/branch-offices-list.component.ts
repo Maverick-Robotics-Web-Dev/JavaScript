@@ -8,7 +8,7 @@ import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -30,20 +30,20 @@ export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
   public branchOfficesList!: Signal<BranchOfficeList>;
-  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
+  public branchOfficesListPagination!: Signal<BranchOfficeList>;
   public loading!: Signal<boolean>;
 
-  // constructor() {
-  //   this.branchOfficeResource = rxResource({ loader: () => this._branchOfficesServices.list() });
-  // }
+  constructor() {
+    this.branchOfficeResource = rxResource(this.pagination());
+  }
 
   ngOnInit(): void {
     // this.loading = this._branchOfficesServices.isLoading$;
     this.loading = this._branchOfficesServices.isLoading;
-    this.getList();
+    // this.getList();
     // this.list();
-    this.pagination(1);
-    this.sharingData();
+    // this.pagination();
+    // this.sharingData();
   }
 
   private sharingData() {
@@ -51,7 +51,7 @@ export class BranchOfficesListComponent implements OnInit {
       next: (data: any) => {
         if (data != null) {
           if (data.resp == 'OK') {
-            this.list();
+            // this.list();
           }
         }
       },
@@ -66,16 +66,16 @@ export class BranchOfficesListComponent implements OnInit {
     this._dataSharingService.setDataShare({ openRetrieve: true, id: id });
   }
 
-  private list() {
-    runInInjectionContext(this.injectorApp, () => {
-      rxResource({ loader: () => this._branchOfficesServices.list() });
-    });
-  }
+  // private list() {
+  //   runInInjectionContext(this.injectorApp, () => {
+  //     let rxrs = rxResource({ loader: () => this._branchOfficesServices.list() });
+  //   });
+  // }
 
-  private pagination(page: number) {
-    runInInjectionContext(this.injectorApp, () => {
-      rxResource({ loader: () => this._branchOfficesServices.listPagination(page) });
-    });
+  private pagination() {
+    let paginationResource = { loader: () => this._branchOfficesServices.listPagination(1) };
+
+    return paginationResource;
   }
 
   public getList() {
