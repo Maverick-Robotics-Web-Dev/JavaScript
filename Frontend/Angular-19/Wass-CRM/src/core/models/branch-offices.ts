@@ -43,6 +43,7 @@ export interface BranchOfficeList {
   previous?: string | null;
   count?: number | null;
   pages?: number | null;
+  current?: number | null;
   msg?: string;
 }
 

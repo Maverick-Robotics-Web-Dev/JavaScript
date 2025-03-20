@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-} @else{
+} @else if(branchOfficeResource.hasValue()){
 <!--===== Page Content Start =====-->
 <div>
   <div class="page-header-toolbar">
@@ -115,7 +115,7 @@
         <!--===== Table Header End =====-->
         <!--===== Table Body Start =====-->
         <tbody class="table-body">
-          @for(data of branchOfficeResource.value()?.data;track $index){
+          @for(data of branchOfficeResource.value().data;track $index){
           <tr class="body-row">
             <td class="body-cell">
               <div class="body-cell-group">
@@ -164,12 +164,17 @@
     <!--===== Data Table Footer Start =====-->
     <div class="data-table-footer">
       <div class="table-footer">
-        <p class="footer-text">Showing 1 to 10 of 30 entries</p>
+        <p class="footer-text">Showing {{ currentPage() }} to {{ this.branchOfficeResource.value().pages }} of {{ records() }} entries</p>
         <div class="footer-btn-group">
-          <button class="footer-btn-text-p">Previous</button>
-          <button class="footer-page">1</button>
-          <button class="footer-page">2</button>
-          <button class="footer-btn-text-n">Next</button>
+          <button class="footer-btn-text-p" (click)="previousPage()">Previous</button>
+          <!-- @for(page of [].constructor(pages());track $index){
+          <button class="footer-page">{{ $index + 1 }}</button>
+          } -->
+          @for(page of [].constructor(pages());track $index){
+          <button class="footer-page" (click)="setPage($index + 1)">{{ $index + 1 }}</button>
+          }
+          <!-- <button class="footer-page">1</button> -->
+          <button class="footer-btn-text-n" (click)="nextPage()">Next</button>
         </div>
       </div>
     </div>
