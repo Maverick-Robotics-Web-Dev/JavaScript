@@ -1,4 +1,17 @@
-import { Component, computed, DestroyRef, effect, inject, Injector, OnInit, ResourceRef, runInInjectionContext, signal, Signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  DestroyRef,
+  effect,
+  inject,
+  Injector,
+  OnInit,
+  ResourceRef,
+  runInInjectionContext,
+  signal,
+  Signal,
+} from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
 import { BranchOffice, BranchOfficeList } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,6 +30,7 @@ import { AsyncPipe, JsonPipe, NgClass } from '@angular/common';
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BranchOfficesListComponent implements OnInit {
   private _dataSharingService = inject(DataSharingService);
@@ -24,13 +38,13 @@ export class BranchOfficesListComponent implements OnInit {
 
   private _branchOfficesServices = inject(BranchOfficesService);
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
-  public branchOfficesListPagination!: Signal<BranchOfficeList>;
+  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
   public loading!: Signal<boolean>;
   public currentPageSg = signal<number | null | undefined>(1);
   public pageSg = signal<number>(1);
-  public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
-  public records = computed(() => this.branchOfficeResource.value()?.count ?? 0);
-  public pages = computed(() => this.branchOfficeResource.value()?.pages ?? 0);
+  // public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
+  // public records = computed(() => this.branchOfficeResource.value()?.count ?? 0);
+  // public pages = computed(() => this.branchOfficeResource.value()?.pages ?? 0);
 
   constructor() {
     this.branchOfficeResource = rxResource({
@@ -38,20 +52,22 @@ export class BranchOfficesListComponent implements OnInit {
       loader: () => this._branchOfficesServices.listPagination(this.pageSg()),
     });
 
-    effect(() => {
-      if (this.branchOfficeResource.hasValue()) {
-        let pgs = Array.from({ length: this.pages() }, (_, i) => i + 1);
-        console.log(pgs);
-      }
-      if (this.branchOfficeResource.value()?.pages == this.pageSg()) {
-        console.log('Hello World');
-        console.log(this.pages());
-      }
-    });
+    this.loading = this.branchOfficeResource.isLoading;
+
+    // effect(() => {
+    //   if (this.branchOfficeResource.hasValue()) {
+    //     let pgs = Array.from({ length: this.pages() }, (_, i) => i + 1);
+    //     console.log(pgs);
+    //   }
+    //   if (this.branchOfficeResource.value()?.pages == this.pageSg()) {
+    //     console.log('Hello World');
+    //     console.log(this.pages());
+    //   }
+    // });
   }
 
   ngOnInit(): void {
-    this.loading = this._branchOfficesServices.isLoading;
+    // this.loading = this._branchOfficesServices.isLoading;
     this.sharingData();
   }
 
