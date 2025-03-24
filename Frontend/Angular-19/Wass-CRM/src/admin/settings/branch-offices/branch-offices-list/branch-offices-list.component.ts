@@ -40,34 +40,42 @@ export class BranchOfficesListComponent implements OnInit {
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
   public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
   public loading!: Signal<boolean>;
-  public currentPageSg = signal<number | null | undefined>(1);
-  public pageSg = signal<number>(1);
+  // public loading = signal<boolean>(true);
+  public page = signal<number>(1);
   // public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
   // public records = computed(() => this.branchOfficeResource.value()?.count ?? 0);
-  // public pages = computed(() => this.branchOfficeResource.value()?.pages ?? 0);
+  public pages = computed(() => this.branchOfficesListPagination().pages ?? 0);
+  public pagesArray!: number[];
 
   constructor() {
     this.branchOfficeResource = rxResource({
-      request: () => this.pageSg(),
-      loader: () => this._branchOfficesServices.listPagination(this.pageSg()),
+      request: () => this.page(),
+      loader: () => this._branchOfficesServices.listPagination(this.page()),
     });
 
-    this.loading = this.branchOfficeResource.isLoading;
+    // this.loading = this.branchOfficeResource.isLoading;
 
-    // effect(() => {
-    //   if (this.branchOfficeResource.hasValue()) {
-    //     let pgs = Array.from({ length: this.pages() }, (_, i) => i + 1);
-    //     console.log(pgs);
-    //   }
-    //   if (this.branchOfficeResource.value()?.pages == this.pageSg()) {
-    //     console.log('Hello World');
-    //     console.log(this.pages());
-    //   }
-    // });
+    effect(() => {
+      if (this.pages()) {
+        this.pagesArray = new Array(this.pages());
+        for (let i = 0; i < this.pagesArray.length; i++) {
+          this.pagesArray[i] = i + 1;
+        }
+        console.log(this.pagesArray);
+      }
+      //   if (this.branchOfficeResource.hasValue()) {
+      //     let pgs = Array.from({ length: this.pages() }, (_, i) => i + 1);
+      //     console.log(pgs);
+      //   }
+      //   if (this.branchOfficeResource.value()?.pages == this.pageSg()) {
+      //     console.log('Hello World');
+      //     console.log(this.pages());
+      //   }
+    });
   }
 
   ngOnInit(): void {
-    // this.loading = this._branchOfficesServices.isLoading;
+    this.loading = this._branchOfficesServices.isLoading;
     this.sharingData();
   }
 
@@ -92,19 +100,15 @@ export class BranchOfficesListComponent implements OnInit {
   }
 
   public nextPage() {
-    this.pageSg.update((page) => page + 1);
-
-    console.log(this.pageSg());
+    this.page.update((page) => page + 1);
   }
 
   public previousPage() {
-    this.pageSg.update((page) => page - 1);
-
-    console.log(this.pageSg());
+    this.page.update((page) => page - 1);
   }
 
   public setPage(page: number) {
-    this.pageSg.set(page);
+    this.page.set(page);
   }
 
   // private list() {

@@ -1,3 +1,23 @@
+<!-- @if(loading() ){
+<div class="backdrop-container">
+  <div class="spinner-container">
+    <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
+    <span class="spinner"></span>
+  </div>
+  <div class="loader">
+    <div class="loader-container">
+      <p class="label-loader">Cargando</p>
+      <div class="words">
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+        <span class="word">datos</span>
+      </div>
+    </div>
+  </div>
+</div>
+}  -->
 @if(branchOfficesListPagination()){
 <!--===== Page Content Start =====-->
 <div>
@@ -150,16 +170,18 @@
           {{ branchOfficesListPagination().count }} entries
         </p>
         <div class="footer-btn-group">
-          <button class="footer-btn-text-p" (click)="previousPage()" [disabled]="pageSg() == 1">Previous</button>
-          <!-- @for(page of [].constructor(pages());track $index){
-          <button class="footer-page">{{ $index + 1 }}</button>
-          } -->
-          @for(page of [].constructor(branchOfficesListPagination().pages);track $index){
-          <button class="footer-btn-page">{{ $index + 1 }}</button>
-          <!-- <input type="radio" class="footer-btn-page" (click)="setPage($index + 1)" [value]="pageSg()" [name]="pageSg()" />  -->
+          <button class="footer-btn-text-p" (click)="previousPage()" [disabled]="page() == 1">Previous</button>
+          @for(numpage of pagesArray;track $index){
+          <button class="footer-btn-page" [ngClass]="{ 'backdrop-color': page() === numpage }" (click)="setPage(numpage)">
+            {{ numpage }}
+          </button>
           }
-          <!-- <button class="footer-page">1</button> -->
-          <button class="footer-btn-text-n" (click)="nextPage()" [disabled]="pageSg() == branchOfficesListPagination().pages">Next</button>
+          <!-- @for(numpage of [].constructor(branchOfficesListPagination().pages);track $index){
+          <button class="footer-btn-page" [ngClass]="{ 'backdrop-color': page() === $index + 1 }" (click)="setPage($index + 1)">
+            {{ $index + 1 }}
+          </button>
+          } -->
+          <button class="footer-btn-text-n" (click)="nextPage()" [disabled]="page() == branchOfficesListPagination().pages">Next</button>
         </div>
       </div>
     </div>
@@ -169,25 +191,6 @@
 </div>
 <!--===== Page Content End =====-->
 }
-<!-- @if(loading() ){
-<div class="backdrop-container">
-  <div class="spinner-container">
-    <span class="spinner-icon"><i class="fa-solid fa-server"></i></span>
-    <span class="spinner"></span>
-  </div>
-  <div class="loader">
-    <div class="loader-container">
-      <p class="label-loader">Cargando</p>
-      <div class="words">
-        <span class="word">datos</span>
-        <span class="word">datos</span>
-        <span class="word">datos</span>
-        <span class="word">datos</span>
-        <span class="word">datos</span>
-      </div>
-    </div>
-  </div>
-</div>
-} -->
+
 <comp-branch-offices-create />
 <comp-branch-offices-retrieve />

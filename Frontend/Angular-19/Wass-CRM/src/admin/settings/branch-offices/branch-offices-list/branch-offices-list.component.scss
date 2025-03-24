@@ -445,6 +445,11 @@
   border-color: rgba(13, 71, 161, 0.7);
 }
 
+.footer-btn-text-p:active {
+  transform: scale(0.9);
+  background-color: $dark-blue;
+}
+
 .footer-btn-text-p:disabled {
   cursor: default;
   opacity: 0.5;
@@ -483,15 +488,15 @@
   border-color: rgba(13, 71, 161, 0.7);
 }
 
+.footer-btn-text-n:active {
+  transform: scale(0.9);
+  background-color: $dark-blue;
+}
+
 .footer-btn-text-n:disabled {
   cursor: default;
   opacity: 0.5;
   pointer-events: none;
-}
-
-.footer-btn-text-disable {
-  cursor: default;
-  opacity: 0.5;
 }
 
 .footer-btn-page {
@@ -504,7 +509,7 @@
   text-transform: none;
   background-color: transparent;
   background-image: none;
-  appearance: button;
+  appearance: none;
   cursor: pointer;
   display: flex;
   width: 2.5rem;
@@ -523,13 +528,14 @@
   background-color: $dark-blue;
 }
 
-// .footer-btn-page:active {
-//   transform: scale(0.9);
-//   background-color: $dark-blue;
-// }
-
-.footer-btn-page:checked {
+.footer-btn-page:active {
+  transform: scale(0.9);
   background-color: $dark-blue;
+}
+
+.backdrop-color {
+  background-color: $dark-blue;
+  color: $white;
 }
 
 .bwr-0 {

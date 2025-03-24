@@ -135,6 +135,17 @@ body {
   width: 100%;
 }
 
+.backdrop-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
 .spinner-container {
   position: relative;
   display: flex;
@@ -169,14 +180,6 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-}
-
-.backdrop-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
 @keyframes keyframes-rotate {
