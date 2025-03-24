@@ -42,6 +42,7 @@ export class BranchOfficesListComponent implements OnInit {
   public loading!: Signal<boolean>;
   // public loading = signal<boolean>(true);
   public page = signal<number>(1);
+  public page_size = signal<string>('10');
   // public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
   // public records = computed(() => this.branchOfficeResource.value()?.count ?? 0);
   public pages = computed(() => this.branchOfficesListPagination().pages ?? 0);
@@ -49,8 +50,8 @@ export class BranchOfficesListComponent implements OnInit {
 
   constructor() {
     this.branchOfficeResource = rxResource({
-      request: () => this.page(),
-      loader: () => this._branchOfficesServices.listPagination(this.page()),
+      request: () => (this.page(), this.page_size()),
+      loader: () => this._branchOfficesServices.listPagination(this.page(), this.page_size()),
     });
 
     // this.loading = this.branchOfficeResource.isLoading;
@@ -63,14 +64,6 @@ export class BranchOfficesListComponent implements OnInit {
         }
         console.log(this.pagesArray);
       }
-      //   if (this.branchOfficeResource.hasValue()) {
-      //     let pgs = Array.from({ length: this.pages() }, (_, i) => i + 1);
-      //     console.log(pgs);
-      //   }
-      //   if (this.branchOfficeResource.value()?.pages == this.pageSg()) {
-      //     console.log('Hello World');
-      //     console.log(this.pages());
-      //   }
     });
   }
 
@@ -109,6 +102,11 @@ export class BranchOfficesListComponent implements OnInit {
 
   public setPage(page: number) {
     this.page.set(page);
+  }
+
+  public getSelect(select: HTMLSelectElement) {
+    this.page_size.set(select.value);
+    console.log(this.page_size());
   }
 
   // private list() {

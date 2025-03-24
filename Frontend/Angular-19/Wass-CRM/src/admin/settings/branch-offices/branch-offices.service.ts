@@ -45,7 +45,6 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesList: Observable<BranchOfficeList> = this.httpClient.get<BranchOfficeList>(BRANCHOFFICES_URL).pipe(
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
-          console.log(response);
           this.bracnhOfficesLst.set(response);
         }
       }),
@@ -54,13 +53,14 @@ export class BranchOfficesService extends BaseService {
     return branchOfficesList;
   }
 
-  public listPagination(page: number): Observable<BranchOfficeList> {
+  public listPagination(page: number, page_size: string): Observable<BranchOfficeList> {
     this.isLoadingSignal.set(true);
 
-    let branchOfficesList = this.httpClient.get<BranchOfficeList>(`${BRANCHOFFICES_URL}list_pagination/?page=${page}`).pipe(
+    let branchOfficesList = this.httpClient.get<BranchOfficeList>(`${BRANCHOFFICES_URL}list_pagination/?page=${page}&page_size=${page_size}`).pipe(
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
           this.bracnhOfficesPage.set(response);
+          console.log(response);
           // this.nextPageSignal.set(response.next ?? '');
           // this.previousPageSignal.set(response.previous ?? '');
           // this.countSignal.set(response.count ?? 0);

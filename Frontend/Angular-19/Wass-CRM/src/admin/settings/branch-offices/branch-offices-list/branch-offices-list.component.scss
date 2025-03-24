@@ -104,13 +104,13 @@
   print-color-adjust: exact;
   height: 2.25rem;
   width: 100%;
-  appearance: none;
+  // appearance: none;
   border-radius: 0.5rem;
   border-width: 1px;
   border-color: rgb(208 213 221 / 1);
   background-color: transparent;
-  background-image: none;
-  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  // background-image: none;
+  padding: 0.5rem 0.25rem 0.5rem 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: $dark-blue;

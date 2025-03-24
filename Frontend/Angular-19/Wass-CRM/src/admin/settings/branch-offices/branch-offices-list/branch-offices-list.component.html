@@ -34,12 +34,11 @@
       <div class="header-left">
         <span class="text-dark-blue-8">Show</span>
         <div class="data-number-option">
-          <select name="" id="" class="data-number-select">
-            <option class="text-dark-blue" value="">10</option>
-            <option class="text-dark-blue" value="">8</option>
-            <option class="text-dark-blue" value="">5</option>
+          <select #records class="data-number-select" (change)="getSelect(records)">
+            <option class="text-dark-blue" value="10">10</option>
+            <option class="text-dark-blue" value="8">8</option>
+            <option class="text-dark-blue" value="5">5</option>
           </select>
-          <span class="data-option-icon"><i class="fa-solid fa-chevron-down"></i></span>
         </div>
         <span class="text-dark-blue-8">entries</span>
       </div>
@@ -121,7 +120,7 @@
             <td class="body-cell">
               <div class="body-cell-group">
                 <div class="body-cell-image">
-                  <img [src]="data.img" alt="" class="body-cell-img" />
+                  <img [src]="'https://jkfenner.com/wp-content/uploads/2019/11/default.jpg'" alt="" class="body-cell-img" />
                 </div>
                 <div class="body-cell-info">
                   <p class="body-cell-title">{{ data.name }}</p>
