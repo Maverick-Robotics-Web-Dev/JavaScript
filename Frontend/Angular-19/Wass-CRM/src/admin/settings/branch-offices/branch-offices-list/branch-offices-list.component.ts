@@ -44,7 +44,7 @@ export class BranchOfficesListComponent implements OnInit {
   public page = signal<number>(1);
   public page_size = signal<string>('10');
   // public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
-  // public records = computed(() => this.branchOfficeResource.value()?.count ?? 0);
+  public records = computed(() => this.branchOfficesListPagination().count ?? 0);
   public pages = computed(() => this.branchOfficesListPagination().pages ?? 0);
   public pagesArray!: number[];
 
@@ -58,11 +58,21 @@ export class BranchOfficesListComponent implements OnInit {
 
     effect(() => {
       if (this.pages()) {
+        console.log('##################################################');
         this.pagesArray = new Array(this.pages());
         for (let i = 0; i < this.pagesArray.length; i++) {
           this.pagesArray[i] = i + 1;
         }
         console.log(this.pagesArray);
+        // console.log(this.records() / parseInt(this.page_size()));
+        // console.log(Math.ceil(this.records() / parseInt(this.page_size())));
+        // if (this.pagesArray.includes(this.page())) {
+        //   console.log('Hello World', this.page());
+        // } else {
+        //   this.page.set(this.pages());
+        //   console.log('Bye Bye', this.page());
+        // }
+        // console.log('##################################################');
       }
     });
   }
@@ -105,8 +115,11 @@ export class BranchOfficesListComponent implements OnInit {
   }
 
   public getSelect(select: HTMLSelectElement) {
+    console.log(`Page Size: ${this.page_size()}---Records: ${this.records()}`);
+    let res = Math.ceil(this.records() / parseInt(this.page_size()));
+    console.log(res);
+
     this.page_size.set(select.value);
-    console.log(this.page_size());
   }
 
   // private list() {

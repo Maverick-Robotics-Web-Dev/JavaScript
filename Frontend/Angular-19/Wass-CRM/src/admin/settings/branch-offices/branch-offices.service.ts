@@ -60,7 +60,6 @@ export class BranchOfficesService extends BaseService {
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
           this.bracnhOfficesPage.set(response);
-          console.log(response);
           // this.nextPageSignal.set(response.next ?? '');
           // this.previousPageSignal.set(response.previous ?? '');
           // this.countSignal.set(response.count ?? 0);
