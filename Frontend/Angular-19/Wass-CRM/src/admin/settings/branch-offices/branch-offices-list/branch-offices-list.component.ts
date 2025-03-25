@@ -1,27 +1,14 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  effect,
-  inject,
-  Injector,
-  OnInit,
-  ResourceRef,
-  runInInjectionContext,
-  signal,
-  Signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, OnInit, ResourceRef, signal, Signal } from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
-import { BranchOffice, BranchOfficeList } from '@core/models';
+import { BranchOfficeList, BranchOfficeModel } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
-import { AsyncPipe, JsonPipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
+import { ceil } from '@shared/utils/round';
 
 @Component({
   selector: 'comp-branch-offices-list',
@@ -39,14 +26,16 @@ export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
   public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
-  public loading!: Signal<boolean>;
-  // public loading = signal<boolean>(true);
+  public branchOfficesData: Signal<BranchOfficeModel[]> = computed(() => this._branchOfficesServices.branchOfficesPagination().data ?? []);
+  public pages = computed(() => this._branchOfficesServices.branchOfficesPagination().pages ?? 0);
+  public currentPage = computed(() => this._branchOfficesServices.branchOfficesPagination().current ?? 0);
+  public count = computed(() => this._branchOfficesServices.branchOfficesPagination().count ?? 0);
+  // public records = computed(() => this.branchOfficesListPagination().count ?? 0);
   public page = signal<number>(1);
   public page_size = signal<string>('10');
-  // public currentPage = computed(() => this.branchOfficeResource.value()?.current ?? 0);
-  public records = computed(() => this.branchOfficesListPagination().count ?? 0);
-  public pages = computed(() => this.branchOfficesListPagination().pages ?? 0);
   public pagesArray!: number[];
+  // public loading!: Signal<boolean>;
+  // public loading = signal<boolean>(true);
 
   constructor() {
     this.branchOfficeResource = rxResource({
@@ -54,31 +43,20 @@ export class BranchOfficesListComponent implements OnInit {
       loader: () => this._branchOfficesServices.listPagination(this.page(), this.page_size()),
     });
 
-    // this.loading = this.branchOfficeResource.isLoading;
-
     effect(() => {
       if (this.pages()) {
-        console.log('##################################################');
+        console.log(this.pages());
+
         this.pagesArray = new Array(this.pages());
         for (let i = 0; i < this.pagesArray.length; i++) {
           this.pagesArray[i] = i + 1;
         }
         console.log(this.pagesArray);
-        // console.log(this.records() / parseInt(this.page_size()));
-        // console.log(Math.ceil(this.records() / parseInt(this.page_size())));
-        // if (this.pagesArray.includes(this.page())) {
-        //   console.log('Hello World', this.page());
-        // } else {
-        //   this.page.set(this.pages());
-        //   console.log('Bye Bye', this.page());
-        // }
-        // console.log('##################################################');
       }
     });
   }
 
   ngOnInit(): void {
-    this.loading = this._branchOfficesServices.isLoading;
     this.sharingData();
   }
 
@@ -114,12 +92,16 @@ export class BranchOfficesListComponent implements OnInit {
     this.page.set(page);
   }
 
-  public getSelect(select: HTMLSelectElement) {
-    console.log(`Page Size: ${this.page_size()}---Records: ${this.records()}`);
-    let res = Math.ceil(this.records() / parseInt(this.page_size()));
-    console.log(res);
+  public getSelect(select: string) {
+    // if (this.pages() == this.page()) {
+    //   let result = ceil(this.records(), parseInt(select.value));
 
-    this.page_size.set(select.value);
+    //   if (result != this.pages()) {
+    //     this.page.set(result);
+    //   }
+    // }
+    this.page.set(1);
+    this.page_size.set(select);
   }
 
   // private list() {

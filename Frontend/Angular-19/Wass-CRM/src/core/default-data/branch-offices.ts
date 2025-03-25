@@ -32,5 +32,6 @@ export const emptyBranchOfficeList: BranchOfficeList = {
   previous: '',
   count: 0,
   pages: 0,
+  current: 0,
   msg: '',
 };

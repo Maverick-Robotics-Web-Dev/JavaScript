@@ -1,6 +1,6 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { BRANCHOFFICES_URL } from '@core/config/config';
-import { emptyBranchOffice, emptyBranchOfficeList } from '@core/default-data';
+import { emptyBranchOffice, emptyBranchOfficeList, emptyBranchOfficeModel } from '@core/default-data';
 import {
   BranchOfficeCrtUptModel,
   BranchOfficeDeleteModel,
@@ -23,21 +23,10 @@ export class BranchOfficesService extends BaseService {
   private readonly isLoadingSignal = signal<boolean>(false);
   readonly isLoading: Signal<boolean> = computed(() => this.isLoadingSignal());
   private readonly bracnhOfficesLst = signal<BranchOfficeList>(emptyBranchOfficeList);
-  private readonly bracnhOfficesPage = signal<BranchOfficeList>(emptyBranchOfficeList);
-  private readonly branchOfficeData = signal<BranchOffice>(emptyBranchOffice);
   readonly branchOfficesList: Signal<BranchOfficeList> = computed(() => this.bracnhOfficesLst());
+  private readonly bracnhOfficesPage = signal<BranchOfficeList>(emptyBranchOfficeList);
   readonly branchOfficesPagination: Signal<BranchOfficeList> = computed(() => this.bracnhOfficesPage());
-  readonly branchOffice: Signal<BranchOffice> = computed(() => this.branchOfficeData());
-  // private readonly nextPageSignal: WritableSignal<string> = signal<string>('');
-  // private readonly previousPageSignal: WritableSignal<string> = signal<string>('');
-  // private readonly countSignal: WritableSignal<number> = signal<number>(0);
-  // private readonly pagesSignal: WritableSignal<number> = signal<number>(0);
-  // private readonly msgSignal: WritableSignal<string> = signal<string>('');
-  // readonly nextPage: Signal<string> = computed(() => this.nextPageSignal());
-  // readonly previousPage: Signal<string> = computed(() => this.previousPageSignal());
-  // readonly count: Signal<number> = computed(() => this.countSignal());
-  // readonly pages: Signal<number> = computed(() => this.pagesSignal());
-  // readonly msg: Signal<string> = computed(() => this.msgSignal());
+
 
   public list(): Observable<BranchOfficeList> {
     this.isLoadingSignal.set(true);
@@ -59,12 +48,7 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesList = this.httpClient.get<BranchOfficeList>(`${BRANCHOFFICES_URL}list_pagination/?page=${page}&page_size=${page_size}`).pipe(
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
-          this.bracnhOfficesPage.set(response);
-          // this.nextPageSignal.set(response.next ?? '');
-          // this.previousPageSignal.set(response.previous ?? '');
-          // this.countSignal.set(response.count ?? 0);
-          // this.pagesSignal.set(response.pages ?? 0);
-          // this.msgSignal.set(response.msg ?? '');
+          this.bracnhOfficesPage.set(response)
         }
       }),
       finalize(() => this.isLoadingSignal.set(false))
