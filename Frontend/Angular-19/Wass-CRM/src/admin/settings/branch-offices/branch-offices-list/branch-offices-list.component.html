@@ -35,7 +35,7 @@
         <!-- <span class="text-dark-blue-8">Show</span> -->
         <span class="text-dark-blue-8">Mostrar</span>
         <div class="data-number-option">
-          <select #records class="data-number-select" (change)="getSelect(records.value)">
+          <select #recordsPerPage class="data-number-select" (change)="getSelect(recordsPerPage.value)">
             <option class="text-dark-blue" value="10">10</option>
             <option class="text-dark-blue" value="8">8</option>
             <option class="text-dark-blue" value="5">5</option>
@@ -166,9 +166,7 @@
     <!--===== Data Table Footer Start =====-->
     <div class="data-table-footer">
       <div class="table-footer">
-        <p class="footer-text">
-          Pagina {{ currentPage() }} de {{ pages() }} de {{ branchOfficesListPagination().count }} registros
-        </p>
+        <p class="footer-text">Pagina {{ currentPage() }} de {{ pages() }} de {{ records() }} registros</p>
         <!-- <p class="footer-text">
           Showing {{ branchOfficesListPagination().current }} to {{ branchOfficesListPagination().pages }} of
           {{ branchOfficesListPagination().count }} entries

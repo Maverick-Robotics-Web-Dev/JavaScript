@@ -1,4 +1,4 @@
-@if(modalStatus){ @if(!(loading|async)){
+@if(modalStatus()){ @if(loading() && branchOfficesData()){
 <div class="modal-retrieve">
   <div class="modal-dialog">
     <div class="modal-content btlr bblr">
@@ -18,7 +18,7 @@
           <div class="col-4 box-group mt-40">
             <label for="" class="modal-info-title"><i class="fa-solid fa-key modal-info-icon"></i>Codigo</label>
             <div class="modal-group">
-              <label class="modal-text">{{ branchOfficeRetrieveData.id }}</label>
+              <label class="modal-text">{{ branchOfficesData().id }}</label>
             </div>
           </div>
           <div class="col-8 box-group mt-40">

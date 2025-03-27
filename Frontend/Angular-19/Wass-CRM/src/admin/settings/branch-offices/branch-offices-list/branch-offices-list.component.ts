@@ -25,12 +25,12 @@ export class BranchOfficesListComponent implements OnInit {
 
   private _branchOfficesServices = inject(BranchOfficesService);
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
-  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesPagination;
-  public branchOfficesData: Signal<BranchOfficeModel[]> = computed(() => this._branchOfficesServices.branchOfficesPagination().data ?? []);
-  public pages = computed(() => this._branchOfficesServices.branchOfficesPagination().pages ?? 0);
-  public currentPage = computed(() => this._branchOfficesServices.branchOfficesPagination().current ?? 0);
-  public count = computed(() => this._branchOfficesServices.branchOfficesPagination().count ?? 0);
-  // public records = computed(() => this.branchOfficesListPagination().count ?? 0);
+  public dataShare = this._dataSharingService.dataShare;
+  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesGetAllPagination;
+  public branchOfficesData= computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().data ?? []);
+  public pages = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().pages ?? 0);
+  public currentPage = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().current ?? 0);
+  public records = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().count ?? 0);
   public page = signal<number>(1);
   public page_size = signal<string>('10');
   public pagesArray!: number[];
@@ -40,7 +40,7 @@ export class BranchOfficesListComponent implements OnInit {
   constructor() {
     this.branchOfficeResource = rxResource({
       request: () => (this.page(), this.page_size()),
-      loader: () => this._branchOfficesServices.listPagination(this.page(), this.page_size()),
+      loader: () => this._branchOfficesServices.getAllPagination(this.page(), this.page_size()),
     });
 
     effect(() => {
@@ -54,29 +54,39 @@ export class BranchOfficesListComponent implements OnInit {
         console.log(this.pagesArray);
       }
     });
+
+    effect(() => {
+      if (this.dataShare()) {
+        if (this.dataShare().resp == 'OK') {
+          this.branchOfficeResource.reload();
+          console.log('Hello World');
+          console.log(this.dataShare());
+        }
+      }
+    });
   }
 
   ngOnInit(): void {
-    this.sharingData();
+    // this.sharingData();
   }
 
-  private sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-      next: (data: any) => {
-        if (data != null) {
-          if (data.resp == 'OK') {
-            // this.list();
-          }
-        }
-      },
-    });
-  }
+  // private sharingData() {
+  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
+  //     next: (data: any) => {
+  //       if (data != null) {
+  //         if (data.resp == 'OK') {
+  //           // this.list();
+  //         }
+  //       }
+  //     },
+  //   });
+  // }
 
   public openCreate() {
     this._dataSharingService.setDataShare({ openCreate: true });
   }
 
-  public getId(id: number) {
+  public openUpdate(id: number) {
     this._dataSharingService.setDataShare({ openRetrieve: true, id: id });
   }
 

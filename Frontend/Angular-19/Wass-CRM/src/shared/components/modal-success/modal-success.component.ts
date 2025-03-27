@@ -19,23 +19,23 @@ export class ModalSuccessComponent implements OnInit {
   public success: boolean = false;
 
   ngOnInit(): void {
-    this.sharingData();
+    // this.sharingData();
   }
 
   closeModalSuccess() {
     this._dataSharingService.setDataShare({ closeCreate: false, success: false, resp: 'OK' });
   }
 
-  public sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
-      if (data != null) {
-        if (data.success == true) {
-          this.success = data.success;
-        }
-        if (data.success == false) {
-          this.success = data.success;
-        }
-      }
-    });
-  }
+  // public sharingData() {
+  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+  //     if (data != null) {
+  //       if (data.success == true) {
+  //         this.success = data.success;
+  //       }
+  //       if (data.success == false) {
+  //         this.success = data.success;
+  //       }
+  //     }
+  //   });
+  // }
 }

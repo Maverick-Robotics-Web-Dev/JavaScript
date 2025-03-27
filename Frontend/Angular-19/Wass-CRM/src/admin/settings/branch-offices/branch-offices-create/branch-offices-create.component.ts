@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnInit, signal, Signal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -22,29 +22,44 @@ export class BranchOfficesCreateComponent implements OnInit {
   private _formBuilder: FormBuilder = inject(FormBuilder);
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
+  public modalStatus = signal<boolean>(false);
+  public dataShare: Signal<any> = this._dataSharingService.dataShare;
   public branchForm!: FormGroup;
   public message: string | undefined = '';
   public error!: HttpErrorResponse;
-  public modalStatus: boolean = false;
 
-  ngOnInit(): void {
-    this.branchForm = this.createForm();
-    this.sharingData();
-  }
-
-  private sharingData() {
-    this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
-      if (data != null) {
-        if (data.openCreate == true) {
+  constructor() {
+    effect(() => {
+      if (this.dataShare()) {
+        if (this.dataShare().openCreate == true) {
           this.branchForm.reset();
-          this.modalStatus = data.openCreate;
+          this.modalStatus.set(this.dataShare().openCreate);
         }
-        if (data.closeCreate == false) {
-          this.modalStatus = data.closeCreate;
+        if (this.dataShare().closeCreate == false) {
+          this.modalStatus.set(this.dataShare().closeCreate);
         }
       }
     });
   }
+
+  ngOnInit(): void {
+    this.branchForm = this.createForm();
+    // this.sharingData();
+  }
+
+  // private sharingData() {
+  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
+  //     if (data != null) {
+  //       if (data.openCreate == true) {
+  //         this.branchForm.reset();
+  //         this.modalStatus = data.openCreate;
+  //       }
+  //       if (data.closeCreate == false) {
+  //         this.modalStatus = data.closeCreate;
+  //       }
+  //     }
+  //   });
+  // }
 
   public closeModal(): void {
     this._dataSharingService.setDataShare({ closeCreate: false });

@@ -16,18 +16,11 @@ export interface BranchOfficeModel {
   img?: File | null;
 }
 
-export interface BranchOfficeRetrieveModel {
-  ok?: string;
-  error?: string;
-  msg?: string;
-  data?: BranchOfficeModel;
-}
-
 export interface BranchOfficeCrtUptModel {
   ok?: string;
   error?: string;
-  data?: BranchOfficeModel;
   msg?: string;
+  data?: BranchOfficeModel;
 }
 
 export interface BranchOfficeDeleteModel {
