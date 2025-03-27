@@ -68,3 +68,16 @@ https://www.youtube.com/watch?v=f43oADbeVSs
 https://medium.com/@kirill.kovzel/creating-custom-pagination-component-with-angular-9c6c93fdf0f0
 https://blog.hammelburg.me/writing-your-own-pagination-component-with-angular-cae69d15e3d0
 https://azaharafernandezguizan.medium.com/c%C3%B3mo-paginar-y-ordenar-una-tabla-en-angular-f%C3%A1cilmente-ba11ccb15214
+
+CARDS
+https://codea.app/blog/card-css
+https://codepen.io/jared-parsons/pen/xxVoebB
+https://www.youtube.com/watch?v=8599TGtC7Kk
+https://codepen.io/harshh9/pen/poKyKPR
+https://www.codewithrandom.com/2022/11/04/pokemon-card-using-html-css-javascript/
+https://codepen.io/alvaromontoro/full/ebPEWb
+https://uicookies.com/bootstrap-cards/
+https://dev.to/frontendsolutions/13-css-blog-cards-54d7
+https://freefrontend.com/css-cards/
+https://dev.to/frontendsolutions/13-css-blog-cards-54d7
+https://www.youtube.com/watch?v=19m_Uc-3ycw

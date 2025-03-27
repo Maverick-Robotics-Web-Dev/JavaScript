@@ -20,9 +20,9 @@
   pointer-events: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: calc(100% - 2.84375rem);
   max-width: 40.625rem !important;
-  border-collapse: collapse;
 }
 
 .form-create {
@@ -32,8 +32,7 @@
   border: 1px solid $dark-blue;
   background-color: $white;
   max-width: 730px;
-  box-shadow: 0px 12px 24px -4px rgba(145, 158, 171, 0.12),
-    0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+  box-shadow: 0px 12px 24px -4px rgba(145, 158, 171, 0.12), 0px 0px 2px 0px rgba(145, 158, 171, 0.2);
   pointer-events: auto;
   padding: 25px 30px;
 }
@@ -165,8 +164,7 @@
   font-size: 0.875rem;
   line-height: 20px;
   color: #1e375a;
-  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000,
-    0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   transition: all 0.3s ease-out 0s;
 }
 
@@ -200,8 +198,7 @@
   font-size: 0.875rem;
   line-height: 20px;
   color: #1e375a;
-  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000,
-    0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   transition: all 0.3s ease-out 0s;
   padding-left: 35px;
   cursor: pointer;
@@ -300,8 +297,7 @@
   line-height: 20px;
   color: $white;
   background-color: $light-blue;
-  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000,
-    0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   transition: all 0.3s ease-out 0s;
   width: auto;
 }

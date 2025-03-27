@@ -2,7 +2,7 @@ import { Component, computed, DestroyRef, effect, inject, Input, OnInit, Resourc
 import { BranchOfficesService } from '../branch-offices.service';
 import { DataSharingService } from '@core/services';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { NEVER, Observable } from 'rxjs';
 import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
@@ -11,7 +11,7 @@ import { emptyBranchOfficeModel } from '@core/default-data';
 @Component({
   selector: 'comp-branch-offices-retrieve',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [],
   templateUrl: './branch-offices-retrieve.component.html',
   styleUrl: './branch-offices-retrieve.component.scss',
 })
@@ -25,66 +25,33 @@ export class BranchOfficesRetrieveComponent implements OnInit {
   public loading = this._branchOfficesServices.isLoading;
   public branchOfficesGetById = this._branchOfficesServices.bracnhOfficesGetById;
   public branchOfficesData = computed(() => this._branchOfficesServices.bracnhOfficesGetById().data ?? emptyBranchOfficeModel);
-  public id = signal<string>('');
-  public modalStatus = signal<boolean>(false);
+  public id = signal<string>('44');
+  public modalStatus = signal<boolean>(true);
   // public error!: HttpErrorResponse;
 
   constructor() {
     this.branchOfficeResource = rxResource({
       request: () => this.id(),
-      loader: () => this._branchOfficesServices.getById(this.id()),
+      loader: ({ request: id }) => (id == '' ? NEVER : this._branchOfficesServices.getById(this.id())),
     });
-    effect(() => {});
+
+    effect(() => {
+      if (this.dataShare()) {
+        if (this.dataShare().openDetail == true) {
+          this.id.set(this.dataShare().id);
+          this.modalStatus.set(this.dataShare().openDetail);
+        }
+
+        if (this.dataShare().closeDetail == false) {
+          this.modalStatus.set(this.dataShare().closeDetail);
+        }
+      }
+    });
   }
 
-  ngOnInit(): void {
-    // this.sharingData();
-    // this.loading = this._branchOfficesServices.isLoading$;
-  }
-
-  // private sharingData() {
-  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-  //     next: (data: any) => {
-  //       if (data != null) {
-  //         if (data.openRetrieve == true) {
-  //           this.id = data.id;
-  //           this.retrieve();
-  //           this.modalStatus = data.openRetrieve;
-  //         }
-
-  //         if (data.closeRetrieve == false) {
-  //           this.modalStatus = data.closeRetrieve;
-  //         }
-
-  //         if (data.id) {
-  //           this.id = data.id;
-  //           this.retrieve();
-  //         }
-  //       }
-  //     },
-  //   });
-  // }
+  ngOnInit(): void {}
 
   public closeModal(): void {
-    this._dataSharingService.setDataShare({ closeRetrieve: false });
+    this._dataSharingService.setDataShare({ closeDetail: false });
   }
-
-  // private retrieve() {
-  //   this._branchOfficesServices
-  //     .getById(this.id)
-  //     .pipe(takeUntilDestroyed(this._destroy))
-  //     .subscribe({
-  //       next: (resp: any) => {
-  //         if (resp.ok == 'OK') {
-  //           if (resp.data) {
-  //             this.branchOfficeRetrieveData = resp.data;
-  //           }
-  //         }
-  //       },
-  //       error: (err) => {
-  //         this.error = err;
-  //         console.log(err);
-  //       },
-  //     });
-  // }
 }
