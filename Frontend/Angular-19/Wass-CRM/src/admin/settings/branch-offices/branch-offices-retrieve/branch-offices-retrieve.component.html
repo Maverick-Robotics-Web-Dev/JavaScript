@@ -11,9 +11,46 @@
     <div class="modal-split btrr bbrr">
       <div class="detail-form">
         <div class="detail-form-header">
-          <h3 class="detail-form-title">Crear Sucursal</h3>
+          <h3 class="detail-form-title">Sucursal</h3>
+          <h3 class="detail-form-title">Codigo: {{ branchOfficesData().id }}</h3>
         </div>
-        <div class="detail-form-body"></div>
+        <div class="detail-form-body">
+          <div class="detail-form-content">
+            <div class="col-span-1">
+              <div class="card">
+                <div class="card-header">
+                  <span class="card-icon"><i class="fa-solid fa-store"></i></span>
+                </div>
+                <div class="card-body">
+                  <h2 class="card-title">Nombre</h2>
+                  <p class="card-text">{{ branchOfficesData().name }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card">
+                <div class="card-header">
+                  <span class="card-icon"><i class="fa-solid fa-map"></i></span>
+                </div>
+                <div class="card-body">
+                  <h2 class="card-title">Dirección</h2>
+                  <p class="card-text">{{ branchOfficesData().address }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card">
+                <div class="card-header">
+                  <span class="card-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+                </div>
+                <div class="card-body">
+                  <h2 class="card-title">Zip</h2>
+                  <p class="card-text">{{ branchOfficesData().postal_code }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
