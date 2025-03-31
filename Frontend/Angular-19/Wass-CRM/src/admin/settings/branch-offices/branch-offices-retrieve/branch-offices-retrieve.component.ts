@@ -7,6 +7,7 @@ import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
 import { emptyBranchOfficeModel } from '@core/default-data';
+import { createComponentAnimations } from '../branch-offices-animation';
 
 @Component({
   selector: 'comp-branch-offices-retrieve',
@@ -14,6 +15,7 @@ import { emptyBranchOfficeModel } from '@core/default-data';
   imports: [],
   templateUrl: './branch-offices-retrieve.component.html',
   styleUrl: './branch-offices-retrieve.component.scss',
+  animations: [createComponentAnimations],
 })
 export class BranchOfficesRetrieveComponent implements OnInit {
   // @Input() id!: string;
@@ -25,8 +27,8 @@ export class BranchOfficesRetrieveComponent implements OnInit {
   public loading = this._branchOfficesServices.isLoading;
   public branchOfficesGetById = this._branchOfficesServices.bracnhOfficesGetById;
   public branchOfficesData = computed(() => this._branchOfficesServices.bracnhOfficesGetById().data ?? emptyBranchOfficeModel);
-  public id = signal<string>('7');
-  public modalStatus = signal<boolean>(true);
+  public id = signal<string>('');
+  public modalStatus = signal<boolean>(false);
   // public error!: HttpErrorResponse;
 
   constructor() {

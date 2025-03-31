@@ -35,6 +35,7 @@
   height: 100%;
   display: flex;
   pointer-events: auto;
+  // border: 1px solid $dark-blue;
 }
 
 .modal-background-image {
@@ -49,7 +50,7 @@
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   pointer-events: auto;
-  padding: 25px 30px;
+  // padding: 25px 30px;
   width: 100%;
 }
 
@@ -59,11 +60,12 @@
   align-items: center;
   justify-content: space-between;
   // flex-direction: column;
-  color: $dark-blue;
+  // color: $dark-blue;
+  background-color: $dark-blue;
+  color: $white;
   font-size: 1rem;
-  margin-bottom: 16px;
-  border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
+  padding: 25px 30px;
 }
 
 .detail-form-title {
@@ -77,7 +79,7 @@
 
 .detail-form-body {
   border-top: 1px solid $dark-blue;
-  padding-top: 20px;
+  padding: 20px 30px 25px;
 }
 
 .detail-form-content {
@@ -85,6 +87,7 @@
   column-gap: calc(0.25rem * 6);
   // row-gap: calc(0.25rem * 5);
   grid-template-columns: repeat(4, minmax(0px, 1fr));
+  margin-top: 30px;
 }
 
 .card {
@@ -92,18 +95,20 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  // margin: 0 auto;
-  // background: linear-gradient($dark-blue 32%, $white 32%);
-  // box-shadow: 0 0 0.125rem $dark-blue;
-  // border: 1px solid $dark-blue;
-  border-radius: 8px;
+  box-shadow: 0 0 0.125rem $dark-blue;
+  border-top: 3px solid $dark-blue;
+  background-color: $white;
+  // border-right: 3px solid $dark-blue;
+  // border-top: 3px solid $dark-blue;
+  // border-radius: 8px;
   padding: 12px;
+  margin-bottom: 20px;
 }
 
 .card-header {
   position: relative;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
 .card-icon {
@@ -113,62 +118,75 @@
   width: 100%;
   height: 100%;
   background-color: $dark-blue;
+  // background-color: $white;
   border-radius: 50%;
-  // border: 2px solid $white;
+  border: 2px solid $white;
   color: $white;
+  // color: $dark-blue;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  font-size: 16px;
 }
 
 .card-body {
   text-align: center;
-  padding: 16px;
+  padding: 16px 16px 0;
 }
 
 .card-title {
   margin-bottom: 8px;
   color: $dark-blue;
-  // color: #1e375a;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .card-text {
   margin-top: 8px;
   color: #1e375a;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.card-2 {
-  border-radius: 5px;
-  box-shadow: 0px 4px 34px -20px #a3a5ae;
-  padding: 12px;
-  border-top: 3px solid $dark-blue;
-  width: 100%;
-}
-
-.card-title-2 {
-  font-size: 16px;
-  color: $dark-blue;
-  text-align: center;
-  // margin: 18px 0;
-}
-
-.card-text-2 {
-  font-size: 14px;
-  color: #1e375a;
-  padding: 15px 0;
-  text-align: center;
-  word-wrap: break-word;
-}
-
-.card-icon-2 {
+.close-box-btn {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  // color: #1e375a;
-  color: $dark-blue;
-  width: 100%;
-  font-size: 28px;
-  padding: 0 8px 0 0;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  text-transform: none;
+  appearance: button;
+  background-image: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(255 255 255 / 1);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: all 0.3s ease-out 0s;
+}
+
+.close-btn {
+  border-radius: 0.5rem;
+  background-color: $light-blue;
+  // background-color: $white;
+  // border: 1px solid $dark-blue;
+  // color: $dark-blue;
+}
+
+.close-btn:hover {
+  background-color: $dark-blue;
+  // color: $white;
+}
+
+.close-btn:active {
+  transform: scale(0.9);
 }
 
 .wh-40 {
@@ -194,204 +212,14 @@
   margin-bottom: 10px;
 }
 
-// .modal-retrieve {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 1055;
-//   width: 100%;
-//   height: 100%;
-//   overflow-x: hidden;
-//   overflow-y: auto;
-//   outline: 0;
-//   padding-left: 0;
-// }
+.col-span-4 {
+  grid-column: span 4 / span 4;
+  margin-bottom: 10px;
+}
 
-// .modal-dialog {
-//   position: relative;
-//   width: 80%;
-//   margin: 20px auto;
-//   pointer-events: none;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   min-height: calc(100% - 40px);
-//   height: calc(100% - 40px);
-//   border-radius: 0.625rem !important;
-//   // max-width: 40.625rem !important;
-// }
-
-// .modal-content {
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   width: 50%;
-//   height: 100%;
-//   pointer-events: auto;
-//   background-color: $white;
-//   background-clip: padding-box;
-//   border: 0 solid rgba(0, 0, 0, 0.175);
-//   box-shadow: 0 0.40625rem 0.8125rem 0 rgba(0, 0, 0, 0.1);
-//   outline: 0;
-//   // border-radius: 0.625rem !important;
-//   // margin: 15px;
-// }
-
-// .modal-background-image {
-//   width: 100%;
-//   height: 100%;
-//   border-top-left-radius: 0.385935rem;
-//   border-bottom-left-radius: 0.385935rem;
-// }
-
-// .modal-header {
-//   display: flex;
-//   flex-shrink: 0;
-//   align-items: center;
-//   justify-content: center;
-//   background-color: $dark-blue;
-//   padding: 1.421872rem;
-//   border-top-right-radius: 0.625rem;
-//   border: 0 !important;
-//   border-width: 0 !important;
-//   padding-bottom: 0 !important;
-//   height: 56px;
-// }
-
-// .modal-label {
-//   margin-bottom: 18px !important;
-//   text-align: center !important;
-// }
-
-// .modal-title {
-//   margin-top: 0;
-//   line-height: 1.2;
-//   color: $white;
-//   font-size: 22px;
-//   outline: 0;
-//   // margin-bottom: 9.75px;
-// }
-
-// .modal-body {
-//   flex: 1 1 auto;
-//   padding: 0 2.375rem 2.375rem !important;
-//   border-bottom-right-radius: 0.625rem;
-//   overflow-y: scroll;
-//   position: relative;
-//   // scrollbar-width: thin;
-//   // scrollbar-color: #f1f1f4 transparent;
-// }
-
-// .modal-retrieve-form {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin: 0 -1.25rem;
-// }
-
-// .modal-info-title {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-bottom: 10px;
-//   font-family: "Roboto-Medium";
-//   font-size: 15px;
-//   color: $dark-blue;
-// }
-
-// .modal-info-icon {
-//   width: 26px;
-//   height: 26px;
-//   background-color: $dark-blue;
-//   color: $white;
-//   line-height: 26px;
-//   text-align: center;
-//   border-radius: 50%;
-//   font-size: 12px;
-//   margin-right: 5px;
-// }
-
-// .modal-group {
-//   position: relative;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   border-radius: 0.625rem;
-//   // border: 2px solid $dark-blue;
-//   border: 2px solid $dark-blue;
-//   height: 46px;
-// }
-
-// .modal-icon {
-//   position: absolute;
-//   top: -16px;
-//   left: 50%;
-//   margin-left: -15px;
-//   width: 26px;
-//   height: 26px;
-//   background-color: $dark-blue;
-//   color: $white;
-//   line-height: 26px;
-//   text-align: center;
-//   border-radius: 50%;
-//   font-size: 12px;
-// }
-
-// .modal-text {
-//   font-family: "Roboto-Regular";
-//   margin: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   // padding-top: 12px;
-//   font-size: 16px;
-//   letter-spacing: 0.03125rem;
-//   line-height: 1.5;
-//   // color: $dark-blue;
-//   color: $black-blue;
-//   appearance: none;
-//   background-clip: padding-box;
-//   border-radius: 0.625rem;
-//   transition: 0.2s ease-in-out;
-//   flex: 1 1 auto;
-//   height: 46px;
-//   width: 1%;
-//   min-width: 0;
-//   outline: none;
-// }
-
-// .btn-success {
-//   display: inline-block;
-//   font-size: 14px;
-//   text-align: center;
-//   vertical-align: middle;
-//   cursor: pointer;
-//   user-select: none;
-//   border-radius: 0.425rem;
-//   transition: 0.15s ease-in-out;
-//   outline: 0 !important;
-//   color: #ffffff;
-//   background-color: $dark-blue;
-//   border: 0;
-//   box-shadow: none;
-//   padding: 14px 18px;
-// }
-
-// .btn-success:hover {
-//   background-color: $light-blue;
-// }
-
-// .btn-success:active {
-//   transform: scale(0.9);
-// }
-
-// .btn-success > i {
-//   display: inline-flex;
-//   margin-right: 0.25rem;
-//   padding-right: 0.35rem;
-//   font-size: 0.875rem;
-// }
+.mr-8 {
+  margin-right: 8px;
+}
 
 .modal-backdrop {
   position: fixed;
@@ -418,17 +246,3 @@
 .bbrr {
   border-bottom-right-radius: 1.5rem;
 }
-
-// .wth-4 {
-//   width: 33.33333333%;
-// }
-
-// .wth-8 {
-//   width: 66.66666667%;
-// }
-
-// .d-flex-center {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }

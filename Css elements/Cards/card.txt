@@ -1,0 +1,101 @@
+<div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Nombre</h2>
+                <p class="card-text-2">{{ branchOfficesData().name }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-store"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Celular</h2>
+                <p class="card-text-2">{{ branchOfficesData().cellphone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mobile-screen-button"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Telefono</h2>
+                <p class="card-text-2">{{ branchOfficesData().phone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Dirección</h2>
+                <p class="card-text-2">{{ branchOfficesData().address }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-map"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Zip</h2>
+                <p class="card-text-2">{{ branchOfficesData().postal_code }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Ciudad</h2>
+                <p class="card-text-2">{{ branchOfficesData().city }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-city"></i></span>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">E-mail</h2>
+                <p class="card-text-2">{{ branchOfficesData().email }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-envelope"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Estado</h2>
+                <p class="card-text-2">{{ branchOfficesData().state_province }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mountain-city"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Pais</h2>
+                <p class="card-text-2">{{ branchOfficesData().country }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-earth-americas"></i></span>
+              </div>
+            </div>
+
+
+
+.card-2 {
+  border-radius: 5px;
+  box-shadow: 0px 4px 34px -20px #a3a5ae;
+  padding: 12px;
+  // border-top: 3px solid $dark-blue;
+  border: 1px solid $dark-blue;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.card-title-2 {
+  font-size: 16px;
+  color: $dark-blue;
+  text-align: center;
+  // margin: 18px 0;
+}
+
+.card-text-2 {
+  font-size: 14px;
+  color: #1e375a;
+  padding: 15px 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.card-icon-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  // color: #1e375a;
+  color: $dark-blue;
+  width: 100%;
+  font-size: 28px;
+  padding: 0 8px 0 0;
+}
