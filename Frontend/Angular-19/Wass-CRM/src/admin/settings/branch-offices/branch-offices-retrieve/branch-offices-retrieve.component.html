@@ -1,14 +1,14 @@
 @if(modalStatus()){ @if(!loading() && branchOfficesGetById()){
 <div class="modal-detail">
   <div class="modal-content">
-    <div class="modal-split btlr bblr">
+    <div class="modal-split wh-40 btlr bblr">
       <img
         src="https://imagenes.elpais.com/resizer/v2/PYLNGDT3NBPFJCO7BFH7566U2M.jpg?auth=256f8a2ddff6269141e8fb860fc2fdf94f304186875288c96ca90c386b0c008c&width=1200"
         alt=""
         class="modal-background-image"
       />
     </div>
-    <div class="modal-split btrr bbrr">
+    <div class="modal-split wh-60 btrr bbrr">
       <div class="detail-form">
         <div class="detail-form-header">
           <h3 class="detail-form-title">Sucursal</h3>
@@ -16,35 +16,146 @@
         </div>
         <div class="detail-form-body">
           <div class="detail-form-content">
-            <div class="col-span-1">
-              <div class="card">
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Nombre</h2>
+                <p class="card-text-2">{{ branchOfficesData().name }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-store"></i></span>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Dirección</h2>
+                <p class="card-text-2">{{ branchOfficesData().address }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-map"></i></span>
+              </div>
+              <!-- <div class="card">
                 <div class="card-header">
-                  <span class="card-icon"><i class="fa-solid fa-store"></i></span>
+                  <span class="card-icon"><i class="fa-solid fa-map"></i></span>
                 </div>
                 <div class="card-body">
-                  <h2 class="card-title">Nombre</h2>
-                  <p class="card-text">{{ branchOfficesData().name }}</p>
+                  <h2 class="card-title">Dirección</h2>
+                  <p class="card-text">{{ branchOfficesData().address }}</p>
                 </div>
+              </div> -->
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">E-mail</h2>
+                <p class="card-text-2">{{ branchOfficesData().email }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-envelope"></i></span>
               </div>
             </div>
             <div class="col-span-1">
               <div class="card-2">
-                <h2 class="card-title-2">Dirección</h2>
-                <p class="card-text-2">{{ branchOfficesData().address }}</p>
-                <span class="card-icon-2"><i class="fa-solid fa-map modal-info-icon"></i></span>
+                <h2 class="card-title-2">Celular</h2>
+                <p class="card-text-2">{{ branchOfficesData().cellphone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mobile-screen-button"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Telefono</h2>
+                <p class="card-text-2">{{ branchOfficesData().phone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Zip</h2>
+                <p class="card-text-2">{{ branchOfficesData().postal_code }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Ciudad</h2>
+                <p class="card-text-2">{{ branchOfficesData().city }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-city"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Estado</h2>
+                <p class="card-text-2">{{ branchOfficesData().state_province }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mountain-city"></i></span>
               </div>
             </div>
             <div class="col-span-1">
               <div class="card">
                 <div class="card-header">
-                  <span class="card-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+                  <span class="card-icon"><i class="fa-solid fa-map"></i></span>
                 </div>
                 <div class="card-body">
-                  <h2 class="card-title">Zip</h2>
-                  <p class="card-text">{{ branchOfficesData().postal_code }}</p>
+                  <h2 class="card-title">Dirección</h2>
+                  <p class="card-text">{{ branchOfficesData().address }}</p>
                 </div>
               </div>
             </div>
+
+            <!-- <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Nombre</h2>
+                <p class="card-text-2">{{ branchOfficesData().name }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-store"></i></span>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">Dirección</h2>
+                <p class="card-text-2">{{ branchOfficesData().address }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-map"></i></span>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <div class="card-2">
+                <h2 class="card-title-2">E-mail</h2>
+                <p class="card-text-2">{{ branchOfficesData().email }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-envelope"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Celular</h2>
+                <p class="card-text-2">{{ branchOfficesData().cellphone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mobile-screen-button"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Telefono</h2>
+                <p class="card-text-2">{{ branchOfficesData().phone_number }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Zip</h2>
+                <p class="card-text-2">{{ branchOfficesData().postal_code }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-phone"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Ciudad</h2>
+                <p class="card-text-2">{{ branchOfficesData().city }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-city"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Estado</h2>
+                <p class="card-text-2">{{ branchOfficesData().state_province }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-mountain-city"></i></span>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="card-2">
+                <h2 class="card-title-2">Pais</h2>
+                <p class="card-text-2">{{ branchOfficesData().country }}</p>
+                <span class="card-icon-2"><i class="fa-solid fa-earth-americas"></i></span>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
