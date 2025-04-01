@@ -15,7 +15,8 @@
 
 .modal-content {
   position: relative;
-  width: 80%;
+  width: auto;
+  max-width: 80%;
   margin: 1.421872rem auto;
   pointer-events: none;
   display: flex;
@@ -36,6 +37,8 @@
   display: flex;
   pointer-events: auto;
   // border: 1px solid $dark-blue;
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 .modal-background-image {
@@ -65,11 +68,11 @@
   color: $white;
   font-size: 1rem;
   border-top-right-radius: 1.5rem;
-  padding: 25px 30px;
+  padding: 16px 30px;
 }
 
 .detail-form-title {
-  font-size: 24px;
+  font-size: 20px;
   line-height: calc(1.5 / 1);
   letter-spacing: 1px;
   display: flex;
@@ -124,7 +127,7 @@
   color: $white;
   // color: $dark-blue;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .card-body {
@@ -135,7 +138,7 @@
 .card-title {
   margin-bottom: 8px;
   color: $dark-blue;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .card-text {

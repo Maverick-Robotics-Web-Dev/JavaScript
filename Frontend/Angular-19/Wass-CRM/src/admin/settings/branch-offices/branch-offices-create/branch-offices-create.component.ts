@@ -44,22 +44,7 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.branchForm = this.createForm();
-    // this.sharingData();
   }
-
-  // private sharingData() {
-  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
-  //     if (data != null) {
-  //       if (data.openCreate == true) {
-  //         this.branchForm.reset();
-  //         this.modalStatus = data.openCreate;
-  //       }
-  //       if (data.closeCreate == false) {
-  //         this.modalStatus = data.closeCreate;
-  //       }
-  //     }
-  //   });
-  // }
 
   public closeModal(): void {
     this._dataSharingService.setDataShare({ closeCreate: false });
