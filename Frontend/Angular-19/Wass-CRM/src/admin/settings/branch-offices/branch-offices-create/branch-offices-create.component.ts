@@ -1,13 +1,15 @@
-import { Component, DestroyRef, effect, inject, OnInit, signal, Signal } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, ResourceRef, signal, Signal, WritableSignal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BranchOfficesService } from '../branch-offices.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { BranchOfficeCrtUptModel } from '@core/models';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { NgClass } from '@angular/common';
+import { NEVER } from 'rxjs';
+import { emptyBranchOfficeModel } from '@core/default-data';
 
 @Component({
   selector: 'comp-branch-offices-create',
@@ -18,17 +20,23 @@ import { NgClass } from '@angular/common';
   animations: [createComponentAnimations],
 })
 export class BranchOfficesCreateComponent implements OnInit {
-  private _branchOfficesServices = inject(BranchOfficesService);
+  private _branchOfficesServices: BranchOfficesService = inject(BranchOfficesService);
   private _formBuilder: FormBuilder = inject(FormBuilder);
-  private _dataSharingService = inject(DataSharingService);
-  private readonly _destroy: DestroyRef = inject(DestroyRef);
-  public modalStatus = signal<boolean>(false);
+  private _dataSharingService: DataSharingService = inject(DataSharingService);
+  public branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
   public dataShare: Signal<any> = this._dataSharingService.dataShare;
+  public message: Signal<string> = computed(() => this._branchOfficesServices.branchOfficeCreate().msg ?? '');
+  public branchOfficeData: WritableSignal<BranchOfficeModel> = signal<BranchOfficeModel>(emptyBranchOfficeModel);
+  public modalStatus: WritableSignal<boolean> = signal<boolean>(false);
   public branchForm!: FormGroup;
-  public message: string | undefined = '';
   public error!: HttpErrorResponse;
 
   constructor() {
+    this.branchOfficeResource = rxResource({
+      request: () => this.branchOfficeData(),
+      loader: ({ request: branchOffice }) => (branchOffice == emptyBranchOfficeModel ? NEVER : this._branchOfficesServices.create(branchOffice)),
+    });
+
     effect(() => {
       if (this.dataShare()) {
         if (this.dataShare().openCreate == true) {
@@ -38,6 +46,12 @@ export class BranchOfficesCreateComponent implements OnInit {
         if (this.dataShare().closeCreate == false) {
           this.modalStatus.set(this.dataShare().closeCreate);
         }
+      }
+    });
+
+    effect(() => {
+      if (this.message()) {
+        this._dataSharingService.setDataShare({ success: true });
       }
     });
   }
@@ -50,11 +64,13 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.setDataShare({ closeCreate: false });
   }
 
-  public fileChange(e: Event) {
-    let target = e.target as HTMLInputElement;
+  public fileChange(files: FileList | null) {
+    console.log(files);
 
-    if (target.files && target.files.length > 0) {
-      this.branchForm.patchValue({ img: target.files[0] });
+    if (files && files.length > 0) {
+      this.branchForm.patchValue({ img: files[0] });
+    } else {
+      this.branchForm.patchValue({ img: '' });
     }
 
     // if (target.files && target.files.length > 0) {
@@ -76,7 +92,7 @@ export class BranchOfficesCreateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: [''],
       phone_number: [''],
-      img: new FormControl<File | string | null>('empty'),
+      img: new FormControl<File | string | null>(''),
     });
 
     return frm;
@@ -84,21 +100,8 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   public createBranch(e: Event) {
     e.preventDefault();
+    console.log(this.branchForm.value);
 
-    this._branchOfficesServices
-      .create(this.branchForm.value)
-      .pipe(takeUntilDestroyed(this._destroy))
-      .subscribe({
-        next: (resp: BranchOfficeCrtUptModel) => {
-          if (resp.ok == 'OK') {
-            this.message = resp.msg;
-            this._dataSharingService.setDataShare({ success: true });
-          }
-        },
-        error: (err) => {
-          this.error = err;
-          console.log(err);
-        },
-      });
+    this.branchOfficeData.set(this.branchForm.value);
   }
 }

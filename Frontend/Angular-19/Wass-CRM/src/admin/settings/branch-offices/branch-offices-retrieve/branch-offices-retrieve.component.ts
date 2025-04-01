@@ -25,8 +25,8 @@ export class BranchOfficesRetrieveComponent implements OnInit {
   public branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
   public dataShare = this._dataSharingService.dataShare;
   public loading = this._branchOfficesServices.isLoading;
-  public branchOfficesGetById = this._branchOfficesServices.bracnhOfficesGetById;
-  public branchOfficesData = computed(() => this._branchOfficesServices.bracnhOfficesGetById().data ?? emptyBranchOfficeModel);
+  public branchOfficesGetById = this._branchOfficesServices.branchOfficesGetById;
+  public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetById().data ?? emptyBranchOfficeModel);
   public id = signal<string>('');
   public modalStatus = signal<boolean>(false);
   // public error!: HttpErrorResponse;

@@ -26,11 +26,11 @@ export class BranchOfficesListComponent implements OnInit {
   private _branchOfficesServices = inject(BranchOfficesService);
   public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
   public dataShare = this._dataSharingService.dataShare;
-  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesGetAllPagination;
-  public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().data ?? []);
-  public pages = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().pages ?? 0);
-  public currentPage = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().current ?? 0);
-  public records = computed(() => this._branchOfficesServices.branchOfficesGetAllPagination().count ?? 0);
+  public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesGetAllPages;
+  public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().data ?? []);
+  public pages = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().pages ?? 0);
+  public currentPage = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().current ?? 0);
+  public records = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().count ?? 0);
   public page = signal<number>(1);
   public page_size = signal<string>('10');
   public pagesArray!: number[];

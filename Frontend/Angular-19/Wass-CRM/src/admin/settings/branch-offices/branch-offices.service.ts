@@ -1,7 +1,7 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { BRANCHOFFICES_URL } from '@core/config/config';
 import { emptyBranchOffice, emptyBranchOfficeList, emptyBranchOfficeModel } from '@core/default-data';
-import { BranchOfficeCrtUptModel, BranchOfficeDeleteModel, BranchOfficeModel, BranchOfficeList, BranchOffice } from '@core/models';
+import { BranchOfficeDeleteModel, BranchOfficeModel, BranchOfficeList, BranchOffice } from '@core/models';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
 import { BehaviorSubject, finalize, Observable, tap } from 'rxjs';
@@ -13,14 +13,16 @@ export class BranchOfficesService extends BaseService {
   public isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
-  private readonly isLoadingSignal = signal<boolean>(false);
+  private readonly isLoadingSignal: WritableSignal<boolean> = signal<boolean>(false);
   readonly isLoading: Signal<boolean> = computed(() => this.isLoadingSignal());
-  private readonly bracnhOfficesGetAllSignal = signal<BranchOfficeList>(emptyBranchOfficeList);
-  readonly bracnhOfficesGetAll: Signal<BranchOfficeList> = computed(() => this.bracnhOfficesGetAllSignal());
-  private readonly bracnhOfficesGetAllPageSignal = signal<BranchOfficeList>(emptyBranchOfficeList);
-  readonly branchOfficesGetAllPagination: Signal<BranchOfficeList> = computed(() => this.bracnhOfficesGetAllPageSignal());
-  private readonly bracnhOfficesGetByIdSignal = signal<BranchOffice>(emptyBranchOffice);
-  readonly bracnhOfficesGetById = computed(() => this.bracnhOfficesGetByIdSignal());
+  private readonly branchOfficesGetAllSignal: WritableSignal<BranchOfficeList> = signal<BranchOfficeList>(emptyBranchOfficeList);
+  readonly branchOfficesGetAll: Signal<BranchOfficeList> = computed(() => this.branchOfficesGetAllSignal());
+  private readonly branchOfficesGetAllPagesSignal: WritableSignal<BranchOfficeList> = signal<BranchOfficeList>(emptyBranchOfficeList);
+  readonly branchOfficesGetAllPages: Signal<BranchOfficeList> = computed(() => this.branchOfficesGetAllPagesSignal());
+  private readonly branchOfficesGetByIdSignal: WritableSignal<BranchOffice> = signal<BranchOffice>(emptyBranchOffice);
+  readonly branchOfficesGetById: Signal<BranchOffice> = computed(() => this.branchOfficesGetByIdSignal());
+  private readonly branchOfficeCreateSignal: WritableSignal<BranchOffice> = signal<BranchOffice>(emptyBranchOffice);
+  readonly branchOfficeCreate: Signal<BranchOffice> = computed(() => this.branchOfficeCreateSignal());
 
   public getall(): Observable<BranchOfficeList> {
     this.isLoadingSignal.set(true);
@@ -28,7 +30,7 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesList: Observable<BranchOfficeList> = this.httpClient.get<BranchOfficeList>(`${BRANCHOFFICES_URL}/`).pipe(
       tap((response: BranchOfficeList) => {
         if (response.ok === 'OK') {
-          this.bracnhOfficesGetAllSignal.set(response);
+          this.branchOfficesGetAllSignal.set(response);
         }
       }),
       finalize(() => this.isLoadingSignal.set(false))
@@ -44,7 +46,7 @@ export class BranchOfficesService extends BaseService {
       .pipe(
         tap((response: BranchOfficeList) => {
           if (response.ok === 'OK') {
-            this.bracnhOfficesGetAllPageSignal.set(response);
+            this.branchOfficesGetAllPagesSignal.set(response);
           }
         }),
         finalize(() => this.isLoadingSignal.set(false))
@@ -66,7 +68,7 @@ export class BranchOfficesService extends BaseService {
     let branchOfficesRetrieve: Observable<BranchOffice> = this.httpClient.get<BranchOffice>(`${BRANCHOFFICES_URL}/${id}/`).pipe(
       tap((response: BranchOffice) => {
         if (response.ok == 'OK') {
-          this.bracnhOfficesGetByIdSignal.set(response);
+          this.branchOfficesGetByIdSignal.set(response);
         }
       }),
       finalize(() => this.isLoadingSignal.set(false))
@@ -75,21 +77,26 @@ export class BranchOfficesService extends BaseService {
     return branchOfficesRetrieve;
   }
 
-  public create(data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
-    this.isLoadingSubject.next(true);
+  public create(data: BranchOfficeModel): Observable<BranchOffice> {
+    this.isLoadingSignal.set(true);
     const frmData: FormData = formData(data);
-    let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
-      .post<BranchOfficeCrtUptModel>(BRANCHOFFICES_URL, frmData)
-      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+    let branchOfficesCreate: Observable<BranchOffice> = this.httpClient.post<BranchOffice>(`${BRANCHOFFICES_URL}/`, frmData).pipe(
+      tap((response: BranchOffice) => {
+        if (response.ok == 'OK') {
+          this.branchOfficeCreateSignal.set(response);
+        }
+      }),
+      finalize(() => this.isLoadingSignal.set(false))
+    );
 
     return branchOfficesCreate;
   }
 
-  public partial_update(id: string, data: BranchOfficeModel): Observable<BranchOfficeCrtUptModel> {
+  public partial_update(id: string, data: BranchOfficeModel): Observable<BranchOffice> {
     this.isLoadingSubject.next(true);
     const frmData = formData(data);
-    let branchOfficesCreate: Observable<BranchOfficeCrtUptModel> = this.httpClient
-      .patch<BranchOfficeCrtUptModel>(`${BRANCHOFFICES_URL}${id}/`, frmData)
+    let branchOfficesCreate: Observable<BranchOffice> = this.httpClient
+      .patch<BranchOffice>(`${BRANCHOFFICES_URL}${id}/`, frmData)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesCreate;

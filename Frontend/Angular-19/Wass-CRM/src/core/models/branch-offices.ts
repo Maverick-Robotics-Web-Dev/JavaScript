@@ -16,13 +16,6 @@ export interface BranchOfficeModel {
   img?: File | null;
 }
 
-export interface BranchOfficeCrtUptModel {
-  ok?: string;
-  error?: string;
-  msg?: string;
-  data?: BranchOfficeModel;
-}
-
 export interface BranchOfficeDeleteModel {
   ok?: string;
   error?: string;
@@ -30,7 +23,7 @@ export interface BranchOfficeDeleteModel {
 }
 
 export interface BranchOfficeList {
-  ok: string;
+  ok?: string;
   data?: BranchOfficeModel[];
   next?: string | null;
   previous?: string | null;
@@ -41,7 +34,7 @@ export interface BranchOfficeList {
 }
 
 export interface BranchOffice {
-  ok: string;
+  ok?: string;
   error?: string;
   data?: BranchOfficeModel;
   msg?: string;
