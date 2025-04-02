@@ -38,11 +38,6 @@ export class BranchOfficesCreateComponent implements OnInit {
     });
 
     effect(() => {
-      console.log(this.branchOfficeData());
-      console.log(this.message());
-    });
-
-    effect(() => {
       if (this.dataShare()) {
         if (this.dataShare().openCreate == true) {
           this.branchForm.reset();
@@ -65,7 +60,6 @@ export class BranchOfficesCreateComponent implements OnInit {
   }
 
   public fileChange(files: FileList | null) {
-    console.log(files);
 
     if (files && files.length > 0) {
       this.branchForm.patchValue({ img: files[0] });

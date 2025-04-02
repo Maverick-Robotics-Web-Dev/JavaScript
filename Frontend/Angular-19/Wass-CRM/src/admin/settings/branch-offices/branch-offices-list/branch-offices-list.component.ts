@@ -45,13 +45,10 @@ export class BranchOfficesListComponent implements OnInit {
 
     effect(() => {
       if (this.pages()) {
-        console.log(this.pages());
-
         this.pagesArray = new Array(this.pages());
         for (let i = 0; i < this.pagesArray.length; i++) {
           this.pagesArray[i] = i + 1;
         }
-        console.log(this.pagesArray);
       }
     });
 
@@ -59,8 +56,6 @@ export class BranchOfficesListComponent implements OnInit {
       if (this.dataShare()) {
         if (this.dataShare().resp == 'OK') {
           this.branchOfficeResource.reload();
-          console.log('Hello World');
-          console.log(this.dataShare());
         }
       }
     });

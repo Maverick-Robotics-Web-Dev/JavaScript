@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, Input, signal } from '@angular/core';
 import { DataSharingService } from '@core/services';
 import { modalSuccessComponentAnimations } from './modal-success-animations';
 
@@ -10,7 +10,7 @@ import { modalSuccessComponentAnimations } from './modal-success-animations';
   styleUrl: './modal-success.component.scss',
   animations: [modalSuccessComponentAnimations],
 })
-export class ModalSuccessComponent implements OnInit {
+export class ModalSuccessComponent {
   @Input({ required: true }) message!: string | undefined;
 
   private _dataSharingService = inject(DataSharingService);
@@ -30,24 +30,7 @@ export class ModalSuccessComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // this.sharingData();
-  }
-
   closeModalSuccess() {
     this._dataSharingService.setDataShare({ closeCreate: false, success: false, resp: 'OK' });
   }
-
-  // public sharingData() {
-  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe((data) => {
-  //     if (data != null) {
-  //       if (data.success == true) {
-  //         this.success = data.success;
-  //       }
-  //       if (data.success == false) {
-  //         this.success = data.success;
-  //       }
-  //     }
-  //   });
-  // }
 }
