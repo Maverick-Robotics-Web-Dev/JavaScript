@@ -1,7 +1,6 @@
-import { Component, DestroyRef, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, effect, inject, Input, OnInit, signal } from '@angular/core';
 import { DataSharingService } from '@core/services';
 import { modalSuccessComponentAnimations } from './modal-success-animations';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'comp-modal-success',
@@ -15,8 +14,21 @@ export class ModalSuccessComponent implements OnInit {
   @Input({ required: true }) message!: string | undefined;
 
   private _dataSharingService = inject(DataSharingService);
-  private readonly _destroy: DestroyRef = inject(DestroyRef);
-  public success: boolean = false;
+  public dataShare = this._dataSharingService.dataShare;
+  public success = signal<boolean>(false);
+
+  constructor() {
+    effect(() => {
+      if (this.dataShare()) {
+        if (this.dataShare().success == true) {
+          this.success.set(this.dataShare().success);
+        }
+        if (this.dataShare().success == false) {
+          this.success.set(this.dataShare().success);
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     // this.sharingData();

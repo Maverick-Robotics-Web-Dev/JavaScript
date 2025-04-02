@@ -38,20 +38,20 @@ export class BranchOfficesCreateComponent implements OnInit {
     });
 
     effect(() => {
+      console.log(this.branchOfficeData());
+      console.log(this.message());
+    });
+
+    effect(() => {
       if (this.dataShare()) {
         if (this.dataShare().openCreate == true) {
           this.branchForm.reset();
+          // this.branchOfficeData.set(emptyBranchOfficeModel);
           this.modalStatus.set(this.dataShare().openCreate);
         }
         if (this.dataShare().closeCreate == false) {
           this.modalStatus.set(this.dataShare().closeCreate);
         }
-      }
-    });
-
-    effect(() => {
-      if (this.message()) {
-        this._dataSharingService.setDataShare({ success: true });
       }
     });
   }
@@ -69,8 +69,6 @@ export class BranchOfficesCreateComponent implements OnInit {
 
     if (files && files.length > 0) {
       this.branchForm.patchValue({ img: files[0] });
-    } else {
-      this.branchForm.patchValue({ img: '' });
     }
 
     // if (target.files && target.files.length > 0) {
@@ -100,8 +98,10 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   public createBranch(e: Event) {
     e.preventDefault();
-    console.log(this.branchForm.value);
-
+    if (this.branchForm.value['img'] == null) {
+      this.branchForm.patchValue({ img: '' });
+    }
     this.branchOfficeData.set(this.branchForm.value);
+    this._dataSharingService.setDataShare({ success: true });
   }
 }
