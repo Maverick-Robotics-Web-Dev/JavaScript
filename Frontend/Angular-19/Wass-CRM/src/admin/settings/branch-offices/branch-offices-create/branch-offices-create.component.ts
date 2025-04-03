@@ -59,10 +59,11 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.setDataShare({ closeCreate: false });
   }
 
-  public fileChange(files: FileList | null) {
+  public fileChange(files: HTMLInputElement) {
+    console.log(files.files![0]);
 
-    if (files && files.length > 0) {
-      this.branchForm.patchValue({ img: files[0] });
+    if (files.files && files.files.length > 0) {
+      this.branchForm.patchValue({ img: files.files[0] });
     }
 
     // if (target.files && target.files.length > 0) {
