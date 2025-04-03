@@ -2,11 +2,7 @@
 <div @animateChildren class="modal-detail">
   <div @transformTranslate class="modal-content">
     <div class="modal-split wh-40 btlr bblr">
-      <img
-        src="https://imagenes.elpais.com/resizer/v2/PYLNGDT3NBPFJCO7BFH7566U2M.jpg?auth=256f8a2ddff6269141e8fb860fc2fdf94f304186875288c96ca90c386b0c008c&width=1200"
-        alt=""
-        class="modal-background-image"
-      />
+      <img [src]="branchOfficesData().img" alt="" class="modal-background-image" />
     </div>
     <div class="modal-split wh-60 btrr bbrr">
       <div class="detail-form">
@@ -126,5 +122,5 @@
     </div>
   </div>
 </div>
-<div @fadeInOut class="modal-backdrop"></div>
+<div @fadeInOut class="backdrop-opacity"></div>
 } }

@@ -25,7 +25,8 @@ export class BranchOfficesCreateComponent implements OnInit {
   private _dataSharingService: DataSharingService = inject(DataSharingService);
   public branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
   public dataShare: Signal<any> = this._dataSharingService.dataShare;
-  public message: Signal<string> = computed(() => this._branchOfficesServices.branchOfficeCreate().msg ?? '');
+  public branchOffice: Signal<BranchOffice> = this._branchOfficesServices.branchOfficeCreate;
+  public message = signal<string>('');
   public branchOfficeData: WritableSignal<BranchOfficeModel> = signal<BranchOfficeModel>(emptyBranchOfficeModel);
   public modalStatus: WritableSignal<boolean> = signal<boolean>(false);
   public branchForm!: FormGroup;
@@ -41,12 +42,18 @@ export class BranchOfficesCreateComponent implements OnInit {
       if (this.dataShare()) {
         if (this.dataShare().openCreate == true) {
           this.branchForm.reset();
-          // this.branchOfficeData.set(emptyBranchOfficeModel);
           this.modalStatus.set(this.dataShare().openCreate);
         }
         if (this.dataShare().closeCreate == false) {
           this.modalStatus.set(this.dataShare().closeCreate);
         }
+      }
+    });
+
+    effect(() => {
+      if (this.branchOffice().msg) {
+        this.message.set(this.branchOffice().msg ?? '');
+        this._dataSharingService.setDataShare({ success: true });
       }
     });
   }
@@ -60,8 +67,6 @@ export class BranchOfficesCreateComponent implements OnInit {
   }
 
   public fileChange(files: HTMLInputElement) {
-    console.log(files.files![0]);
-
     if (files.files && files.files.length > 0) {
       this.branchForm.patchValue({ img: files.files[0] });
     }
@@ -93,10 +98,10 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   public createBranch(e: Event) {
     e.preventDefault();
+
     if (this.branchForm.value['img'] == null) {
       this.branchForm.patchValue({ img: '' });
     }
     this.branchOfficeData.set(this.branchForm.value);
-    this._dataSharingService.setDataShare({ success: true });
   }
 }

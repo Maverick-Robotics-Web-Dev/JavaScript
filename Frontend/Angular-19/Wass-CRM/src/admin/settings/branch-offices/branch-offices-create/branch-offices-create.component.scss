@@ -332,29 +332,8 @@
 //   backdrop-filter: blur(32px);
 // }
 
-.backdrop-blur {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba($black, 0.5);
-}
-
-.op-0 {
-  opacity: 0;
-}
-
 .op-1 {
   opacity: 1;
-}
-
-.mt-6 {
-  margin-top: 6px;
-}
-.backdrop-gray {
-  background-color: rgba(239, 239, 239, 0.5);
 }
 
 .pie {
@@ -363,20 +342,6 @@
 
 .br-0 {
   border-width: 0;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
-  margin-bottom: 10px;
-}
-
-.col-span-2 {
-  grid-column: span 2 / span 2;
-  margin-bottom: 10px;
-}
-
-.mb-32 {
-  margin-bottom: 32px;
 }
 
 .mb-34 {

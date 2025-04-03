@@ -9,11 +9,12 @@ import { createComponentAnimations } from '../branch-offices-animation';
 import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
 import { NgClass } from '@angular/common';
 import { ceil } from '@shared/utils/round';
+import { BranchOfficesUpdateComponent } from '../branch-offices-update';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent],
+  imports: [NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent, BranchOfficesUpdateComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],
