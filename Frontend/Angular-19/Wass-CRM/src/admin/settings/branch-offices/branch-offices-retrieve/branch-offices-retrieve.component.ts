@@ -22,7 +22,7 @@ export class BranchOfficesRetrieveComponent implements OnInit {
 
   private _branchOfficesServices = inject(BranchOfficesService);
   private _dataSharingService = inject(DataSharingService);
-  public branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
+  private branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
   public dataShare = this._dataSharingService.dataShare;
   public loading = this._branchOfficesServices.isLoading;
   public branchOfficesGetById = this._branchOfficesServices.branchOfficesGetById;

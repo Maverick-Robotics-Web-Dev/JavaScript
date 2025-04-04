@@ -16,12 +16,6 @@ export interface BranchOfficeModel {
   img?: File | null;
 }
 
-export interface BranchOfficeDeleteModel {
-  ok?: string;
-  error?: string;
-  msg?: string;
-}
-
 export interface BranchOfficeList {
   ok?: string;
   data?: BranchOfficeModel[];

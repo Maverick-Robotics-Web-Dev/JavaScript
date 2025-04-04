@@ -1,3 +1,4 @@
+@if(modalStatus() && branchOfficesGetById()){
 <div @animateChildren class="modal-update">
   <div @transformTranslate class="modal-content">
     <div class="form-update">
@@ -5,7 +6,7 @@
         <div class="form-update-icon">
           <i class="fa-solid fa-store"></i>
         </div>
-        <h3 class="form-update-title">Crear Sucursal</h3>
+        <h3 class="form-update-title">Actualizar Sucursal</h3>
         <button class="form-close-btn" (click)="closeModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="form-update-body">
@@ -159,7 +160,7 @@
               <label for="" class="input-label">Imagen</label>
               <div class="input-group">
                 <span class="input-icon br-0 hg-42 pie"><i class="fa-solid fa-file-image"></i></span>
-                <input #fileImage type="file" class="input-file" (change)="fileChange(fileImage)" />
+                <input #fileImage type="file" class="input-file" (change)="fileChange(fileImage.files)" />
               </div>
             </div>
           </div>
@@ -173,3 +174,4 @@
   </div>
 </div>
 <div @fadeInOut class="backdrop-opacity"></div>
+}

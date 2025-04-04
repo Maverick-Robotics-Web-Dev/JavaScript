@@ -23,7 +23,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   private _branchOfficesServices: BranchOfficesService = inject(BranchOfficesService);
   private _formBuilder: FormBuilder = inject(FormBuilder);
   private _dataSharingService: DataSharingService = inject(DataSharingService);
-  public branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
+  private branchOfficeResource!: ResourceRef<BranchOffice | undefined>;
   public dataShare: Signal<any> = this._dataSharingService.dataShare;
   public branchOffice: Signal<BranchOffice> = this._branchOfficesServices.branchOfficeCreate;
   public message = signal<string>('');
@@ -66,9 +66,9 @@ export class BranchOfficesCreateComponent implements OnInit {
     this._dataSharingService.setDataShare({ closeCreate: false });
   }
 
-  public fileChange(files: HTMLInputElement) {
-    if (files.files && files.files.length > 0) {
-      this.branchForm.patchValue({ img: files.files[0] });
+  public fileChange(files: FileList | null): void {
+    if (files && files.length > 0) {
+      this.branchForm.patchValue({ img: files[0] });
     }
 
     // if (target.files && target.files.length > 0) {

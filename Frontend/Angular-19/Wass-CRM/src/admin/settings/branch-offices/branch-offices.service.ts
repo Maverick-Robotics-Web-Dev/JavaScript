@@ -1,7 +1,7 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { BRANCHOFFICES_URL } from '@core/config/config';
 import { emptyBranchOffice, emptyBranchOfficeList, emptyBranchOfficeModel } from '@core/default-data';
-import { BranchOfficeDeleteModel, BranchOfficeModel, BranchOfficeList, BranchOffice } from '@core/models';
+import { BranchOfficeModel, BranchOfficeList, BranchOffice } from '@core/models';
 import { BaseService } from '@core/services';
 import { formData } from '@shared/utils/convert';
 import { BehaviorSubject, finalize, Observable, tap } from 'rxjs';
@@ -23,6 +23,10 @@ export class BranchOfficesService extends BaseService {
   readonly branchOfficesGetById: Signal<BranchOffice> = computed(() => this.branchOfficesGetByIdSignal());
   private readonly branchOfficeCreateSignal: WritableSignal<BranchOffice> = signal<BranchOffice>(emptyBranchOffice);
   readonly branchOfficeCreate: Signal<BranchOffice> = computed(() => this.branchOfficeCreateSignal());
+  private readonly branchOfficeUpdateSignal: WritableSignal<BranchOffice> = signal<BranchOffice>(emptyBranchOffice);
+  readonly branchOfficeUpdate: Signal<BranchOffice> = computed(() => this.branchOfficeUpdateSignal());
+  private readonly branchOfficeDeleteSignal: WritableSignal<BranchOffice> = signal<BranchOffice>(emptyBranchOffice);
+  readonly branchOfficeDelete: Signal<BranchOffice> = computed(() => this.branchOfficeDeleteSignal());
 
   public getall(): Observable<BranchOfficeList> {
     this.isLoadingSignal.set(true);
@@ -93,19 +97,25 @@ export class BranchOfficesService extends BaseService {
   }
 
   public partial_update(id: string, data: BranchOfficeModel): Observable<BranchOffice> {
-    this.isLoadingSubject.next(true);
+    this.isLoadingSignal.set(true);
     const frmData = formData(data);
-    let branchOfficesCreate: Observable<BranchOffice> = this.httpClient
-      .patch<BranchOffice>(`${BRANCHOFFICES_URL}${id}/`, frmData)
-      .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
-    return branchOfficesCreate;
+    let branchOfficesUpdate: Observable<BranchOffice> = this.httpClient.patch<BranchOffice>(`${BRANCHOFFICES_URL}/${id}/`, frmData).pipe(
+      tap((response: BranchOffice) => {
+        if (response.ok == 'OK') {
+          this.branchOfficeUpdateSignal.set(response);
+        }
+      }),
+      finalize(() => this.isLoadingSignal.set(false))
+    );
+
+    return branchOfficesUpdate;
   }
 
-  public delete(id: string): Observable<BranchOfficeDeleteModel> {
+  public delete(id: string): Observable<BranchOffice> {
     this.isLoadingSubject.next(true);
-    let branchOfficesDelete: Observable<BranchOfficeDeleteModel> = this.httpClient
-      .delete<BranchOfficeDeleteModel>(`${BRANCHOFFICES_URL}${id}/`)
+    let branchOfficesDelete: Observable<BranchOffice> = this.httpClient
+      .delete<BranchOffice>(`${BRANCHOFFICES_URL}${id}/`)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
 
     return branchOfficesDelete;

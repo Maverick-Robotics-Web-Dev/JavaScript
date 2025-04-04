@@ -23,9 +23,9 @@ import { BranchOfficesUpdateComponent } from '../branch-offices-update';
 export class BranchOfficesListComponent implements OnInit {
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
-
   private _branchOfficesServices = inject(BranchOfficesService);
-  public branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
+  private branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
+  
   public dataShare = this._dataSharingService.dataShare;
   public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesGetAllPages;
   public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().data ?? []);
@@ -84,6 +84,10 @@ export class BranchOfficesListComponent implements OnInit {
 
   public openDetail(id: number) {
     this._dataSharingService.setDataShare({ openDetail: true, id: id });
+  }
+
+  public openUpdate(id: number) {
+    this._dataSharingService.setDataShare({ openUpdate: true, id: id });
   }
 
   public nextPage() {

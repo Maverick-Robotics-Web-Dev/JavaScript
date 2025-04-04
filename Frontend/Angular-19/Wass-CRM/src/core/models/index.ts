@@ -1,1 +1,1 @@
-export type { BranchOfficeModel, BranchOfficeDeleteModel, BranchOfficeList, BranchOffice } from './branch-offices';
+export type { BranchOfficeModel, BranchOfficeList, BranchOffice } from './branch-offices';
