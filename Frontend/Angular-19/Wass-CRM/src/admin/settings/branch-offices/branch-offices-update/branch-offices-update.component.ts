@@ -42,11 +42,11 @@ export class BranchOfficesUpdateComponent implements OnInit {
       loader: ({ request: id }) => (id == '' ? NEVER : this._branchOfficesServices.getById(this.id())),
     });
 
-    this.branchOfficeUpdateResource = rxResource({
-      request: () => this.branchOfficeData(),
-      loader: ({ request: branchOffice }) =>
-        branchOffice == emptyBranchOfficeModel ? NEVER : this._branchOfficesServices.partial_update(this.id(), branchOffice),
-    });
+    // this.branchOfficeUpdateResource = rxResource({
+    //   request: () => this.branchOfficeData(),
+    //   loader: ({ request: branchOffice }) =>
+    //     branchOffice == emptyBranchOfficeModel ? NEVER : this._branchOfficesServices.partial_update(this.id(), branchOffice),
+    // });
 
     effect(() => {
       if (this.dataShare()) {
@@ -83,14 +83,14 @@ export class BranchOfficesUpdateComponent implements OnInit {
     let frm: FormGroup = this._formBuilder.group({
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      postal_code: [''],
+      postal_code: '',
       city: ['', [Validators.required]],
       state_province: ['', [Validators.required]],
       country: ['', [Validators.required]],
       cellphone_number: ['', [Validators.required]],
-      email: [''],
-      phone_number: [''],
-      img: new FormControl<File | string | null>(''),
+      email: '',
+      phone_number: '',
+      img: File,
     });
 
     return frm;
@@ -108,6 +108,16 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
   public updateBranch(e: Event) {
     e.preventDefault();
-    this.branchOfficeData.set(this.branchForm.value);
+    console.log(this.branchForm.value);
+
+    if (!(this.branchForm.value.img instanceof File)) {
+      console.log(this.branchForm.value.img);
+      console.log('no es un archivo');
+      const { img, ...values } = this.branchForm.value;
+      console.log(values);
+      this.branchOfficeData.set(values);
+    } else {
+      this.branchOfficeData.set(this.branchForm.value);
+    }
   }
 }

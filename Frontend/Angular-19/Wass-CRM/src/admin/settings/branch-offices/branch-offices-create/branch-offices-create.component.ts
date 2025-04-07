@@ -90,7 +90,7 @@ export class BranchOfficesCreateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: [''],
       phone_number: [''],
-      img: new FormControl<File | string | null>(''),
+      img: File,
     });
 
     return frm;
@@ -99,7 +99,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   public createBranch(e: Event) {
     e.preventDefault();
 
-    if (this.branchForm.value['img'] == null) {
+    if (this.branchForm.value.img == null) {
       this.branchForm.patchValue({ img: '' });
     }
     this.branchOfficeData.set(this.branchForm.value);
