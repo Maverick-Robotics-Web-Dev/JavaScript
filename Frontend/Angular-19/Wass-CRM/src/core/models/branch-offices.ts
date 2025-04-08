@@ -13,7 +13,7 @@ export interface BranchOfficeModel {
   postal_code?: string;
   phone_number?: string;
   email?: string;
-  img?: File | null;
+  img?: File | string | null;
 }
 
 export interface BranchOfficeList {

@@ -35,6 +35,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
   public id = signal<string>('');
   public message = signal<string>('');
   public modalStatus = signal<boolean>(false);
+  public imgName = signal<File | string | null | undefined>('No se a seleccionado ningun archivo.');
 
   constructor() {
     this.branchOfficeResource = rxResource({
@@ -63,6 +64,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
     effect(() => {
       if (this.branchOfficesData()) {
+        this.imgName.set(this.branchOfficesData().img);
         this.branchForm.patchValue(this.branchOfficesData());
       }
     });
@@ -90,7 +92,6 @@ export class BranchOfficesUpdateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: '',
       phone_number: '',
-      img: File,
     });
 
     return frm;
@@ -102,6 +103,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
   public fileChange(files: FileList | null): void {
     if (files && files.length > 0) {
+      this.imgName.set(files[0].name);
       this.branchForm.patchValue({ img: files[0] });
     }
   }

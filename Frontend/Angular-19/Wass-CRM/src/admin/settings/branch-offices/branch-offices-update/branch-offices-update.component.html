@@ -157,17 +157,19 @@
               </p>
             </div>
             <div class="col-span-2">
-              <label for="" class="input-label">Imagen</label>
+              <label class="input-label">Imagen</label>
               <!-- <div class="input-group">
                 <span class="input-icon br-0 hg-42 pie"><i class="fa-solid fa-file-image"></i></span>
                 <input #fileImage formControlName="img" type="file" class="input-file" (change)="fileChange(fileImage.files)" />
               </div> -->
-              <label for="input-file" class="input-file">
-                <span class="input-icon br-0 hg-42 pie"><i class="fa-solid fa-file-image"></i></span>
-                <span class="input-text">No se a seleccionado ningun archivo.</span>
-                <span class="input-upload-btn">Upload</span>
+              <div class="input-group">
                 <input #fileImage id="input-file" type="file" class="dp-none" (change)="fileChange(fileImage.files)" />
-              </label>
+                <span class="input-icon"><i class="fa-solid fa-file-image"></i></span>
+                <label for="input-file" class="input-file-label">
+                  <span class="input-text-file">{{ imgName() }}</span>
+                  <span class="upload-btn"><i class="upload-icon fa-solid fa-cloud-arrow-up"></i>Upload</span>
+                </label>
+              </div>
             </div>
           </div>
           <div class="push-btn-group">

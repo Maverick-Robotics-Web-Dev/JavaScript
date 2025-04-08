@@ -150,18 +150,13 @@
   letter-spacing: 1px;
   opacity: 1;
   appearance: none;
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 3.875rem;
   height: calc(0.25rem * 11);
   width: 100%;
   border-radius: 0.5rem;
   border: 1px solid rgba(13, 71, 161, 0.2);
   // background-color: rgba(239, 239, 239, 0.5);
   background-color: $white;
-  padding-inline: calc(0.25rem * 4);
-  padding-block: calc(0.25rem * 2.5);
-  padding-left: 62px;
   font-size: 0.875rem;
   line-height: 20px;
   color: #1e375a;
@@ -222,6 +217,76 @@
   cursor: pointer;
   margin-right: calc(0.25rem * 5);
   appearance: button;
+}
+
+.input-file-label {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: 1px;
+  opacity: 1;
+  appearance: none;
+  padding: 0.5rem 0 0.5rem 62px;
+  height: calc(0.25rem * 11);
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(13, 71, 161, 0.2);
+  // background-color: rgba(239, 239, 239, 0.5);
+  background-color: $white;
+  font-size: 0.875rem;
+  line-height: 20px;
+  color: #1e375a;
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: all 0.3s ease-out 0s;
+}
+
+.input-text-file {
+  width: 100%;
+}
+
+.upload-btn {
+  position: relative;
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: 1px;
+  opacity: 1;
+  appearance: button;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  // padding-inline: calc(5px * 4);
+  padding: 0 0 0 20px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  color: $white;
+  background-color: $light-blue;
+  box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: all 0.3s ease-out 0s;
+  // width: auto;
+  width: 138px;
+  height: calc(0.25rem * 11);
+  overflow: hidden;
+}
+
+.upload-icon {
+  position: absolute;
+  right: 78px;
+  transition: all 0.3s ease-out 0s;
+}
+
+.upload-btn:hover {
+  background-color: $dark-blue;
+}
+
+.upload-btn:active {
+  transform: scale(0.9);
 }
 
 .input-success {
@@ -293,7 +358,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background-color: $white;
   padding-inline: calc(0.25rem * 4);
   padding-block: calc(0.25rem * 3);
   font-size: 0.875rem;
