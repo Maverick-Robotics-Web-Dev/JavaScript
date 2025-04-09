@@ -43,11 +43,11 @@ export class BranchOfficesUpdateComponent implements OnInit {
       loader: ({ request: id }) => (id == '' ? NEVER : this._branchOfficesServices.getById(this.id())),
     });
 
-    // this.branchOfficeUpdateResource = rxResource({
-    //   request: () => this.branchOfficeData(),
-    //   loader: ({ request: branchOffice }) =>
-    //     branchOffice == emptyBranchOfficeModel ? NEVER : this._branchOfficesServices.partial_update(this.id(), branchOffice),
-    // });
+    this.branchOfficeUpdateResource = rxResource({
+      request: () => this.branchOfficeData(),
+      loader: ({ request: branchOffice }) =>
+        branchOffice == emptyBranchOfficeModel ? NEVER : this._branchOfficesServices.partial_update(this.id(), branchOffice),
+    });
 
     effect(() => {
       if (this.dataShare()) {
@@ -63,8 +63,9 @@ export class BranchOfficesUpdateComponent implements OnInit {
     });
 
     effect(() => {
-      if (this.branchOfficesData()) {
-        this.imgName.set(this.branchOfficesData().img);
+      if (this.branchOfficesData() != emptyBranchOfficeModel) {
+        const imgName = this.branchOfficesData().img?.toString().substring(28);
+        this.imgName.set(imgName);
         this.branchForm.patchValue(this.branchOfficesData());
       }
     });
@@ -92,6 +93,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
       cellphone_number: ['', [Validators.required]],
       email: '',
       phone_number: '',
+      img: File,
     });
 
     return frm;
@@ -110,13 +112,9 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
   public updateBranch(e: Event) {
     e.preventDefault();
-    console.log(this.branchForm.value);
 
     if (!(this.branchForm.value.img instanceof File)) {
-      console.log(this.branchForm.value.img);
-      console.log('no es un archivo');
       const { img, ...values } = this.branchForm.value;
-      console.log(values);
       this.branchOfficeData.set(values);
     } else {
       this.branchOfficeData.set(this.branchForm.value);
