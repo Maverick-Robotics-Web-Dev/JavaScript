@@ -8,11 +8,12 @@ import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { emptyBranchOfficeModel } from '@core/default-data';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { NEVER } from 'rxjs';
+import { ModalSuccessComponent } from '@shared/components/modal-success';
 
 @Component({
   selector: 'comp-branch-offices-update',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
   templateUrl: './branch-offices-update.component.html',
   styleUrl: './branch-offices-update.component.scss',
   animations: [createComponentAnimations],
@@ -64,8 +65,18 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
     effect(() => {
       if (this.branchOfficesData() != emptyBranchOfficeModel) {
-        const imgName = this.branchOfficesData().img?.toString().substring(28);
-        this.imgName.set(imgName);
+        const imgNamePath: string | undefined = this.branchOfficesData().img?.toString();
+        let imgIndex: number | undefined = 0;
+        let imgName: string | undefined = '';
+
+        if (imgNamePath?.indexOf('/', 28) !== -1) {
+          imgIndex = imgNamePath?.indexOf('/', 28) ?? 0;
+          imgName = imgNamePath?.substring(imgIndex + 1);
+          this.imgName.set(imgName);
+        } else {
+          imgName = imgNamePath?.substring(28);
+          this.imgName.set(imgName);
+        }
         this.branchForm.patchValue(this.branchOfficesData());
       }
     });
@@ -73,7 +84,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
     effect(() => {
       if (this.branchOffice().msg) {
         this.message.set(this.branchOffice().msg ?? '');
-        this._dataSharingService.setDataShare({ success: true });
+        this._dataSharingService.setDataShare({ success: true, form: 'closeUpdate' });
       }
     });
   }

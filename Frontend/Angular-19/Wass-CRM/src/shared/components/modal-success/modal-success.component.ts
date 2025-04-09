@@ -14,6 +14,7 @@ export class ModalSuccessComponent {
   @Input({ required: true }) message!: string | undefined;
 
   private _dataSharingService = inject(DataSharingService);
+  private formType = signal<string>('');
   public dataShare = this._dataSharingService.dataShare;
   public success = signal<boolean>(false);
 
@@ -22,6 +23,7 @@ export class ModalSuccessComponent {
       if (this.dataShare()) {
         if (this.dataShare().success == true) {
           this.success.set(this.dataShare().success);
+          this.formType.set(this.dataShare().form);
         }
         if (this.dataShare().success == false) {
           this.success.set(this.dataShare().success);
@@ -31,6 +33,6 @@ export class ModalSuccessComponent {
   }
 
   closeModalSuccess() {
-    this._dataSharingService.setDataShare({ closeCreate: false, success: false, resp: 'OK' });
+    this._dataSharingService.setDataShare({ this.formType(): false, success: false, resp: 'OK' });
   }
 }
