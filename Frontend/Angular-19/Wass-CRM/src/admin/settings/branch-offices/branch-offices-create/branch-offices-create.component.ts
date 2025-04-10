@@ -4,7 +4,6 @@ import { BranchOfficesService } from '../branch-offices.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ModalSuccessComponent } from '@shared/components/modal-success';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { NgClass } from '@angular/common';
@@ -14,7 +13,7 @@ import { emptyBranchOfficeModel } from '@core/default-data';
 @Component({
   selector: 'comp-branch-offices-create',
   standalone: true,
-  imports: [ReactiveFormsModule, ModalSuccessComponent, NgClass],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './branch-offices-create.component.html',
   styleUrl: './branch-offices-create.component.scss',
   animations: [createComponentAnimations],
@@ -29,6 +28,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   public message = signal<string>('');
   public branchOfficeData: WritableSignal<BranchOfficeModel> = signal<BranchOfficeModel>(emptyBranchOfficeModel);
   public modalStatus: WritableSignal<boolean> = signal<boolean>(false);
+  public success = signal<boolean>(false);
   public branchForm!: FormGroup;
   public error!: HttpErrorResponse;
 
@@ -53,7 +53,7 @@ export class BranchOfficesCreateComponent implements OnInit {
     effect(() => {
       if (this.branchOffice().msg) {
         this.message.set(this.branchOffice().msg ?? '');
-        this._dataSharingService.setDataShare({ success: true });
+        this.success.set(true);
       }
     });
   }
@@ -64,6 +64,11 @@ export class BranchOfficesCreateComponent implements OnInit {
 
   public closeModal(): void {
     this._dataSharingService.setDataShare({ closeCreate: false });
+  }
+
+  public closeModalSuccess() {
+    this.success.set(false);
+    this._dataSharingService.setDataShare({ closeCreate: false, resp: 'OK' });
   }
 
   public fileChange(files: FileList | null): void {
@@ -99,7 +104,7 @@ export class BranchOfficesCreateComponent implements OnInit {
   public createBranch(e: Event) {
     e.preventDefault();
 
-    if (this.branchForm.value['img'] == null) {
+    if (this.branchForm.value.img == null) {
       this.branchForm.patchValue({ img: '' });
     }
     this.branchOfficeData.set(this.branchForm.value);

@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, effect, inject, OnInit, ResourceRef, Signal, signal, WritableSignal } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { createComponentAnimations } from '../branch-offices-animation';
 import { BranchOfficesService } from '../branch-offices.service';
 import { DataSharingService } from '@core/services';
@@ -8,12 +8,11 @@ import { BranchOffice, BranchOfficeModel } from '@core/models';
 import { emptyBranchOfficeModel } from '@core/default-data';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { NEVER } from 'rxjs';
-import { ModalSuccessComponent } from '@shared/components/modal-success';
 
 @Component({
   selector: 'comp-branch-offices-update',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, ModalSuccessComponent],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './branch-offices-update.component.html',
   styleUrl: './branch-offices-update.component.scss',
   animations: [createComponentAnimations],
@@ -36,6 +35,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
   public id = signal<string>('');
   public message = signal<string>('');
   public modalStatus = signal<boolean>(false);
+  public success = signal<boolean>(false);
   public imgName = signal<File | string | null | undefined>('No se a seleccionado ningun archivo.');
 
   constructor() {
@@ -84,7 +84,7 @@ export class BranchOfficesUpdateComponent implements OnInit {
     effect(() => {
       if (this.branchOffice().msg) {
         this.message.set(this.branchOffice().msg ?? '');
-        this._dataSharingService.setDataShare({ success: true, form: 'closeUpdate' });
+        this.success.set(true);
       }
     });
   }
@@ -112,6 +112,11 @@ export class BranchOfficesUpdateComponent implements OnInit {
 
   public closeModal(): void {
     this._dataSharingService.setDataShare({ closeUpdate: false });
+  }
+
+  public closeModalSuccess() {
+    this.success.set(false);
+    this._dataSharingService.setDataShare({ closeUpdate: false, resp: 'OK' });
   }
 
   public fileChange(files: FileList | null): void {

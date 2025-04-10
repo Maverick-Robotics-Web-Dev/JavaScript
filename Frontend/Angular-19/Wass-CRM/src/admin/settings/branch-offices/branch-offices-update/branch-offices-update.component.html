@@ -182,6 +182,24 @@
   </div>
 </div>
 <div @fadeInOut class="backdrop-opacity"></div>
+} @if(success()){
+<div @animateChildren class="modal-success">
+  <div @transformTranslate class="modal-success-dialog">
+    <div class="modal-success-content">
+      <div class="modal-success-body">
+        <div class="modal-success-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="modal-succes-text-group">
+          <h2 class="modal-success-title">Success</h2>
+          <p class="modal-success-text">{{ message() }}</p>
+        </div>
+        <div class="modal-success-btn-group">
+          <button class="modal-success-btn" (click)="closeModalSuccess()">Okay<i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div @fadeInOut class="modal-success-backdrop"></div>
 }
-
-<comp-modal-success [message]="message()"></comp-modal-success>

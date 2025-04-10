@@ -25,7 +25,7 @@ export class BranchOfficesListComponent implements OnInit {
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   private _branchOfficesServices = inject(BranchOfficesService);
   private branchOfficeResource!: ResourceRef<BranchOfficeList | undefined>;
-  
+
   public dataShare = this._dataSharingService.dataShare;
   public branchOfficesListPagination: Signal<BranchOfficeList> = this._branchOfficesServices.branchOfficesGetAllPages;
   public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetAllPages().data ?? []);
