@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, OnInit, ResourceRef, signal, Signal } from '@angular/core';
 import { BranchOfficesService } from '../branch-offices.service';
-import { BranchOfficeList, BranchOfficeModel } from '@core/models';
-import { HttpErrorResponse } from '@angular/common/http';
-import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BranchOfficeList } from '@core/models';
+import { rxResource } from '@angular/core/rxjs-interop';
 import { BranchOfficesCreateComponent } from '../branch-offices-create';
 import { DataSharingService } from '@core/services';
 import { createComponentAnimations } from '../branch-offices-animation';
@@ -10,17 +9,18 @@ import { BranchOfficesRetrieveComponent } from '../branch-offices-retrieve';
 import { NgClass } from '@angular/common';
 import { ceil } from '@shared/utils/round';
 import { BranchOfficesUpdateComponent } from '../branch-offices-update';
+import { BranchOfficesDeleteComponent } from '../branch-offices-delete';
 
 @Component({
   selector: 'comp-branch-offices-list',
   standalone: true,
-  imports: [NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent, BranchOfficesUpdateComponent],
+  imports: [NgClass, BranchOfficesCreateComponent, BranchOfficesRetrieveComponent, BranchOfficesUpdateComponent, BranchOfficesDeleteComponent],
   templateUrl: './branch-offices-list.component.html',
   styleUrl: './branch-offices-list.component.scss',
   animations: [createComponentAnimations],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BranchOfficesListComponent implements OnInit {
+export class BranchOfficesListComponent {
   private _dataSharingService = inject(DataSharingService);
   private readonly _destroy: DestroyRef = inject(DestroyRef);
   private _branchOfficesServices = inject(BranchOfficesService);
@@ -35,8 +35,6 @@ export class BranchOfficesListComponent implements OnInit {
   public page = signal<number>(1);
   public page_size = signal<string>('10');
   public pagesArray!: number[];
-  // public loading!: Signal<boolean>;
-  // public loading = signal<boolean>(true);
 
   constructor() {
     this.branchOfficeResource = rxResource({
@@ -61,22 +59,6 @@ export class BranchOfficesListComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {
-    // this.sharingData();
-  }
-
-  // private sharingData() {
-  //   this._dataSharingService.dataShare$.pipe(takeUntilDestroyed(this._destroy)).subscribe({
-  //     next: (data: any) => {
-  //       if (data != null) {
-  //         if (data.resp == 'OK') {
-  //           // this.list();
-  //         }
-  //       }
-  //     },
-  //   });
-  // }
 
   public openCreate() {
     this._dataSharingService.setDataShare({ openCreate: true });
@@ -113,21 +95,4 @@ export class BranchOfficesListComponent implements OnInit {
     this.page.set(1);
     this.page_size.set(select);
   }
-
-  // private list() {
-  //   this._branchOfficesServices
-  //     .list()
-  //     .pipe(takeUntilDestroyed(this._destroy))
-  //     .subscribe({
-  //       next: (resp: BranchOfficeListModel) => {
-  //         if (resp.ok == 'OK') {
-  //           this.branchOfficeListData = resp.data;
-  //         }
-  //       },
-  //       error: (err) => {
-  //         this.error = err;
-  //         console.log(err);
-  //       },
-  //     });
-  // }
 }

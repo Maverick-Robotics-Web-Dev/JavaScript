@@ -29,7 +29,6 @@ export class BranchOfficesRetrieveComponent implements OnInit {
   public branchOfficesData = computed(() => this._branchOfficesServices.branchOfficesGetById().data ?? emptyBranchOfficeModel);
   public id = signal<string>('');
   public modalStatus = signal<boolean>(false);
-  // public error!: HttpErrorResponse;
 
   constructor() {
     this.branchOfficeResource = rxResource({

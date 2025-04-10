@@ -1,1 +1,20 @@
-<p>branch-offices-delete works!</p>
+<div @animateChildren class="modal-delete">
+  <div @transformTranslate class="modal-delete-dialog">
+    <div class="modal-delete-content">
+      <div class="modal-delete-card">
+        <div class="delete-card-header">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="delete-card-body">
+          <h2 class="card-title">Warning!</h2>
+          <p class="card-text">Esta seguro de que desea eliminar este registro</p>
+        </div>
+        <div class="delete-card-footer">
+          <button class="action-btn"><i class="fa-solid fa-check"></i>Aceptar</button>
+          <button class="action-btn"><i class="fa-solid fa-xmark"></i>Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div @fadeInOut class="backdrop-opacity"></div>
