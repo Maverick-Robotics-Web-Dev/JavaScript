@@ -303,6 +303,7 @@
   box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   transition: all 0.3s ease-out 0s;
   width: auto;
+  gap: 10px;
 }
 
 .push-btn:hover {
@@ -462,6 +463,10 @@
 
 .modal-success-btn:active {
   transform: scale(0.9);
+}
+
+.modal-success-btn:focus {
+  background-color: #12b76a;
 }
 
 .modal-success-backdrop {

@@ -1,3 +1,4 @@
+@if(modalStatus()){
 <div @animateChildren class="modal-delete">
   <div @transformTranslate class="modal-delete-dialog">
     <div class="modal-delete-content">
@@ -10,11 +11,32 @@
           <p class="card-text">Esta seguro de que desea eliminar este registro</p>
         </div>
         <div class="delete-card-footer">
-          <button class="action-btn"><i class="fa-solid fa-check"></i>Aceptar</button>
-          <button class="action-btn"><i class="fa-solid fa-xmark"></i>Cancelar</button>
+          <button class="action-btn" (click)="deleteBranch($event)"><i class="fa-solid fa-check"></i>Aceptar</button>
+          <button class="action-btn" (click)="closeModal()"><i class="fa-solid fa-xmark"></i>Cancelar</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div @fadeInOut class="backdrop-opacity"></div>
+}@if(success()){
+<div @animateChildren class="modal-success">
+  <div @transformTranslate class="modal-success-dialog">
+    <div class="modal-success-content">
+      <div class="modal-success-body">
+        <div class="modal-success-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="modal-succes-text-group">
+          <h2 class="modal-success-title">Success</h2>
+          <p class="modal-success-text">{{ message() }}</p>
+        </div>
+        <div class="modal-success-btn-group">
+          <button class="modal-success-btn" (click)="closeModalSuccess()"><i class="fa-solid fa-check"></i>Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div @fadeInOut class="modal-success-backdrop"></div>
+}

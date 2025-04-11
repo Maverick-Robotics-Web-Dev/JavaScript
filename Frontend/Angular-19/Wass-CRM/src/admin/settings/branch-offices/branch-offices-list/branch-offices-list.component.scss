@@ -52,6 +52,10 @@
   transform: scale(0.9);
 }
 
+.btn:focus {
+  background-color: $dark-blue;
+}
+
 .data-table {
   overflow: hidden;
   border-radius: 0.75rem;

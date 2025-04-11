@@ -72,6 +72,10 @@ export class BranchOfficesListComponent {
     this._dataSharingService.setDataShare({ openUpdate: true, id: id });
   }
 
+  public openDelete(id: number) {
+    this._dataSharingService.setDataShare({ openDelete: true, id: id });
+  }
+
   public nextPage() {
     this.page.update((page) => page + 1);
   }

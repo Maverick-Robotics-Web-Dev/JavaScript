@@ -113,10 +113,15 @@ export class BranchOfficesService extends BaseService {
   }
 
   public delete(id: string): Observable<BranchOffice> {
-    this.isLoadingSubject.next(true);
-    let branchOfficesDelete: Observable<BranchOffice> = this.httpClient
-      .delete<BranchOffice>(`${BRANCHOFFICES_URL}${id}/`)
-      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+    this.isLoadingSignal.set(true);
+    let branchOfficesDelete: Observable<BranchOffice> = this.httpClient.delete<BranchOffice>(`${BRANCHOFFICES_URL}/${id}/`).pipe(
+      tap((response: BranchOffice) => {
+        if (response.ok == 'OK') {
+          this.branchOfficeDeleteSignal.set(response);
+        }
+      }),
+      finalize(() => this.isLoadingSignal.set(false))
+    );
 
     return branchOfficesDelete;
   }
